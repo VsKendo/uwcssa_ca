@@ -3,7 +3,6 @@ import Link from 'next/link';
 import {
     Form,
     Image,
-    Select,
     Input,
     Button,
     Rate,
@@ -14,7 +13,6 @@ import {
 import MyToolTip from '@/_component/MyTooltip';
 import withTheme from '../../../theme';
 
-const {Option} = Select;
 const {Title} = Typography;
 
 const Home = function Home() {
@@ -62,17 +60,6 @@ const Home = function Home() {
                         <MyToolTip title={'暂未开放申请'} placement="bottom">
                             <Button type='primary' htmlType='submit' disabled>提交</Button>
                         </MyToolTip>
-                        {/*<div*/}
-                        {/*    style={{*/}
-                        {/*        display: 'flex',*/}
-                        {/*        alignItems: 'center',*/}
-                        {/*        justifyContent: 'center',*/}
-                        {/*    }}*/}
-                        {/*>*/}
-                        {/*    <Tooltip title={'暂未开放申请'} placement="bottom">*/}
-                        {/*        <Button type='primary' htmlType='submit' disabled>提交</Button>*/}
-                        {/*    </Tooltip>*/}
-                        {/*</div>*/}
                         <Button><Link href='/'> 取消</Link> </Button>
                     </Space>
                 </Form.Item>

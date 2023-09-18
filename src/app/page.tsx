@@ -3,9 +3,9 @@ import {
     Button,
     Space,
     Divider,
-    Tooltip,
     Image,
 } from 'antd';
+import MyToolTip from "@/_component/MyTooltip";
 
 const Home = function Home() {
     return (
@@ -35,11 +35,11 @@ const Home = function Home() {
                 <br/>
                 <p><b> 如何参与测试？参与测试需要具备什么条件？</b></p>
                 <p> 参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！</p>
-                <Tooltip title={'公共测试暂未开放'}>
-                    <Button style={{width: '200px', marginTop: '30px'}} type='primary' disabled block href='/with-sub-components'>
+                <MyToolTip title={'公共测试暂未开放'} style={{marginTop: 30}}>
+                    <Button style={{width: '200px'}} type='primary' disabled href='/apply'>
                         点击加入测试
                     </Button>
-                </Tooltip>
+                </MyToolTip>
             </section>
         </>
     );
