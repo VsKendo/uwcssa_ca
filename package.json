@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "start": "npx serve@latest out",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

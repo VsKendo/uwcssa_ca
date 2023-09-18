@@ -1,5 +1,3 @@
-'use client'
-//
 import {Component} from "react";
 
 export default class BigIndex extends Component {
