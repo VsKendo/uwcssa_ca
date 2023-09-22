@@ -13,9 +13,10 @@ const Home = function Home() {
             <section style={{textAlign: 'center', marginTop: 48, marginBottom: 40, padding: 100}}>
                 <Space align='start'>
                     <Image
+                        preview={false}
                         style={{width: 40, height: 40}}
                         src={'uwcssa_logo.svg'}
-                        alt='Ant Design'
+                        alt='UWCSSA'
                     />
                     <h2 style={{marginBottom: 0}}>
                         欢迎来到温莎大学中国学生学者联谊会 - UWCSSA官网
