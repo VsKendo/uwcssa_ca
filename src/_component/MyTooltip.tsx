@@ -9,7 +9,7 @@ export default function MyToolTip(props: React.PropsWithChildren<Record<string, 
             justifyContent: 'center',
             ...props.style,
         }}>
-            <Tooltip {...props}>{props.children}</Tooltip>
+            <Tooltip {...props} >{props.children}</Tooltip>
         </div>
     );
 }
