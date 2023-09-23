@@ -1,14 +1,13 @@
 import './globals.css'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
-import React from 'react';
+import React from 'react'
 
-import StyledComponentsRegistry from '../lib/AntdRegistry';
 
-import './globals.css';
-import Header from "@/_component/Header";
-import Footer from "@/_component/Footer";
-import {Layout} from "antd";
+import Header from '@/_component/Header'
+import Footer from '@/_component/Footer'
+import {Layout} from 'antd'
+import StyledComponentsRegistry from '../lib/AntdRegistry'
 
 const inter = Inter({subsets: ['latin']})
 
@@ -33,18 +32,18 @@ export const metadata: Metadata = {
 }
 
 
-const RootLayout = ({children}: { children: React.ReactNode }) => (
-    <html lang="en">
-    <body className={inter.className}>
-    <Layout style={{height: '100vh'}}>
-        <Header/>
-        <StyledComponentsRegistry>
-            {children}
-        </StyledComponentsRegistry>
-        <Footer/>
-    </Layout>
-    </body>
+function RootLayout({children}: { children: React.ReactNode }) {
+    return <html lang="en">
+        <body className={inter.className}>
+            <Layout style={{height: '100vh'}}>
+                <Header/>
+                <StyledComponentsRegistry>
+                    {children}
+                </StyledComponentsRegistry>
+                <Footer/>
+            </Layout>
+        </body>
     </html>
-);
+}
 
-export default RootLayout;
+export default RootLayout

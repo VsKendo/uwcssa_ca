@@ -1,15 +1,16 @@
-import React from "react";
-import {Tooltip} from "antd";
+import React from 'react'
+import {Tooltip} from 'antd'
 
 export default function MyToolTip(props: React.PropsWithChildren<Record<string, any>>) {
+    const {style, children,...rest} = props
     return (
         <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            ...props.style,
+            ...style
         }}>
-            <Tooltip {...props} >{props.children}</Tooltip>
+            <Tooltip {...rest} >{children}</Tooltip>
         </div>
-    );
+    )
 }

@@ -1,16 +1,21 @@
-'use client';
-import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons';
-import type {MenuProps} from 'antd';
-import {Col, Image, Layout, Menu, Row, Tooltip} from 'antd';
+'use client'
 
-const {Header} = Layout;
-const HeartSvg = () => (
-    <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
+import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
+import type {MenuProps} from 'antd'
+import {Col, Image, Layout, Menu, Row, Tooltip} from 'antd'
+import React from 'react'
+
+const {Header} = Layout
+
+function HeartSvg() {
+    return <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
         <path
             d="M923 283.6c-13.4-31.1-32.6-58.9-56.9-82.8-24.3-23.8-52.5-42.4-84-55.5-32.5-13.5-66.9-20.3-102.4-20.3-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5-24.4 23.9-43.5 51.7-56.9 82.8-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3 0.1-35.3-7-69.6-20.9-101.9z"/>
-    </svg>);
-const PandaSvg = () => (
-    <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor">
+    </svg>
+}
+
+function PandaSvg() {
+    return <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor">
         <path
             d="M99.096 315.634s-82.58-64.032-82.58-132.13c0-66.064 33.032-165.162 148.646-148.646 83.37 11.91 99.096 165.162 99.096 165.162l-165.162 115.614zM924.906 315.634s82.58-64.032 82.58-132.13c0-66.064-33.032-165.162-148.646-148.646-83.37 11.91-99.096 165.162-99.096 165.162l165.162 115.614z"
             fill="#6B676E"
@@ -44,7 +49,7 @@ const PandaSvg = () => (
             fill="#464655"
         />
     </svg>
-);
+}
 
 const items: MenuProps['items'] = [
     {
@@ -108,9 +113,13 @@ const items: MenuProps['items'] = [
         disabled: true,
     },
     {
-        label: (<Tooltip placement="left" title={'在转账备注中写上姓名，我们会将您的名字放入感谢列表'}>支持我们</Tooltip>),
+        label: (
+            <Tooltip placement="left" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
         key: 'support',
-        icon: (<Icon component={HeartSvg} style={{color: 'hotpink', fontSize: '1.05rem'}}/>),
+        icon: (<Icon component={HeartSvg} style={{
+            color: 'hotpink',
+            fontSize: '1.05rem'
+        }}/>),
         children: [
             {
                 label: '加拿大境内转账：使用emt转账给cssa@uwindsor.ca',
@@ -131,9 +140,12 @@ const items: MenuProps['items'] = [
         icon: <GithubOutlined/>,
         key: 'github',
     },
-];
+]
 
-const MenuUnderLine = {background: 'white', borderBottom: '1px solid rgba(5, 5, 5, 0.06)'};
+const MenuUnderLine = {
+    background: 'white',
+    borderBottom: '1px solid rgba(5, 5, 5, 0.06)'
+}
 export default function HeaderElement() {
     return (
         <Header style={{padding: 0}}>
@@ -142,9 +154,12 @@ export default function HeaderElement() {
                 <Col span={12} style={MenuUnderLine}>
                     <Image
                         preview={false}
-                        style={{width: 35, height: 35}}
-                        src={'uwcssa_logo.svg'}
-                        alt='UWCSSA'
+                        style={{
+                            width: 35,
+                            height: 35
+                        }}
+                        src="uwcssa_logo.svg"
+                        alt="UWCSSA"
                     />
                     &nbsp;&nbsp;&nbsp;<strong style={{fontSize: 18}}>UWCSSA</strong>
                 </Col>
@@ -153,5 +168,5 @@ export default function HeaderElement() {
                 </Col>
             </Row>
         </Header>
-    );
+    )
 }
