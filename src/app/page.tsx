@@ -4,35 +4,43 @@ import {
     Button,
     Space,
     Divider,
-    Image,
 } from 'antd'
 import React from 'react'
 import MyToolTip from '@/_component/MyTooltip'
+import ImagePartial from '@/_component/ImagePartial'
+import TextOverImage from '@/_component/TextOverImage'
+import './home.css'
 
 const Home = function Home() {
     return (
         <section style={{
             textAlign: 'center',
-            marginTop: 48,
-            marginBottom: 40,
-            padding: 100
+            marginTop: 0,
+            marginBottom: 0,
+            padding: 0
         }}>
             <Space align="start">
-                <Image
-                    preview={false}
-                    style={{
-                        width: 40,
-                        height: 40
-                    }}
-                    src="uwcssa_logo.svg"
-                    alt="UWCSSA"
-                />
-                <h2 style={{marginBottom: 0}}>
+                <TextOverImage/>
+                {/* <Image
+                        preview={false}
+                        style={{width: 450, height: 450}}
+                        src={'uwcssa_logo.svg'}
+                        className="transparent-icon"
+                        alt='UWCSSA'
+                    /> */}
+                <div>
+                    <ImagePartial/>
+                </div>
+                {/*
+                    <h2 style={{marginBottom: 0}}>
                         欢迎来到温莎大学中国学生学者联谊会 - UWCSSA官网
-                </h2>
+                    </h2> */}
+
             </Space>
+            <div/>
+            <Divider/>
             <h3>
-                    Coming Soon... 网站加急开发中！
+                Coming Soon... 网站加急开发中！
             </h3>
             {/* <h3> */}
             {/*    温莎大学中国学生学者联谊会是在温莎大学学生会下注册的一个非政治、非赢利的服务性组织。学生会于1985年由当时的一些中国学生、访问学者组建成立，为温莎华人提供服务将近20年。 */}
@@ -45,12 +53,13 @@ const Home = function Home() {
             <br/>
             <p><b> 如何参与测试？参与测试需要具备什么条件？</b></p>
             <p> 参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！</p>
-            <MyToolTip title='公共测试暂未开放' style={{marginTop: 30}}>
+            <MyToolTip title="公共测试暂未开放" style={{marginTop: 30}}>
                 <Button style={{width: '200px'}} type="primary" href="/apply">
-                        点击加入测试
+                    点击加入测试
                 </Button>
             </MyToolTip>
         </section>
+
     )
 }
 

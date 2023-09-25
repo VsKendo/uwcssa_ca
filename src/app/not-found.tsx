@@ -1,8 +1,8 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import {Button} from 'antd'
-import React from 'react'
 
 export default function NotFound() {
     return (
