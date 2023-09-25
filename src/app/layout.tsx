@@ -4,8 +4,8 @@ import {Inter} from 'next/font/google'
 import React from 'react'
 
 
-import Header from '@/_component/Header'
-import Footer from '@/_component/Footer'
+import Header from '@/component/Header'
+import Footer from '@/component/Footer'
 import {Layout} from 'antd'
 import StyledComponentsRegistry from '../lib/AntdRegistry'
 

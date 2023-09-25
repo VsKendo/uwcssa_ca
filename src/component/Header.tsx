@@ -125,7 +125,7 @@ const items: MenuProps['items'] = [
                 key: 'support:canada',
             },
             {
-                label: '其他方式：微信添加 UWindsorCSSA 以了解详情',
+                label: '其他支持方式：微信添加 uwcssapr 以了解详情',
                 key: 'support:china',
             },
         ],

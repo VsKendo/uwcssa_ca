@@ -12,7 +12,7 @@ import {
     Space,
     Divider,
 } from 'antd'
-import MyToolTip from '@/_component/MyTooltip'
+import MyToolTip from '@/component/MyTooltip'
 import withTheme from '../../../theme'
 
 const {Title} = Typography
@@ -26,6 +26,7 @@ const Home = function Home() {
                         style={{width: 40, height: 40}}
                         src="uwcssa_logo.svg"
                         alt='Ant Design'
+                        preview={false}
                     />
                     <Title level={2} style={{marginBottom: 0}}>
                         填写UWCSSA论坛开放测试资格申请

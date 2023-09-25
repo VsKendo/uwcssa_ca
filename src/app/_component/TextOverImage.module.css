@@ -1,29 +1,6 @@
-/* ImagePartial.css */
-
-.image-container-right {
-    width: 1200px; /* 自定义容器的宽度 */
-    height: 600px; /* 自定义容器的高度 */
-    overflow: hidden; /* 超出容器部分隐藏 */
-    border: 0px solid #ffffff; /* 自定义边框样式 */
-  }
-  
-.cropped-image {
-    width: auto; /* 图片宽度100%，填充容器 */
-    height: 100%; /* 根据宽度等比例缩放高度 */
-    background-image: url('../../public/home_right.jpg');   
-    background-size: contain; /* 保持图片完全填充容器 */
-    background-position: 165px 0px; /* 图片的位置，可以根据需求调整 */
-    clip-path: polygon(32% 0%, 90% 0%, 90% 100%, 27% 100%);
-    background-repeat: no-repeat;
-
-  }
-  
-
-/* TextOverImage.css */
-
 .image-container-left {
-    width: 400px; 
-    height: 400px; 
+    width: 400px;
+    height: 400px;
     /*position: relative;
      display: inline-block; */
     margin: 20px 10px 0px 0px;
@@ -31,8 +8,8 @@
     padding-bottom: 10px; /* 底部内边距 */
     padding-left: 125px;    /* 左侧内边距 */
     padding-right: 5px;   /* 右侧内边距 */
-  }
-  
+}
+
 .text-overlay {
     /*top: 50%;  调整文本的垂直位置
     left: 50%; /* 调整文本的水平位置 */
@@ -42,7 +19,7 @@
     padding-left: 30px;
     background-color: transparent; /* 文本背景色，可自定义 */
     /* padding: 23px; 文本内边距，可自定义 */
-    text-align: left;  
+    text-align: left;
     margin: 0px;
     font-family: Inter, sans-serif, "Noto Sans SC", "Noto Serif SC", serif;
     font-size: 2rem;
@@ -50,7 +27,7 @@
     color: rgb(65, 67, 70);
     font-weight: 320;
 
-    
+
     top: 0; /* 调整文本的垂直位置 */
     left: 50%; /* 调整文本的水平位置 */
 }
@@ -58,7 +35,7 @@
 
 .transparent-icon {
     opacity: 0.2;
-  }
+}
 
 
 .lazy-load-image-background.blur.lazy-load-image-loaded {
