@@ -10,9 +10,8 @@ function News(){
   const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
   return(
     <>
-      <br/>
-      <br/>
-      <Title level={2}>了解最新动态？</Title>
+      
+      <Title level={2} style={{ marginTop: '90px' }}>了解最新动态？</Title>
       <br/>
       <Button type="primary" size="large" icon={<SearchOutlined />}>
           Start searching
