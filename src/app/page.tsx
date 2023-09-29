@@ -9,6 +9,7 @@ import React from 'react'
 import MyToolTip from '@/component/MyTooltip'
 import ImagePartial from '@/app/_component/ImagePartial'
 import TextOverImage from '@/app/_component/TextOverImage'
+import News from './_component/News'
 
 const Home = function Home() {
     return (
@@ -22,6 +23,7 @@ const Home = function Home() {
                 <TextOverImage/>
                 <ImagePartial/>
             </Space>
+            <News/>
             <Divider style={{margin: 0}}>UWCSSA官方论坛</Divider>
             <h3>
                 Coming Soon... 网站加急开发中！
