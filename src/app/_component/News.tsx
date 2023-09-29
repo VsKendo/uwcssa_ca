@@ -44,20 +44,10 @@ function News(){
     </Button>
           
 
-    <Button 
-      
-      size={size} 
-      style={{ 
-        padding: '60px 40px',
-        textAlign: 'left', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'center',
-        width: '250px', // specify your desired width
-        height: '175px', // specify your desired height
-        whiteSpace: 'normal',
-        overflow: 'hidden'
-      }}>
+    <div
+    className={styles['fourButtonsStyle']}
+    >
+      <Button>
       
       <div>
       
@@ -67,6 +57,8 @@ function News(){
         <p style={{ margin: 2 }}>和朋友一起互动，不错过最新、最热门的活动</p>
       </div>
     </Button>
+    </div>
+    
 
     <Button 
       size={size} 
