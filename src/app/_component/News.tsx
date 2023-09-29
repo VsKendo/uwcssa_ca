@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Button, Typography, Radio, Space} from 'antd'
+import {Button, Typography, Space} from 'antd'
 import { SearchOutlined, FileTextOutlined, FileTextTwoTone, CarTwoTone,StarTwoTone, ShoppingTwoTone } from '@ant-design/icons';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import styles from './ButtonStyle.module.css'
@@ -44,10 +44,20 @@ function News(){
     </Button>
           
 
-    <div
-    className={styles['fourButtonsStyle']}
-    >
-      <Button>
+    <Button 
+      
+      size={size} 
+      style={{ 
+        padding: '60px 40px',
+        textAlign: 'left', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center',
+        width: '250px', // specify your desired width
+        height: '175px', // specify your desired height
+        whiteSpace: 'normal',
+        overflow: 'hidden'
+      }}>
       
       <div>
       
@@ -57,7 +67,7 @@ function News(){
         <p style={{ margin: 2 }}>和朋友一起互动，不错过最新、最热门的活动</p>
       </div>
     </Button>
-    </div>
+ 
     
 
     <Button 
