@@ -1,8 +1,69 @@
 .content-text {
-    font-size: 18px;
+    /* font-size: 18px; */
+    flex: 1; /* 标题和内容部分占据 1/2 的宽度 */
+    padding: 10px;
 }
 
 .box {
     width: 70%;
     margin-bottom: 10px;
+}
+
+
+.card {
+    display: flex; /* 使用 Flex 布局将图片和内容并排排列 */
+    width: 70%;
+    margin:10px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   /* margin: 10px;  */
+}
+
+.card-image {
+    flex: 0.35; 
+    padding: 0px;
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+} 
+
+.card-content h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 10px;
+    line-height: 2.0;
+    letter-spacing: 1.2px;
+}
+
+.card-content i {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    color: #333
+}
+
+.card-content p {
+    font-size: 1rem;
+    margin-top: 8px;
+    color: #333
+}
+
+.more {
+    font-size: 0.875rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: rgb(55, 125, 255);
+    border-radius: 5px;
+}
+
+.a {
+    font-size: 0.875rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: rgb(55, 125, 255);
+    border-radius: 5px;
 }

@@ -10,8 +10,8 @@
     height: 100%; /* 根据宽度等比例缩放高度 */
     background-image: url('/home_right.jpg');
     background-size: contain; /* 保持图片完全填充容器 */
-    background-position: 165px 0px; /* 图片的位置，可以根据需求调整 */
-    clip-path: polygon(32% 0%, 90% 0%, 90% 100%, 27% 100%);
+    background-position: 190px 0px; /* 图片的位置，可以根据需求调整 */
+    clip-path: polygon(33% 0%, 100% 0%, 100% 100%, 26% 100%);
     background-repeat: no-repeat;
 
 }
