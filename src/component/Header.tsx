@@ -2,8 +2,10 @@
 
 import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
 import type {MenuProps} from 'antd'
-import {Col, Image, Layout, Menu, Row, Tooltip} from 'antd'
+import {Col, Layout, Menu, Row, Tooltip} from 'antd'
+import Link from 'next/link'
 import React from 'react'
+import FallbackImage from '@/component/FallbackImage'
 
 const {Header} = Layout
 
@@ -53,19 +55,19 @@ function PandaSvg() {
 
 const items: MenuProps['items'] = [
     {
-        label: '首页',
+        label: (<Link href="/">首页</Link>),
         key: 'index',
         icon: <HomeOutlined style={{fontSize: '1.05rem'}}/>,
     },
     {
-        label: '活动',
+        label: (<Link href="/activities">活动</Link>),
         key: 'activity',
         icon: (<Icon component={PandaSvg} style={{fontSize: '1.1rem'}}/>),
-        disabled: true,
     },
     {
         label: '攻略',
         key: 'guide',
+        disabled: true,
         icon: <AppstoreOutlined style={{fontSize: '1.05rem'}}/>,
         children: [
             {
@@ -110,7 +112,7 @@ const items: MenuProps['items'] = [
         label: '新生手册',
         key: 'beginnerMenu',
         icon: <SmileOutlined style={{fontSize: '1.05rem'}} href="./beginner"/>,
-        //disabled: true,
+        disabled: true,
     },
     {
         label: (<Tooltip placement="left" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
@@ -151,16 +153,18 @@ export default function HeaderElement() {
             <Row>
                 <Col span={1} style={MenuUnderLine}/>
                 <Col span={12} style={MenuUnderLine}>
-                    <Image
-                        preview={false}
-                        style={{
-                            width: 35,
-                            height: 35
-                        }}
-                        src="uwcssa_logo.svg"
-                        alt="UWCSSA"
-                    />
-                    &nbsp;&nbsp;&nbsp;<strong style={{fontSize: 18}}>UWCSSA</strong>
+                    <Link href="/">
+                        <FallbackImage
+                            preview={false}
+                            style={{
+                                width: 35,
+                                height: 35
+                            }}
+                            src="uwcssa_logo.svg"
+                            alt="UWCSSA"
+                        />
+                        &nbsp;&nbsp;&nbsp;<strong style={{fontSize: 18}}>UWCSSA</strong>
+                    </Link>
                 </Col>
                 <Col span={11}>
                     <Menu mode="horizontal" items={items} style={{height: '100%'}}/>

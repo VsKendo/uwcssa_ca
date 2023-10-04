@@ -29,8 +29,7 @@
     "react/jsx-filename-extension": "off",
     "import/extensions": "off",
     "indent": [
-      "error",
-      4
+      "off"
     ],
     "linebreak-style": [
       "error",

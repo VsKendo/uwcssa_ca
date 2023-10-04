@@ -3,7 +3,6 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import React from 'react'
 
-
 import Header from '@/component/Header'
 import Footer from '@/component/Footer'
 import {Layout} from 'antd'
@@ -31,18 +30,17 @@ export const metadata: Metadata = {
         '      of W as well as in the Great Windsor Area. See less.',
 }
 
-
 function RootLayout({children}: { children: React.ReactNode }) {
-    return <html lang="en">
-        <body className={inter.className}>
-            <Layout style={{height: '100vh'}}>
-                <Header/>
-                <StyledComponentsRegistry>
-                    {children}
-                </StyledComponentsRegistry>
-                <Footer/>
-            </Layout>
-        </body>
+    return <html lang="zh-CN">
+    <body className={inter.className}>
+    <Layout style={{height: '100vh'}}>
+        <Header/>
+        <StyledComponentsRegistry>
+            {children}
+        </StyledComponentsRegistry>
+        <Footer/>
+    </Layout>
+    </body>
     </html>
 }
 

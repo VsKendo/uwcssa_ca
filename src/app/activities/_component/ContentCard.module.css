@@ -12,23 +12,25 @@
 
 .card {
     display: flex; /* 使用 Flex 布局将图片和内容并排排列 */
-    width: 70%;
+    width: 65%;
+    height: auto;
     margin:10px auto;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    /* margin: 10px;  */
 }
 
 .card-image {
-    flex: 0.35; 
-    padding: 0px;
+    flex: 0.35;
+    padding: 0;
+    margin: 1%;
 }
 
 .card-image img {
     max-width: 100%;
     height: auto;
-} 
+}
 
 .card-content h2 {
     font-size: 20px;

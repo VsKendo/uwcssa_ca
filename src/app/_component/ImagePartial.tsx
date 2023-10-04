@@ -6,9 +6,6 @@ function ImagePartial() {
         <div className={styles['image-container-right']}>
             <div className={styles['cropped-image']}/>
         </div>
-        // <div className="image-container-right">
-        //     <div className="cropped-image"/>
-        // </div>
     )
 }
 
