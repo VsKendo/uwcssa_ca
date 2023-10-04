@@ -1,6 +1,7 @@
-import {Space, Layout, Breadcrumb} from 'antd'
+import {Space, Layout, Breadcrumb, Card,} from 'antd'
 import React from 'react'
 import ContentCard from '@/app/beginner/_component/ContentCard'
+
 
 export default function BeginnerIndex() {
     const itemKey = 1
@@ -41,8 +42,8 @@ export default function BeginnerIndex() {
                 </div>
             </Layout>
             <Layout>
-                <ContentCard title="Card title1" content='conton1' bordered={false} style={{width: '30%'}}/>
-                <ContentCard title="Card title2" content='conton2' bordered={false}/>
+                <ContentCard title="Card title1" content='conton1' imgsrc='./skee.jpg' date='shushen2013 -10 months ago' link='https://deprecated.uwcssa.ca/article/7bd1212e-4f18-469e-a012-32a59666b9e5' bordered={false} />
+                <ContentCard title="Card title2" content='conton2' imgsrc='./food.jpg' date='Jiayi Li -10 months ago' link='https://deprecated.uwcssa.ca/article/26bec7df-e03c-4218-bb68-c662f59d804a' bordered={false}/>
             </Layout>
         </Space>
     )

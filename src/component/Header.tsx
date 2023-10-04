@@ -109,8 +109,8 @@ const items: MenuProps['items'] = [
     {
         label: '新生手册',
         key: 'beginnerMenu',
-        icon: <SmileOutlined style={{fontSize: '1.05rem'}}/>,
-        disabled: true,
+        icon: <SmileOutlined style={{fontSize: '1.05rem'}} href="./beginner"/>,
+        //disabled: true,
     },
     {
         label: (<Tooltip placement="left" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
