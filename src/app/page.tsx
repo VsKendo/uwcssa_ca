@@ -7,6 +7,9 @@ import ImagePartial from '@/app/_component/ImagePartial'
 import TextOverImage from '@/app/_component/TextOverImage'
 import NewsButton from '@/app/_component/NewsButton'
 import JoinUsButton from '@/app/_component/JoinUsButton'
+import CssaVideo from '@/app/_component/CssaVideo'
+import CommunityButton from '@/app/_component/CommunityButton'
+
 import {
   CarTwoTone,
   FileTextTwoTone,
@@ -14,6 +17,7 @@ import {
   StarTwoTone,
   RightCircleTwoTone,
 } from '@ant-design/icons'
+
 
 const { Title } = Typography
 
@@ -70,6 +74,36 @@ const Home = function Home() {
           />
         </Space>
       </div>
+      <br/>
+      <div>
+        <CssaVideo/>
+      </div>
+
+      <div style={{width: '100vw', height: 'auto', backgroundColor: 'rgba(24, 1, 45)',}}>
+        <Space size={[20, 20]} wrap align="center" direction="horizontal">
+      <CommunityButton
+      icon="github-mark.png"
+      title="Github"
+      content="Contribute to our project and help our community!"
+      />
+
+<CommunityButton
+      icon="wechat.png"
+      title="Wechat"
+      content="Join our WeChat community and let’s get to know each other."
+      />
+
+<CommunityButton
+      icon="Facebook_icon.png"
+      title="Facebook"
+      content="Follow us on Facebook and keep up-to-date with our latest news."
+      />
+
+     </Space>
+      </div>
+
+
+      <br/>
 
       <div style={{ backgroundColor: 'white' }}>
         <Title level={2} style={{ marginTop: '10px' }}>
@@ -81,18 +115,19 @@ const Home = function Home() {
           <JoinUsButton
             icon={<RightCircleTwoTone />}
             title="Front-End Developer"
-            content="Madrid/Remote"
+            content="Madrid / Remote"
           />
 
           <JoinUsButton
             icon={<RightCircleTwoTone />}
-            title="Front-End Developer"
-            content="Madrid/Remote"
+            title="Community Manager"
+            content="Yerevan / Part time"
           />
           <JoinUsButton
             icon={<RightCircleTwoTone />}
-            title="Front-End Developer"
-            content="Madrid/Remote"
+            title="UX/UI Designer"
+            content="Paris / Full time
+            "
           />
         </Space>
       </div>
