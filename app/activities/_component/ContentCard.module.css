@@ -1,0 +1,93 @@
+.content-text {
+    /* font-size: 18px; */
+    flex: 1; /* 标题和内容部分占据 1/2 的宽度 */
+    padding: 10px;
+}
+
+
+.card {
+    display: flex; /* 使用 Flex 布局将图片和内容并排排列 */
+    width: 72%;
+    height: auto;
+    margin:10px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   /* margin: 10px;  */
+}
+
+.card-image {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    flex: 0.45;
+    margin: 1%; 
+}
+
+.card-image img {
+    max-width: auto;
+    height: 100%;
+}
+
+.card-content h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-left: 30px;
+    line-height: 2.0;
+    letter-spacing: 1.2px;
+}
+
+.card-content i {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    margin-left: 30px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 1rem;
+    margin-top: 7px;
+    margin-left: 30px;
+    color: #333;
+    margin-bottom: 17px;
+}
+
+.card-content a {
+    font-size: 0.875rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+    font-weight: 400;
+    color: rgb(55, 125, 255);
+    border-radius: 5px;
+    font-style: italic;
+}
+
+.tag {
+    margin-top: 12px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+}
+
+.card-content span {
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
+    margin: 0px 8px 0px 0px;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(55, 125, 255);
+    border-radius: 16px;
+    white-space: nowrap;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    vertical-align: middle;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 12px;
+}
