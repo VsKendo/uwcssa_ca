@@ -1,0 +1,11 @@
+.ant-btn{
+    padding: 60px 40px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    height: 175px;
+    white-space: normal;
+    overflow: hidden;
+}

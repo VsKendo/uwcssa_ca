@@ -1,0 +1,66 @@
+/* Container holding the image and overlay text */
+.container {
+  position: relative;
+  width: 100vw; /* set to your desired width, matches the image width in this example */
+  height: 45vw;
+}
+
+/* Image overlay for purple tint */
+.container::before {
+  content: "";  /* Required for pseudo-elements */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(24, 1, 45, 0.7);  /* Purple with 30% opacity */
+  z-index: 5;  /* Ensure this is between the image and the text/video overlay */
+}
+
+/* Styling for the text overlay */
+.text-overlay {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  
+  color: white !important;; /* Assuming you want the text to be white, modify as necessary */
+  width: 100%; /* take full width of parent */
+  height: 100%; /* take full height of parent */
+  display: flex; /* enable flexbox */
+  flex-direction: column; /* stack children vertically */
+  justify-content: center; /* center children vertically */
+  align-items: center; /* center children horizontally */
+  padding: 15px; /* optional padding */
+  padding-top: 3vw;
+  z-index: 10;
+
+}
+
+.text-overlay h1 {
+  color: inherit !important;
+  font-size: 3vw;
+}
+
+.text-overlay p {
+  font-size: 2vw; /* adjust as necessary */
+}
+
+/* Responsive Video Container */
+.video-container {
+  justify-content: center; /* Center the iframe horizontally */
+  align-items: center;     /* Center the iframe vertically */
+  position: relative;
+  width: 100vw;
+  height: 100vw;
+  padding-top: 1vw; /* this gives the aspect ratio, adjust if needed */
+  padding-right: 47vw;
+  overflow: hidden;
+}
+
+/* Make the iframe fill the video container */
+.text-overlay iframe {
+  position: absolute;
+
+  width: 50%;
+  height: 90%;
+}
