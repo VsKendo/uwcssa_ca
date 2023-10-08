@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Space, Image } from 'antd'
+import { Button, Image } from 'antd'
 import styles from './CommunityButton.module.css'
 
 function CommunityButton(props: React.PropsWithChildren<Record<string, any>>) {
@@ -9,12 +9,12 @@ function CommunityButton(props: React.PropsWithChildren<Record<string, any>>) {
     content
 } = props
   return (
-    <>
+    
       
-        <div style={{ textAlign: 'center', color: "white",padding: '30px',fontSize: '17px',width:'390px'}}>
+        <div style={{ textAlign: 'center', color: 'white',padding: '30px',fontSize: '17px',width:'390px'}}>
           <Button
-            type="link"
-            shape="circle"
+            type='link'
+            shape='circle'
             style={{ padding: '5px', width: '80px', height: '80px' }}>
               <div className={styles.buttonIcon}>
               <Image
@@ -31,7 +31,7 @@ function CommunityButton(props: React.PropsWithChildren<Record<string, any>>) {
           </div>
           
         
-    </>
+  
   )
 }
 

@@ -1,12 +1,12 @@
 /* Container holding the image and overlay text */
-.container {
+.main-container {
   position: relative;
   width: 100vw; /* set to your desired width, matches the image width in this example */
   height: 45vw;
 }
 
 /* Image overlay for purple tint */
-.container::before {
+.main-container::before {
   content: "";  /* Required for pseudo-elements */
   position: absolute;
   top: 0;
