@@ -21,12 +21,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    flex: 0.45;
-    margin: 1%; 
+    flex: 0.5;
+    margin: 2.5%;
 }
 
 .card-image img {
-    max-width: auto;
     height: 100%;
 }
 
@@ -36,7 +35,7 @@
     margin-top: 5px;
     margin-left: 30px;
     line-height: 2.0;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
 }
 
 .card-content i {
@@ -56,11 +55,8 @@
 
 .card-content a {
     font-size: 0.875rem;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    margin-left: 30px;
+    margin-left: 20px;
     font-weight: 400;
-    color: rgb(55, 125, 255);
     border-radius: 5px;
     font-style: italic;
 }
@@ -71,7 +67,7 @@
     margin-left: 30px;
 }
 
-.card-content span {
+.tag span {
     padding-left: 8px;
     padding-right: 8px;
     position: relative;
