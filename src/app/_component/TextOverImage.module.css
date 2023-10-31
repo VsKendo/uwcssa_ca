@@ -35,12 +35,12 @@
 .image-container-left::after {
     position: absolute;
     content: "";
-    width: 50%;
+    width: 60%;
     z-index: 1;
     top: 0;
-    left: 5%;
+    left: 12%;
     height: 100%;
     background-size: 18px 18px;
-    background-image: radial-gradient(rgba(47, 106, 217, 0.4) 20%, transparent 20%);
+    background-image: radial-gradient(rgba(47, 106, 217, 0.4) 22%, transparent 20%);
     opacity: 0.2;
 }
