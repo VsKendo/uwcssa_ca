@@ -1,11 +1,10 @@
-import {Button, Space, Table, Divider, Popover, Row, Col, Card} from 'antd'
+import {Button, Divider, Popover, Row, Col, Card} from 'antd'
 import React from 'react'
-import type { ColumnsType } from 'antd/es/table';
   
 const cardStyle: React.CSSProperties = {
     textAlign: 'center',
     backgroundColor:'rgba(255,204,204,0.3)'
-  };
+  }
 
 const hoverContent11 = (
     <div>
@@ -13,7 +12,7 @@ const hoverContent11 = (
       <p>作者：叶灵苏</p>
       <p>时间：2023-10-31 00:51:4</p>
     </div>
-  );
+  )
 
 const hoverContent12 = (
     <div>
@@ -21,15 +20,15 @@ const hoverContent12 = (
       <p>作者：pikamimi</p>
       <p>时间：2023-10-30 23:30:36</p>
     </div>
-  );
+  )
 
 const evenpostStyle: React.CSSProperties = {
     marginLeft: '2.5%',marginRight:'2.5%',backgroundColor:'rgba(255,204,204,0.35)'
-  };
+  }
 
 const oddnpostStyle: React.CSSProperties = {
     marginLeft: '2.5%',marginRight:'2.5%',backgroundColor:'rgba(255,0,51,0.2)'
-  };
+  }
 
 
 
@@ -40,30 +39,30 @@ export default function ForumsIndex() {
             <Divider>Middle size table</Divider>
             <Row gutter={24} style={{marginLeft: '1.7%',marginRight:'1.7%'}}>
                 <Col span={6}>
-                <Card title="新鲜出炉"  extra={<a href="#">More</a>} bordered={false} style={cardStyle}>
+                <Card title="新鲜出炉"  extra={<a href="https://www.google.com">More</a>} bordered={false} style={cardStyle}>
                     <Popover content={hoverContent11} title="DX书库网页检索 EbookDatabase 0.0.3.1">
-                    <a href="https://www.google.com" target="_blank"> 1.DX书库网页检索 EbookDatabase 0.0.3.1<strong></strong></a>
+                    <a href="https://www.google.com" target="_blank" rel="noreferrer"> 1.DX书库网页检索 EbookDatabase 0.0.3.1</a>
                     </Popover>
                     <br/>
                     <Popover content={hoverContent12} title="Sav PDF Viewer v1.14.2-pdf阅读器">
-                    <a href="https://www.google.com" target="_blank">2.Sav PDF Viewer v1.14.2-pdf阅读器<strong></strong></a>
+                    <a href="https://www.google.com" target="_blank" rel="noreferrer">2.Sav PDF Viewer v1.14.2-pdf阅读器</a>
                     <br/>
                     </Popover>
                 </Card>
                 </Col>
                 <Col span={6}>
-                <Card title="技术分享 New～" extra={<a href="#">More</a>} bordered={false} style={cardStyle}>
-                    <a href="https://www.google.com" target="_blank"><strong></strong></a>
+                <Card title="技术分享 New～" extra={<a href="https://www.google.com">More</a>} bordered={false} style={cardStyle}>
+                    <a href="https://www.google.com" target="_blank" rel="noreferrer">1.DX书库网页检索 EbookDatabase 0.0.3.1</a>
                 </Card>
                 </Col>
                 <Col span={6}>
-                <Card title="人气热门" extra={<a href="#">More</a>} bordered={false} style={cardStyle}>
-                    <a href="https://www.google.com" target="_blank"><strong></strong></a>
+                <Card title="人气热门" extra={<a href="https://www.google.com">More</a>} bordered={false} style={cardStyle}>
+                    <a href="https://www.google.com" target="_blank" rel="noreferrer">1.DX书库网页检索 EbookDatabase 0.0.3.1</a>
                 </Card>
                 </Col>
                 <Col span={6}>
-                <Card title="精华采撷" extra={<a href="#">More</a>} bordered={false} style={cardStyle}>
-                    <a href="https://www.google.com" target="_blank"><strong></strong></a>
+                <Card title="精华采撷" extra={<a href="https://www.google.com">More</a>} bordered={false} style={cardStyle}>
+                    <a href="https://www.google.com" target="_blank" rel="noreferrer">1.DX书库网页检索 EbookDatabase 0.0.3.1</a>
                 </Card>
                 </Col>
             </Row>            
