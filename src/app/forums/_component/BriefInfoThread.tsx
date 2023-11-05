@@ -7,17 +7,17 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
     const styleList: React.CSSProperties[] = [{
         marginLeft: '2.5%',
         marginRight: '2.5%',
-        backgroundColor: 'rgba(255,204,204,0.35)'
+        backgroundColor: 'rgba(255,204,204,0.31)'
     }, {
         marginLeft: '2.5%',
         marginRight: '2.5%',
-        backgroundColor: 'rgba(255,0,51,0.2)'
+        backgroundColor: 'rgba(255,0,51,0.15)'
     }]
     for (let i = 1; i <= infoList.length; i += 1) {
         infoList[i - 1].key = i
     }
     return (
-        <div>
+        <div style={{marginBottom: 10}}>
             {infoList.map((item: { key: number, title: string, time: string, author: string }) => (
                     <Row key={item.key} style={styleList[item.key % 2]}>
                         <Col span={2} style={{
@@ -45,10 +45,12 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
                         </Col>
                         <Divider style={{marginTop: '1.4rem'}} type="vertical"/>
                         <Col style={{marginLeft: '7.5%'}}>
-                            {item.time} <br/>
-                            <Button type="text">
-                                {item.author}
-                            </Button>
+                            <div style={{marginTop: '2%'}}>
+                                {item.time} <br/>
+                                <Button type="text">
+                                    {item.author}
+                                </Button>
+                            </div>
                         </Col>
                     </Row>
                 )

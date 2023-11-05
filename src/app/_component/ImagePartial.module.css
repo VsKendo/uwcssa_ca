@@ -1,5 +1,5 @@
 .image-container-right {
-    width: 1200px; /* 自定义容器的宽度 */
+    width: 1300px; /* 自定义容器的宽度 */
     height: 600px; /* 自定义容器的高度 */
     overflow: hidden; /* 超出容器部分隐藏 */
     /*border: 0 solid #ffffff; !* 自定义边框样式 *!*/
@@ -11,6 +11,6 @@
     background-image: url('/home_right.jpg');
     background-size: contain; /* 保持图片完全填充容器 */
     background-position: 190px 0; /* 图片的位置，可以根据需求调整 */
-    clip-path: polygon(33% 0%, 100% 0%, 100% 100%, 26% 100%);
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 15% 100%);
     background-repeat: no-repeat;
 }

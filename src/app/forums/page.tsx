@@ -18,6 +18,12 @@ export default function ForumsIndex() {
             'author': 'vskendo',
             'time': '2023-10-31 00:51:04',
             'url': '/2'
+        },
+        {
+            'title': '大家赶快注册发帖，这样你的账号就在很前面了，以后很值钱了',
+            'author': '造谣者01',
+            'time': '2023-11-01 01:24:14',
+            'url': '/3'
         }
     ]
 
