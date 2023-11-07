@@ -9,6 +9,8 @@ import NewsButton from '@/app/_component/NewsButton'
 import JoinUsButton from '@/app/_component/JoinUsButton'
 import CssaVideo from '@/app/_component/CssaVideo'
 import CommunityButton from '@/app/_component/CommunityButton'
+import LatestInfoIndex from '@/app/_component/LatestInfoIndex'
+import SupportUs from '@/app/_component/SupportUs'
 
 import {
     CarTwoTone,
@@ -74,6 +76,11 @@ const Home = function Home() {
                 </Space>
             </div>
             <br/>
+
+            <br/>
+            <div>
+                <LatestInfoIndex/>
+            </div>
             <div>
                 <CssaVideo/>
             </div>
@@ -129,11 +136,17 @@ const Home = function Home() {
                     <JoinUsButton
                         icon={<RightCircleTwoTone/>}
                         title="UX/UI Designer"
-                        content="Paris / Full time
-            "
+                        content="Paris / Full time"
                     />
                 </Space>
             </div>
+
+            <br/>
+            <br/>
+            <div style={{padding: '5vw'}}>
+                <SupportUs/>
+            </div>
+            
             {/* <Divider style={{margin: 0}}>UWCSSA官方论坛</Divider> */}
             {/* <h3> */}
             {/*     Coming Soon... 网站加急开发中！ */}
