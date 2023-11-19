@@ -1,0 +1,94 @@
+.content-text {
+  /* font-size: 18px; */
+  flex: 1; /* 标题和内容部分占据 1/2 的宽度 */
+  padding: 10px;
+}
+
+.card {
+  display: flex; /* 使用 Flex 布局将图片和内容并排排列 */
+  width: 72%;
+  height: auto;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: left;
+  padding:8px;
+  /* margin: 10px;  */
+}
+
+.card-image {
+  width: 100%; /* Fixed width for the image */
+ 
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex: 0.5;
+}
+
+.card-image img {
+  width: 100%; /* Make the image fill the container */
+  
+}
+
+.card-content {
+  flex: 1; /* Take the remaining space */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Distribute space between items */
+  padding: 10px;
+}
+
+.card-content h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-left: 30px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+.card-content i {
+  font-size: 0.8rem;
+  margin-top: 15px;
+  margin-left: 30px;
+}
+
+.card-content p {
+  font-size: 1rem;
+  margin-top: 7px;
+  margin-left: 30px;
+
+  margin-bottom: 17px;
+}
+
+.card-content a {
+  font-size: 0.875rem;
+  margin-left: 20px;
+  font-weight: 400;
+  border-radius: 5px;
+  font-style: italic;
+}
+
+.right-align-button{
+  float: right;
+  text-align: right;
+  margin-top: 15px;
+  color: rgb(38, 106, 254);
+}
+
+.moreButton {
+  display: flex; /* 使用 Flex 布局将图片和内容并排排列 */
+  width: 72%;
+  height: auto;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: left;
+  padding:8px;
+  /* margin: 10px;  */
+}
