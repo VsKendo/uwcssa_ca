@@ -18,6 +18,8 @@
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-react": "^1.0.6",
     "airbnb": "^0.0.2",
     "antd": "^5.9.0",
     "autoprefixer": "10.4.15",

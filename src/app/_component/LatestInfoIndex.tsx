@@ -38,7 +38,7 @@ export default function LatestInfoIndex() {
                         
                         
                     <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
-                    <Button type='primary' href="https://www.uwcssa.ca/activities"><div style={{ color: 'white'}}>更多 <ArrowRightOutlined /></div></Button>
+                    <Button type='primary' href="/activities"><div style={{ color: 'white'}}>更多 <ArrowRightOutlined /></div></Button>
                     </div>
                 </div>
                 

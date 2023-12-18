@@ -5,7 +5,7 @@ export default function ThreadShortLink(props: React.PropsWithChildren<Record<st
     const {
         hoverContent,
         linkContent,
-        // linkUrl,
+        linkUrl,
         style,
         ...rest
     } = props
@@ -19,8 +19,8 @@ export default function ThreadShortLink(props: React.PropsWithChildren<Record<st
     const realLinkContent: string = linkContent.length > 17 ? `${linkContent.substring(0, 17)}...` : linkContent
     return (
         <Popover {...style} {...rest} content={realHoverContent} title={hoverContent.title}>
-            <Button type="text">{realLinkContent}</Button>
-            {/* <Button href={linkUrl} type="text">{realLinkContent}</Button> */}
+            {/* <Button type="text">{realLinkContent}</Button> */}
+            <Button href={linkUrl} type="text">{realLinkContent}</Button> 
         </Popover>
     )
 }

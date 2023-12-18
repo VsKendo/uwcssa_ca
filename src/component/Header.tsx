@@ -206,7 +206,7 @@ export default function HeaderElement() {
                                 width: 35,
                                 height: 35
                             }}
-                            src="uwcssa_logo.svg"
+                            src="/uwcssa_logo.svg"
                             alt="UWCSSA"
                         />
                         &nbsp;&nbsp;&nbsp;<strong style={{fontSize: 18}}>UWCSSA</strong>

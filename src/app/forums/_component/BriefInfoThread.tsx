@@ -39,7 +39,7 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
                             marginTop: '0.7rem',
                             marginBottom: '0.7rem'
                         }}>
-                            <Button type="text">
+                            <Button type="text" href="/forums/thread">
                                 {item.title}
                             </Button>
                         </Col>
