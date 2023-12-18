@@ -51,15 +51,15 @@ export default function ForumsHeader() {
             <Col span={6}>
                 <Card title="必看：版面公告" bordered={false} style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent11}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent="1.论坛版规（违规者封号）"
                     /><br/>
                     <ThreadShortLink hoverContent={hoverContent12}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent="2.租房攻略/避坑集中贴"
                     /> <br/>
                     <ThreadShortLink hoverContent={hoverContent13}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent="3.温莎交友集中贴"
                     /> <br/>
                 </Card>
@@ -68,15 +68,15 @@ export default function ForumsHeader() {
                 <Card title="新鲜出炉" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent11}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent={hoverContent11.title}
                     /><br/>
                     <ThreadShortLink hoverContent={hoverContent12}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent={hoverContent12.title}
                     /> <br/>
                     <ThreadShortLink hoverContent={hoverContent13}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent={hoverContent13.title}
                     /> <br/>
                 </Card>
@@ -85,11 +85,11 @@ export default function ForumsHeader() {
                 <Card title="人气热门" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent21}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent={hoverContent21.title}
                     /><br/>
                     <ThreadShortLink hoverContent={hoverContent22}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent={hoverContent22.title}
                     /><br/>
                 </Card>
@@ -98,7 +98,7 @@ export default function ForumsHeader() {
                 <Card title="精华采撷" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent31}
-                                     linkUrl="/forums"
+                                     linkUrl="/forums/thread"
                                      linkContent={hoverContent31.title}
                     /><br/>
                 </Card>
