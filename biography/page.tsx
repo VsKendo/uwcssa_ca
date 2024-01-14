@@ -9,7 +9,7 @@ import {
   TrophyOutlined,
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
-import classes from './biography.css'
+import styles from './biography.css'
 
 const { Header, Content } = Layout;
 const items: MenuProps['items'] = [
@@ -44,16 +44,16 @@ const items: MenuProps['items'] = [
 
 export default function Biography() {
     return (
-        <Layout className="forum-profile-layout">
-        {/* 头部区域 */}
-        <Header className="header">
+        <Layout className={styles['forum-profile-layout']}>
+     
+        <Header className={styles['header']}>
           {/* 背景图 */}
-          <div className="background-image" />
+          <div className={styles['background-image']}/>
   
-          {/* 用户信息 */}
-          <div className="user-info">
+          {/* 头像和用户信息 */}
+          <div className={styles['user-info']}>
           <Avatar  icon={<UserOutlined />} />
-            <div className="user-details">
+            <div className={styles['user-details']}>
               <h2>我是用户名</h2>
               <Button icon={<EditOutlined />} type="primary">
                 编辑资料
@@ -63,9 +63,9 @@ export default function Biography() {
         </Header>
   
         {/* 主要内容区域 */}
-        <Content className="content">
+        <Content className={styles['content']}>
           {/* 导航栏 */}
-          <Menu selectedKeys={['mail']} mode="horizontal" items={items} className="navigation-bar"/>
+          <Menu selectedKeys={['mail']} mode="horizontal" items={items} className={styles['navigation-bar']}/>
 
           {/* ... */}
         </Content>
@@ -73,6 +73,3 @@ export default function Biography() {
 
     )
 }
-
-
-
