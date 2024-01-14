@@ -8,7 +8,7 @@
 }
 
 .background-image {
-  background-image: url('./bio_background.jpg');
+  background-image: url('./_component/bio_background.jpg');
   background-size: cover;
   height: 150px;
 }
