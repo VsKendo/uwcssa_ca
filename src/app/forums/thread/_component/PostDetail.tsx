@@ -25,12 +25,12 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
         padding: '20px', // Optional: add some padding around the content
       }
 
-    
+
   return (
     <div style={pageStyle}>
       {infoList.map((item: { key: number, title: string, context:string, time: string, author: string }) => (
-        <Card 
-        key={item.key} 
+        <Card
+        key={item.key}
         style={{marginBottom: '20px'}}
         actions={[
           <Button key="reply" type="text" icon={<MessageOutlined />}>回复</Button>,
@@ -40,7 +40,7 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
           <Row>
             <Col span={4} style={{ textAlign: 'center'}}>
                 <Row><b>{item.author}</b> </Row>
-              
+
                 <Row>
                     <Avatar
                     shape="square"
@@ -49,7 +49,7 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
                     src="/favicon.ico"
                 />
                 </Row>
-              
+
             </Col>
             <Col span={20}>
               <h3>{item.title}</h3>
@@ -59,13 +59,13 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
             </Col>
           </Row>
         </Card>
-        
+
       ))}
       <div>
-        <MyEditor />
-        <Button type='primary' style={{marginTop: '1rem'}}>提交</Button>
+        {/* <MyEditor /> */}
+        {/* <Button type='primary' style={{marginTop: '1rem'}}>提交</Button> */}
       </div>
-      
+
     </div>
   )
 }
