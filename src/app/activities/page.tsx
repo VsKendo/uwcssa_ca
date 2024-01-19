@@ -21,9 +21,16 @@ export default function ActivitiesIndex() {
             <Layout>
                 <ContentCard title="UWCSSA| 广寒游 中秋活动"
                              content="9月30日下午2点，UWCSSA邀你一同参与现在中秋节活动"
-                             imgSrc="2023_mid_autumn.jpg"
+                              imgSrc="2023_mid_autumn.jpg"
                              date="cssa"
                              link="https://mp.weixin.qq.com/s/ed5wf_pJ9lWLeHKB8HeM0Q"
+                             bordered={false}/>
+
+                <ContentCard title="UWCSSA| 冬季新生见面会"
+                             content="1月20日下午2点，期待与你相遇！"
+                             imgSrc="./_component/2024_winter_meeting.jpg"
+                             date="cssa"
+                             link="https://mp.weixin.qq.com/s/dFSHDNuh6m0CyCnO_BBDEw"
                              bordered={false}/>
             </Layout>
         </Space>
