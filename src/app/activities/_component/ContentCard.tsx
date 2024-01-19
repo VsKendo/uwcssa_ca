@@ -25,7 +25,7 @@ export default function ContentCard(props: React.PropsWithChildren<Record<string
                 <h2> {title} </h2>
                 <i> {date} </i>
                 <p> {content} </p>
-                <Button href={link}> <WechatOutlined/>查看详情</Button>
+                <Button href={link} target="_blank"> <WechatOutlined/>查看详情</Button>
             </div>
 
         </div>
