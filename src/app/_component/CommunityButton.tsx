@@ -1,7 +1,6 @@
 import React from 'react'
 import {Button, Image} from 'antd'
 import styles from './CommunityButton.module.css'
-import {WechatOutlined} from '@ant-design/icons'
 
 function CommunityButton(props: React.PropsWithChildren<Record<string, any>>) {
     const {

@@ -36,3 +36,8 @@ next-env.d.ts
 
 # jetBrains
 /.idea/
+
+# vscode
+.vscode
+
+
