@@ -1,0 +1,44 @@
+.background {
+  position: relative;
+  padding: 5%;
+  display: flex; 
+}
+
+.user-details {
+  margin-left: 20px;
+}
+
+.menu {
+  margin-top:0.5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom:20%;
+}
+
+.navigation-bar {
+  margin-top: 20px;
+}
+
+.background-image {
+  width: 70%;
+  height: 45%; 
+  object-fit: cover;
+  background-image: url('./_component/bio_background.jpg');
+  background-size: cover;
+  margin-left: 15%;
+  margin-right: 15%; 
+}
+
+.user-info {
+  position: absolute;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 80%; 
+  display: flex; 
+  align-items: center;
+}
+
+.username {
+  color: white; 
+  margin-left:10%;
+}

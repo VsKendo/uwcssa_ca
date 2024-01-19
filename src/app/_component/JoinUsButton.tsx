@@ -7,6 +7,9 @@ function JoinUsButton(props: React.PropsWithChildren<Record<string, any>>) {
         title,
         content
     } = props
+    const handleClick=()=>{
+        window.open('https://mp.weixin.qq.com/s/iQf79dLsdLCGCPJSX1Wzpw', '_blank')
+    }
     return (
         <Button
             size="large"
@@ -21,8 +24,9 @@ function JoinUsButton(props: React.PropsWithChildren<Record<string, any>>) {
                 height: '80px',
                 whiteSpace: 'normal',
                 overflow: 'hidden'
-            }}>
-
+            }}
+            onClick={handleClick}
+        >
             <h3>{title}</h3>
             <div style={{display: 'flex', alignItems: 'center'}}>  {/* Adjusted the flexDirection to default ('row') and added alignItems */}
                 <p style={{margin: 2,fontSize: '14px', color: '#808080'}}>{content}</p>
