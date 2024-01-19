@@ -10,7 +10,6 @@ import JoinUsButton from '@/app/_component/JoinUsButton'
 import CssaVideo from '@/app/_component/CssaVideo'
 import CommunityButton from '@/app/_component/CommunityButton'
 import LatestInfoIndex from '@/app/_component/LatestInfoIndex'
-import SupportUs from '@/app/_component/SupportUs'
 
 import {
     CarTwoTone,
