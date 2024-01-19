@@ -55,13 +55,13 @@ const Home = function Home() {
                 <Space size={[20, 20]} wrap>
                     <NewsButton
                         icon={<FileTextTwoTone/>}
-                        title="新闻"
-                        content="最即时的新闻，让你信息永不短线"
+                        title="论坛系统"
+                        content="最即时的资讯，让你信息永不短线"
                     />
                     <NewsButton
                         icon={<CarTwoTone/>}
-                        title="活动"
-                        content="和朋友一起互动，不错过最新、最热门的活动"
+                        title="最新活动"
+                        content="和同学一起互动，不错过最新、最热门的活动"
                     />
                     <NewsButton
                         icon={<StarTwoTone/>}
@@ -71,12 +71,11 @@ const Home = function Home() {
                     <NewsButton
                         icon={<ShoppingTwoTone/>}
                         title="加入我们"
-                        content="海量的工作机会，随时随地找工作"
+                        content="成为我们的一份子，为海外华人做贡献"
                     />
                 </Space>
             </div>
             <br/>
-
             <br/>
             <div>
                 <LatestInfoIndex/>
@@ -94,19 +93,21 @@ const Home = function Home() {
                     <CommunityButton
                         icon="github-mark.png"
                         title="Github"
-                        content="Contribute to our project and help our community!"
+                        content="为我们的网页做出贡献！"
+                        url="https://github.com/VsKendo/uwcssa_ca"
                     />
 
                     <CommunityButton
                         icon="wechat.png"
-                        title="Wechat"
-                        content="Join our WeChat community and let’s get to know each other."
+                        title="微信公众号"
+                        content="关注我们的微信公众号：uwincssa"
                     />
 
                     <CommunityButton
-                        icon="Facebook_icon.png"
-                        title="Facebook"
-                        content="Follow us on Facebook and keep up-to-date with our latest news."
+                        icon="xiaohongshu.jpg"
+                        title="小红书"
+                        content="在小红书上关注我们！"
+                        url="https://www.xiaohongshu.com/user/profile/618d331e000000001000d000"
                     />
 
                 </Space>
@@ -124,39 +125,30 @@ const Home = function Home() {
                 <Space size={[10, 10]} align="center" direction="vertical">
                     <JoinUsButton
                         icon={<RightCircleTwoTone/>}
-                        title="Front-End Developer"
-                        content="Madrid / Remote"
+                        title="活动部: 负责策划与举办UWCSSA的各类活动"
+                        content="具有优秀的团队合作能力和责任心; 组织能力强; 思维逻辑清晰"
                     />
 
                     <JoinUsButton
                         icon={<RightCircleTwoTone/>}
-                        title="Community Manager"
-                        content="Yerevan / Part time"
+                        title="宣传部: 撰写推文和文案"
+                        content="运用软件(ps、秀米Canva等)设计海报"
                     />
                     <JoinUsButton
                         icon={<RightCircleTwoTone/>}
-                        title="UX/UI Designer"
-                        content="Paris / Full time"
+                        title="技术部：网页开发/函数计算(Amazon Lambda)"
+                        content="负责网站开发与维护，并且成为“温莎论坛：一叶枫声”平台的管理员"
                     />
                 </Space>
             </div>
 
             <br/>
             <br/>
-            <div style={{padding: '5vw'}}>
-                <SupportUs/>
-            </div>
-            
-            {/* <Divider style={{margin: 0}}>UWCSSA官方论坛</Divider> */}
-            {/* <h3> */}
-            {/*     Coming Soon... 网站加急开发中！ */}
-            {/* </h3> */}
             <Divider style={{marginTop: 60}}>申请UWCSSA官方论坛测试资格</Divider>
             <p>
                 <b>什么是官网测试？测试什么？</b>
             </p>
             <p>
-                {' '}
                 我们打算开发二手买卖交易平台、温莎在线论坛，具体上线时间取决于我们的开发进度。如果您能参与进我们的测试，注册账号并发布帖子，我们将不胜感激——这是对我们最大的支持！
             </p>
             <br/>
@@ -164,7 +156,6 @@ const Home = function Home() {
                 <b> 如何参与测试？参与测试需要具备什么条件？</b>
             </p>
             <p>
-                {' '}
                 参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！
             </p>
             <MyToolTip title="公共测试暂未开放" style={{marginTop: 30}}>

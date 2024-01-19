@@ -43,9 +43,9 @@ const items: MenuProps['items'] = [
 export default function Biography() {
     return (
      <div className={styles.Background}>
-     
+
         <div className={styles['background-image']} >
-        <div className="user-info">
+        <div className={styles['background-image']}>
           <Avatar icon={<UserOutlined />} size="large"/>
           <p className={styles.username}>我是用户名</p>
           <Button icon={<EditOutlined />} type="primary">
@@ -60,6 +60,6 @@ export default function Biography() {
      </div>
 
 
-    
+
     )
 }
