@@ -1,6 +1,6 @@
 'use client'
 
-import {Button, Space, Divider, Typography, Col, Row} from 'antd'
+import {Button, Space, Divider, Typography, Col, Row, Alert} from 'antd'
 import React from 'react'
 import ImagePartial from '@/app/_component/ImagePartial'
 import TextOverImage from '@/app/_component/TextOverImage'
@@ -16,6 +16,7 @@ import {
     ShoppingTwoTone,
     StarTwoTone,
     RightCircleTwoTone,
+    CheckCircleTwoTone,
 } from '@ant-design/icons'
 
 const {Title} = Typography
@@ -30,6 +31,15 @@ const Home = function Home() {
                 padding: 0,
                 backgroundColor: 'white',
             }}>
+            <Alert
+                message="温莎大学的学子可以使用 @uwindsor.ca 邮箱申请注册论坛“一叶枫声”的账号了！"
+                type="success"
+                closable
+                showIcon
+                action={
+                    <Button icon={<CheckCircleTwoTone/>} type="primary" href="/apply">点击加入测试 </Button>
+                }
+            />
             <Row
                 style={{
                     backgroundColor: 'rgb(245, 245, 245)',
