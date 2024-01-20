@@ -16,11 +16,11 @@ export default function ThreadShortLink(props: React.PropsWithChildren<Record<st
             <p>时间：{hoverContent.time}</p>
         </div>
     )
-    const realLinkContent: string = linkContent.length > 17 ? `${linkContent.substring(0, 17)}...` : linkContent
+    const realLinkContent: string = linkContent.length > 16 ? `${linkContent.substring(0, 16)}...` : linkContent
     return (
         <Popover {...style} {...rest} content={realHoverContent} title={hoverContent.title}>
             {/* <Button type="text">{realLinkContent}</Button> */}
-            <Button href={linkUrl} type="text">{realLinkContent}</Button> 
+            <Button href={linkUrl} type="text">{realLinkContent}</Button>
         </Popover>
     )
 }

@@ -2,7 +2,6 @@
 
 import {Button, Space, Divider, Typography, Col, Row} from 'antd'
 import React from 'react'
-import MyToolTip from '@/component/MyTooltip'
 import ImagePartial from '@/app/_component/ImagePartial'
 import TextOverImage from '@/app/_component/TextOverImage'
 import NewsButton from '@/app/_component/NewsButton'
@@ -157,11 +156,9 @@ const Home = function Home() {
             <p>
                 参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！
             </p>
-            <MyToolTip title="公共测试暂未开放" style={{marginTop: 30}}>
-                <Button disabled style={{width: '200px'}} type="primary" href="/apply">
-                    点击加入测试
-                </Button>
-            </MyToolTip>
+            <Button style={{width: '200px'}} type="primary" href="/apply">
+                点击加入测试
+            </Button>
             <br/>
             <br/>
         </section>

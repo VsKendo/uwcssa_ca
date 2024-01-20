@@ -5,22 +5,24 @@ import ThreadShortLink from '@/app/forums/_component/ThreadShortLink'
 export default function ForumsHeader() {
     const cardStyle: React.CSSProperties = {
         // textAlign: 'center',
-        backgroundColor: 'rgba(255,204,204,0.3)'
+        backgroundColor: 'rgba(255,204,204,0.3)',
+        width: 'auto',
+        height: '25vh'
     }
-    const hoverContent11 = {
-        'title': '论坛“一叶枫声”必读版规',
+    const hoverContent13 = {
+        'title': '进入“二手物品: 旧物斋坊”指南',
         'block': '版面公告',
         'author': '温莎市井',
         'time': '2023-10-31 00:51:04'
     }
     const hoverContent12 = {
-        'title': '进入“一叶枫声——租房专区”指南',
+        'title': '进入“租房专区: 借舍赁居”指南',
         'block': '版面公告',
         'author': '温莎市井',
         'time': '2023-10-31 00:51:04'
     }
-    const hoverContent13 = {
-        'title': '进入“一叶枫声——交友专区”指南',
+    const hoverContent11 = {
+        'title': '进入“交友专区: 江湖杂谈”指南',
         'block': '版面公告',
         'author': '温莎市井',
         'time': '2023-11-01 00:00:00'
@@ -54,31 +56,35 @@ export default function ForumsHeader() {
                                      linkUrl="/forums/thread"
                                      linkContent="1.论坛版规（违规者封号）"
                     /><br/>
-                    <ThreadShortLink hoverContent={hoverContent12}
+                    <ThreadShortLink hoverContent={hoverContent11}
                                      linkUrl="/forums/thread"
-                                     linkContent="2.租房攻略/避坑集中贴"
-                    /> <br/>
-                    <ThreadShortLink hoverContent={hoverContent13}
+                                     linkContent="2.“江湖杂谈”板块版规"
+                    /><br/>
+                    <ThreadShortLink hoverContent={hoverContent11}
                                      linkUrl="/forums/thread"
-                                     linkContent="3.温莎交友集中贴"
-                    /> <br/>
+                                     linkContent="3.“借舍赁居”板块版规"
+                    /><br/>
+                    <ThreadShortLink hoverContent={hoverContent11}
+                                     linkUrl="/forums/thread"
+                                     linkContent="4.“旧物斋坊”板块版规"
+                    /><br/>
                 </Card>
             </Col>
             <Col span={6}>
                 <Card title="新鲜出炉" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
-                    <ThreadShortLink hoverContent={hoverContent11}
-                                     linkUrl="/forums/thread"
-                                     linkContent={hoverContent11.title}
-                    /><br/>
                     <ThreadShortLink hoverContent={hoverContent12}
                                      linkUrl="/forums/thread"
-                                     linkContent={hoverContent12.title}
+                                     linkContent="租房攻略/避坑集中贴"
                     /> <br/>
                     <ThreadShortLink hoverContent={hoverContent13}
                                      linkUrl="/forums/thread"
-                                     linkContent={hoverContent13.title}
+                                     linkContent="温莎交友集中贴"
                     /> <br/>
+                    <ThreadShortLink hoverContent={hoverContent31}
+                                     linkUrl="/forums/thread"
+                                     linkContent={hoverContent31.title}
+                    /><br/>
                 </Card>
             </Col>
             <Col span={6}>
@@ -97,10 +103,18 @@ export default function ForumsHeader() {
             <Col span={6}>
                 <Card title="精华采撷" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
-                    <ThreadShortLink hoverContent={hoverContent31}
+                    <ThreadShortLink hoverContent={hoverContent11}
                                      linkUrl="/forums/thread"
-                                     linkContent={hoverContent31.title}
+                                     linkContent={hoverContent11.title}
                     /><br/>
+                    <ThreadShortLink hoverContent={hoverContent12}
+                                     linkUrl="/forums/thread"
+                                     linkContent={hoverContent12.title}
+                    /> <br/>
+                    <ThreadShortLink hoverContent={hoverContent13}
+                                     linkUrl="/forums/thread"
+                                     linkContent={hoverContent13.title}
+                    /> <br/>
                 </Card>
             </Col>
         </Row>

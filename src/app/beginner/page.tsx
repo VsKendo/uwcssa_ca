@@ -6,6 +6,7 @@ import {AppstoreOutlined, MailOutlined, SettingOutlined} from '@ant-design/icons
 import type {MenuProps} from 'antd'
 import SchoolContact from '@/app/beginner/_component/SchoolContact'
 import BuildingCode from '@/app/beginner/_component/BuildingCode'
+import WelcomePage from '@/app/beginner/_component/WelcomePage'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -27,7 +28,7 @@ function getItem(
 
 const items: MenuProps['items'] = [
     getItem('校园信息', 'sub1', <MailOutlined/>, [
-        getItem('学校联系方式', '2'), getItem('教学楼代码', '3'),
+        getItem('学校联系方式', '1'), getItem('教学楼代码', '2'),
     ]),
 
     getItem('温莎生活', 'sub2', <AppstoreOutlined/>, [
@@ -50,12 +51,12 @@ export default function BeginnerIndex() {
     }
     const renderContent = () => {
         switch (selectedKey) {
-        case '2':
+        case '1':
             return <SchoolContact/>
-        case '3':
+        case '2':
             return <BuildingCode/>
         default:
-            return null
+            return <WelcomePage/>
         }
     }
     // const items = [
@@ -87,6 +88,7 @@ export default function BeginnerIndex() {
                         defaultOpenKeys={['sub1']}
                         mode="inline"
                         items={items}
+                        style={{maxWidth:'15vw'}}
                     />
                     <div style={{flex: 1, padding: '20px', width: '0', flexGrow: 1}}>
                         {renderContent()}
