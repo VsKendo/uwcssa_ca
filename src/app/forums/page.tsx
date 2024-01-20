@@ -1,6 +1,5 @@
 import {Button, Divider} from 'antd'
 import React from 'react'
-import MyToolTip from '@/component/MyTooltip'
 import BriefInfoThread from '@/app/forums/_component/BriefInfoThread'
 import ForumsHeader from '@/app/forums/_component/ForumsHeader'
 
@@ -47,18 +46,18 @@ export default function ForumsIndex() {
                 <p>
                     参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！
                 </p>
-                <MyToolTip title="公共测试暂未开放" style={{marginTop: 30}}>
-                    <Button disabled style={{width: '200px'}} type="primary" href="/apply">
-                        点击申请测试资格
-                    </Button>
-                </MyToolTip>
+                <Button style={{width: '200px'}} type="primary" href="/apply">
+                    点击申请测试资格
+                </Button>
             </div>
             <br/>
-            <Divider>置顶咨讯</Divider>
-            <ForumsHeader/>
-            <br/>
-            <Divider>通用板块</Divider>
-            <BriefInfoThread infoList={briefInfoList}/>
+            <div style={{height: '65vh'}}>
+                <Divider>置顶咨讯</Divider>
+                <ForumsHeader/>
+                <br/>
+                <Divider>通用板块</Divider>
+                <BriefInfoThread infoList={briefInfoList}/>
+            </div>
         </div>
     )
 }

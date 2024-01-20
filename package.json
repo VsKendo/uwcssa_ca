@@ -23,6 +23,7 @@
     "airbnb": "^0.0.2",
     "antd": "^5.9.0",
     "autoprefixer": "10.4.15",
+    "axios": "^1.6.5",
     "eslint": "^8.50.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "13.4.19",
