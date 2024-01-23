@@ -29,9 +29,9 @@ export default function ForumsIndex() {
     return (
         <div>
             <div style={{
-                margin: '10px',
-                backgroundColor: 'pink',
-                padding: '10px'
+                margin: '2.5%',
+                backgroundColor: 'rgba(255,0,51,0.15)',
+                padding: '1.7%'
             }}>
                 <p>
                     <b>欢迎来到温莎论坛“一叶枫声”测试版面</b>
@@ -47,7 +47,7 @@ export default function ForumsIndex() {
                     参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <Button style={{width: '200px'}} type="primary" href="/apply">
+                    <Button style={{width: '200px' margintTop:'1%'}} type="primary" href="/apply">
                         点击申请测试资格
                     </Button>
                 </div>
