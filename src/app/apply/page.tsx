@@ -33,6 +33,7 @@ export default function ApplyIndex() {
                 title: '申请已提交，正在等待结果',
                 content: '请稍后，我们正在记录您的申请',
             })
+            // XHR js.fetch('xxx.xx/apply')=>(res)
             axios.post('https://7bceojyhmgp5qcw6wb343agv740bhull.lambda-url.us-east-2.on.aws/ApplyBetaTest', values, {
                 headers: {
                     'Content-Type': 'application/json'

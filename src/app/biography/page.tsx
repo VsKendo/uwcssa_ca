@@ -8,8 +8,8 @@ import {
   TrophyOutlined,
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
+import BioContent from '@/app/biography/_component/BioContent'
 import styles from './biography.module.css'
-import Bio_content from '@/app/biography/_component/Bio_content'
 
 
 const items: MenuProps['items'] = [
@@ -43,7 +43,7 @@ const items: MenuProps['items'] = [
 export default function Biography() {
     return (
      <div className={styles.Background}>
-     
+
         <div className={styles['background-image']} >
             <div className={styles['user-info']}>
               {/* <Avatar icon={<Us""erOutlined />} size="large"/> */}
@@ -56,22 +56,22 @@ export default function Biography() {
                 </Button>
             </div>
         </div>
-        
+
         <div className={styles.menu}>
             {/* 导航栏 */}
             <Menu selectedKeys={['mail']} mode="horizontal" items={items} />
         </div>
-        <Card title="消息列表" style={{ marginTop: "0.35%", marginLeft: "7.71%", marginRight:"7.71%", marginBottom:"1.2%"}}>
-            <Bio_content title="你在帖子 游戏bug卡牌飞起来了前后... 的评论有了4次赞"
+        <Card title="消息列表" style={{ marginTop: '0.35%', marginLeft: '7.71%', marginRight:'7.71%', marginBottom:'1.2%'}}>
+            <BioContent title="你在帖子 游戏bug卡牌飞起来了前后... 的评论有了4次赞"
                         date="2024-1-22"
                         link="https://google.com"
-            /> 
-            <Bio_content title="你在帖子 只看过剧，假设你是审判日号... 的评论有了15次赞"
+            />
+            <BioContent title="你在帖子 只看过剧，假设你是审判日号... 的评论有了15次赞"
                         date="2023-12-28"
                         link="https://google.com"
-            /> 
+            />
         </Card>
      </div>
-    
+
     )
 }
