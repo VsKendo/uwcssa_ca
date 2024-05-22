@@ -1,18 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
-  "api": {
-    "uwcssaca": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
-    }
-  },
-  "function": {
-    "applyForBeta": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
+  "auth": {
+    "uwcssaca81ee905f": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
     }
   }
 }

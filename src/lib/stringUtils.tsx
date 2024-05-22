@@ -1,11 +1,16 @@
-export function lengthValid(inputString: string, minLength: number, maxLength: number): boolean {
-    const stringLength = inputString.length
-    return stringLength >= minLength && stringLength <= maxLength
+export const emailSuffix: string = '@uwindsor.ca'
+
+export function lengthValid(inputString: any, minLength: number, maxLength: number): boolean {
+    if (!inputString) return false
+    if (typeof inputString === 'string'){
+        const stringLength = inputString.length
+        return stringLength >= minLength && stringLength <= maxLength
+    }
+    return false
 }
 
 export function isUWinEmail(email: string): boolean {
-    const suffix: string = '@uwindsor.ca'
-    return email.endsWith(suffix) && email.length !== suffix.length && lengthValid(email, suffix.length + 1, 64)
+    return email.endsWith(emailSuffix) && lengthValid(email, emailSuffix.length + 1, 64)
 }
 
 export function getOrDefault(value: any): string {

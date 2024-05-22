@@ -5,12 +5,12 @@ import {
   LikeOutlined,
 } from '@ant-design/icons'
 
-// import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic'
 
-// const MyEditor = dynamic(
-//   () => import('@/app/forums/thread/_component/MyEditor'),
-//   { ssr: false }
-// )
+const MyEditor = dynamic(
+  () => import('@/app/forums/thread/_component/MyEditor'),
+  { ssr: false }
+)
 
 export default function PostDetail(props: React.PropsWithChildren<Record<string, any>>) {
   const {infoList}: { [p: string]: any; children?: React.ReactNode | undefined } = {...props}
@@ -62,8 +62,8 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
 
       ))}
       <div>
-        {/* <MyEditor /> */}
-        {/* <Button type='primary' style={{marginTop: '1rem'}}>提交</Button> */}
+        <MyEditor />
+        <Button type='primary' style={{marginTop: '1rem'}}>提交</Button>
       </div>
 
     </div>

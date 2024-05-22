@@ -1,21 +1,30 @@
 {
-  "api": {
-    "uwcssaca": {
+  "auth": {
+    "uwcssaca81ee905f": {
+      "customAuth": false,
       "dependsOn": [],
-      "output": {
-        "authConfig": {
-          "additionalAuthenticationProviders": [],
-          "defaultAuthentication": {
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
-            },
-            "authenticationType": "API_KEY"
-          }
-        }
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
       },
       "providerPlugin": "awscloudformation",
-      "service": "AppSync"
+      "service": "Cognito"
     }
-  },
-  "function": {}
+  }
 }
