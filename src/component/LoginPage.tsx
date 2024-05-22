@@ -1,7 +1,7 @@
 import {Button, Col, Form, FormProps, Input, message, Modal, Row} from 'antd'
 import React, {useState} from 'react'
 import {isUWinEmail, lengthValid, emailSuffix} from '@/lib/stringUtils'
-// import {Authenticator} from '@aws-amplify/ui-react'
+import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
 import {getCurrentUser, signIn, signOut} from 'aws-amplify/auth'
 import awsconfig from '../aws-exports'
@@ -14,7 +14,7 @@ type FieldType = {
 Amplify.configure(awsconfig)
 
 function LoginPage() {
-    const [username, setUserName] = useState('')
+    const [nickname, setNickname] = useState('')
     const [form] = Form.useForm()
     const [isModalOpen, setIsModalOpen] = useState(false)
     const showLoginModal = () => {
@@ -26,7 +26,7 @@ function LoginPage() {
         console.log(userId, signInDetails)
         await signOut({global: true}).then(() => {
             message.success('成功登出')
-            setUserName('')
+            setNickname('')
         })
     }
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
@@ -37,7 +37,7 @@ function LoginPage() {
                 username: inputUsername,
                 password: values.password
             }).then(r => {
-                    setUserName(`${inputUsername}`)
+                    setNickname(`${values.username}`)
                     if (r.isSignedIn) {
                         message.success(`'欢迎您!'${inputUsername}`)
                         setIsModalOpen(false)
@@ -62,8 +62,8 @@ function LoginPage() {
     }
     return (
         <span>
-            {username ?
-                <span>欢迎您 {username}!&nbsp;<Button type="primary" onClick={GlobalSignOut}> 注销 </Button></span> :
+            {nickname ?
+                <span>欢迎您 {nickname}!&nbsp;<Button type="primary" onClick={GlobalSignOut}> 注销 </Button></span> :
                 <Button type="primary" onClick={showLoginModal}>登录</Button>}
 
             <Modal title="登录你的 UWCSSA 账号" open={isModalOpen} onCancel={handleCancel}

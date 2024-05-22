@@ -1,7 +1,7 @@
 .background {
   position: relative;
   /* padding: 5%; */
-  display: flex; 
+  display: flex;
 }
 
 .user_details {
@@ -17,18 +17,18 @@
 
 .background-image {
   /* width: 80%; */
-  height: 12rem;  
+  height: 12rem;
   object-fit: cover;
-  background-image: url('./_component/bio_background.jpg');
+  /*background-image: url('./_component/bio_background.jpg');*/
   background-size: cover;
   margin-left: 7.8%;
-  margin-right: 7.8%; 
+  margin-right: 7.8%;
 }
 
 .user-image {
   width: 20%;
   object-fit: cover;
-  background-image: url('./_component/user_image.jpg');
+  /*background-image: url('./_component/user_image.jpg');*/
   background-size: cover;
   margin-left: 3%;
 }
@@ -37,12 +37,12 @@
   margin-left: 2%;
   width: 60%;
   padding-top: 8%;
-  display: flex; 
+  display: flex;
   align-items: center;
 }
 
 .username {
-  color: white; 
+  color: white;
   margin-left:3%;
   font-size: large;
   font-weight: bold;
