@@ -1,9 +1,9 @@
-import {Button,  Col, Form, FormProps, Input, message, Modal, Row} from 'antd'
+import {Button, Col, Form, FormProps, Input, message, Modal, Row} from 'antd'
 import React, {useState} from 'react'
 import {isUWinEmail, lengthValid, emailSuffix} from '@/lib/stringUtils'
 // import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
-import {signIn, signOut} from 'aws-amplify/auth'
+import {getCurrentUser, signIn, signOut} from 'aws-amplify/auth'
 import awsconfig from '../aws-exports'
 
 type FieldType = {
@@ -22,12 +22,14 @@ function LoginPage() {
     }
 
     const GlobalSignOut = async () => {
+        const {userId, signInDetails} = await getCurrentUser()
+        console.log(userId, signInDetails)
         await signOut({global: true}).then(() => {
             message.success('成功登出')
             setUserName('')
         })
     }
-    const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+    const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         const inputUsername = `${values.username}${emailSuffix}`
 
         if (isUWinEmail(inputUsername) && lengthValid(values.password, 1, 20)) {
@@ -36,8 +38,7 @@ function LoginPage() {
                 password: values.password
             }).then(r => {
                     setUserName(`${inputUsername}`)
-                    // console.log(r)
-                    if (r.isSignedIn){
+                    if (r.isSignedIn) {
                         message.success(`'欢迎您!'${inputUsername}`)
                         setIsModalOpen(false)
                     } else {
@@ -62,7 +63,7 @@ function LoginPage() {
     return (
         <span>
             {username ?
-                <span>欢迎您 {username}!&nbsp;<Button type="primary" onClick={GlobalSignOut}> 注销 </Button></span>   :
+                <span>欢迎您 {username}!&nbsp;<Button type="primary" onClick={GlobalSignOut}> 注销 </Button></span> :
                 <Button type="primary" onClick={showLoginModal}>登录</Button>}
 
             <Modal title="登录你的 UWCSSA 账号" open={isModalOpen} onCancel={handleCancel}
