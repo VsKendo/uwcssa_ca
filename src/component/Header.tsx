@@ -6,7 +6,12 @@ import {Col, Layout, Menu, Row, Tooltip} from 'antd'
 import Link from 'next/link'
 import React from 'react'
 import FallbackImage from '@/component/FallbackImage'
+import {Authenticator} from '@aws-amplify/ui-react'
+import {Amplify} from 'aws-amplify'
+import LoginPage from '@/component/LoginPage'
+import awsconfig from '../aws-exports'
 
+Amplify.configure(awsconfig)
 const {Header} = Layout
 
 function HeartSvg() {
@@ -188,6 +193,7 @@ const MenuUnderLine = {
     background: 'white',
     borderBottom: '1px solid rgba(5, 5, 5, 0.06)'
 }
+
 export default function HeaderElement() {
     return (
         <Header style={{
@@ -210,6 +216,10 @@ export default function HeaderElement() {
                         />
                         &nbsp;&nbsp;&nbsp;<strong style={{fontSize: 18}}>UWCSSA</strong>
                     </Link>
+                    &nbsp;&nbsp;
+                    <Authenticator.Provider>
+                        <LoginPage/>
+                    </Authenticator.Provider>
                 </Col>
                 <Col span={12}>
                     <Menu mode="horizontal" items={items} style={{height: '100%'}}/>

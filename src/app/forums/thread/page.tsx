@@ -3,7 +3,7 @@ import PostDetail from '@/app/forums/thread/_component/PostDetail'
 
 export default function ThreadIndex() {
 
-    const briefInfoList = [ 
+    const briefInfoList = [
         {
             'title': '统计一下大家晚上几点睡',
             'author': 'before_sunset',
@@ -19,26 +19,23 @@ export default function ThreadIndex() {
             'url': '/2'
         },
         {
-            'title': '5点睡觉',
-            'author': '造谣者01',
-            'context': '黑夜给了黑夜的人一道光',
-            'time': '2023-11-01 01:24:14',
-            'url': '/3'
-        },
-        {
             'title': '睡觉时间不固定',
             'author': 'Corleone',
             'context': '每天睡的都比前一天晚，生物钟差不多一个月转一圈',
             'time': '2023-11-01 01:24:14',
             'url': '/4'
         }
-        
+
 
     ]
-    
+
 
     return (
-        <div>
+        <div style={{
+            width: '80%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        }}>
             <PostDetail infoList={briefInfoList}/>
         </div>
     )

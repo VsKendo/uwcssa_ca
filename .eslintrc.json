@@ -24,6 +24,7 @@
     "@typescript-eslint/no-explicit-any": [
       "off"
     ],
+    "object-shorthand": "off",
     "react/jsx-props-no-spreading": "off",
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": "off",

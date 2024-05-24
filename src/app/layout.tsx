@@ -31,17 +31,19 @@ export const metadata: Metadata = {
 }
 
 function RootLayout({children}: { children: React.ReactNode }) {
-    return <html lang="zh-CN">
-    <body className={inter.className}>
-    <Layout style={{height: '100vh'}}>
-        <Header/>
-        <StyledComponentsRegistry>
-            {children}
-        </StyledComponentsRegistry>
-        <Footer/>
-    </Layout>
-    </body>
-    </html>
+    return (
+        <html lang="zh-CN">
+        <body className={inter.className}>
+        <Layout style={{height: '100%'}}>
+            <Header/>
+            <StyledComponentsRegistry>
+                {children}
+            </StyledComponentsRegistry>
+            <Footer/>
+        </Layout>
+        </body>
+        </html>
+    )
 }
 
 export default RootLayout

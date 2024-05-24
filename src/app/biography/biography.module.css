@@ -1,44 +1,56 @@
 .background {
   position: relative;
-  padding: 5%;
-  display: flex; 
+  /* padding: 5%; */
+  display: flex;
 }
 
-.user-details {
-  margin-left: 20px;
+.user_details {
+  margin-left: 2%;
 }
 
 .menu {
-  margin-top:0.5%;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-bottom:20%;
+  padding-top: 0.4%;
+  margin-left: 7.8%;
+  margin-right: 7.8%;
 }
 
-.navigation-bar {
-  margin-top: 20px;
-}
 
 .background-image {
-  width: 70%;
-  height: 45%; 
+  /* width: 80%; */
+  height: 12rem;
   object-fit: cover;
-  background-image: url('./_component/bio_background.jpg');
+  background-image: url('/bio_background.jpg');
   background-size: cover;
-  margin-left: 15%;
-  margin-right: 15%; 
+  margin-left: 7.8%;
+  margin-right: 7.8%;
+}
+
+.user-image {
+  width: 20%;
+  object-fit: cover;
+  /*background-image: url('./_component/user_image.jpg');*/
+  background-size: cover;
+  margin-left: 3%;
 }
 
 .user-info {
-  position: absolute;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 80%; 
-  display: flex; 
+  margin-left: 2%;
+  width: 60%;
+  padding-top: 8%;
+  display: flex;
   align-items: center;
 }
 
 .username {
-  color: white; 
-  margin-left:10%;
+  color: white;
+  margin-left:3%;
+  margin-bottom:3%;
+  font-size: large;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.edit_button {
+  margin-left:9.7%;
+  margin-top: -1.6%;
 }

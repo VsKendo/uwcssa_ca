@@ -27,11 +27,13 @@ export default function ForumsIndex() {
     ]
 
     return (
-        <div>
+        <div style={{
+            backgroundColor: 'rgba(245, 245, 245)',
+        }}>
             <div style={{
-                margin: '10px',
-                backgroundColor: 'pink',
-                padding: '10px'
+                margin: '2.5%',
+                backgroundColor: 'rgba(255,0,51,0.15)',
+                padding: '1.7%'
             }}>
                 <p>
                     <b>欢迎来到温莎论坛“一叶枫声”测试版面</b>
@@ -46,19 +48,28 @@ export default function ForumsIndex() {
                 <p>
                     参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <Button style={{width: '200px'}} type="primary" href="/apply">
+                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Button style={{width: '200px', marginTop: '1%'}} type="primary" href="/register">
                         点击申请测试资格
                     </Button>
                 </div>
             </div>
-            <br/>
-            <div style={{height: '65vh'}}>
-                <Divider>置顶咨讯</Divider>
-                <ForumsHeader/>
-                <br/>
-                <Divider>通用板块</Divider>
-                <BriefInfoThread infoList={briefInfoList}/>
+            <div style={{
+                backgroundColor: 'white',
+                width: '90%',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                borderRadius: '15px',
+                padding: '20px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+            }}>
+                <div style={{height: '65vh'}}>
+                    <Divider>置顶咨讯</Divider>
+                    <ForumsHeader/>
+                    <br/>
+                    <Divider>通用板块</Divider>
+                    <BriefInfoThread infoList={briefInfoList}/>
+                </div>
             </div>
         </div>
     )

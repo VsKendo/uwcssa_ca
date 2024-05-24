@@ -9,13 +9,11 @@ import styles from './LatestInfo.module.css'
 const {Title} = Typography
 export default function LatestInfoIndex() {
     return (
-        <>
-            <Title level={2} style={{marginTop: '10px'}}>
-                最新资讯
-            </Title>
-            <br/>
-            <Space direction="vertical" style={{width: '100%'}} size={[0, 48]}>
+        <Space direction="vertical" style={{width: '100%'}} size={[0, 48]}>
                 <Layout>
+                    <Title level={2} style={{marginTop: '10px'}}>
+                        最新资讯
+                    </Title>
                     <LatestInfo title="UWCSSA | 冬季新生见面会"
                                 content="24年1月20日下午2点，UWCSSA约你在 Room 112, Odette building 见面"
                                 imgSrc="2024_winter_meeting.jpg"
@@ -38,7 +36,5 @@ export default function LatestInfoIndex() {
 
                 </Layout>
             </Space>
-
-        </>
     )
 }
