@@ -15,7 +15,6 @@ import {
 import {emailSuffix, isUWinEmail, lengthValid} from '@/lib/stringUtils'
 import {confirmSignUp, signUp} from 'aws-amplify/auth'
 import {useRouter} from 'next/navigation'
-import {sleep} from '@smithy/util-waiter/dist-types/utils'
 
 const {Title} = Typography
 
@@ -72,7 +71,7 @@ export default function RegisterIndex() {
                 })
                 continued = false
             })
-            if (continued){
+            if (continued) {
                 setUsername(emailAddress)
                 instance.destroy()
                 if (validCodeSent) {
@@ -97,10 +96,11 @@ export default function RegisterIndex() {
                 username: username,
                 confirmationCode: values.code
             })
-            if(isSignUpComplete){
-                messageApi.success('注册成功！正在前往登录界面')
-                await sleep(1)
-                router.push('/')
+            if (isSignUpComplete) {
+                messageApi.success('注册成功！3秒后为您转跳到登录界面')
+                setTimeout(() => {
+                    router.push('/')
+                }, 3000)
             }
         } catch (error) {
             messageApi.error('注册失败：请联系管理员')

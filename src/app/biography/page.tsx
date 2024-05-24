@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Menu, Button, Image, Card} from 'antd'
 import {
     EditOutlined,
@@ -12,6 +12,7 @@ import {
 import type {MenuProps} from 'antd'
 import BioContent from '@/app/biography/_component/BioContent'
 import {Username} from '@/lib/storeConstant'
+import {getOrDefault} from '@/lib/stringUtils'
 import styles from './biography.module.css'
 
 const items: MenuProps['items'] = [
@@ -42,6 +43,11 @@ const items: MenuProps['items'] = [
 ]
 
 export default function Biography() {
+    const [nickname, setNickname] = useState('')
+    useEffect(() => {
+        const storedData = getOrDefault(localStorage.getItem(Username))
+        setNickname(storedData)
+    }, [])
     return (
         <div className={styles.Background}>
             <div className={styles['background-image']}>
@@ -49,7 +55,7 @@ export default function Biography() {
                     {/* <Avatar icon={<Us""erOutlined />} size="large"/> */}
                     <Image width="10%"
                            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"/>
-                    <p className={styles.username}>{localStorage.getItem(Username)}</p>
+                    <p className={styles.username}>{nickname}</p>
                 </div>
                 <div className={styles.edit_button}>
                     <Button icon={<EditOutlined/>} type="dashed" size="small">
