@@ -1,11 +1,12 @@
-
+const ls = localStorage as Storage
+export const Username = 'username'
 export function getFromLocalStorage(keyString: string): string | null {
-    return localStorage.getItem(keyString)
+    return ls.getItem(keyString)
 }
 
 export function setToLocalStorage(keyString: string, valueString: string): boolean {
     try {
-        localStorage.setItem(keyString, valueString)
+        ls.setItem(keyString, valueString)
     } catch (e: any) {
         return false
     }

@@ -11,7 +11,7 @@ import {
 } from '@ant-design/icons'
 import type {MenuProps} from 'antd'
 import BioContent from '@/app/biography/_component/BioContent'
-import {getFromLocalStorage} from '@/lib/storeUtils'
+import {Username} from '@/lib/storeConstant'
 import styles from './biography.module.css'
 
 const items: MenuProps['items'] = [
@@ -49,7 +49,7 @@ export default function Biography() {
                     {/* <Avatar icon={<Us""erOutlined />} size="large"/> */}
                     <Image width="10%"
                            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"/>
-                    <p className={styles.username}>{getFromLocalStorage('nickname')}</p>
+                    <p className={styles.username}>{localStorage.getItem(Username)}</p>
                 </div>
                 <div className={styles.edit_button}>
                     <Button icon={<EditOutlined/>} type="dashed" size="small">

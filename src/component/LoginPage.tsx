@@ -1,11 +1,12 @@
-import {Button, Col, Form, FormProps, Input, message, Modal, Row} from 'antd'
+import {Button, Col, ConfigProvider, Form, FormProps, Input, message, Modal, Row} from 'antd'
 import React, {useEffect, useState} from 'react'
 import {isUWinEmail, lengthValid, emailSuffix} from '@/lib/stringUtils'
 import {Amplify} from 'aws-amplify'
 import {getCurrentUser, signIn, signOut} from 'aws-amplify/auth'
 import Link from 'next/link'
-import awsconfig from '../aws-exports'
 import {useRouter} from 'next/navigation'
+import {Username} from '@/lib/storeConstant'
+import awsconfig from '../aws-exports'
 
 type FieldType = {
     username?: string;
@@ -17,6 +18,7 @@ Amplify.configure(awsconfig)
 function LoginPage() {
     const [nickname, setNickname] = useState('')
     const router = useRouter()
+    const [messageApi, contextHolder] = message.useMessage()
     useEffect(() => {
         const fetch = async () => {
             const {signInDetails} = await getCurrentUser()
@@ -28,7 +30,7 @@ function LoginPage() {
         })
     }, [])
     useEffect(() => {
-        localStorage.setItem('nickname', nickname)
+        localStorage.setItem(Username, nickname)
     }, [nickname])
     const [form] = Form.useForm()
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -39,7 +41,7 @@ function LoginPage() {
     const GlobalSignOut = async () => {
         router.replace('/')
         await signOut({global: true}).then(() => {
-            message.success('成功登出')
+            messageApi.success('成功登出')
             setNickname('')
         })
     }
@@ -52,17 +54,17 @@ function LoginPage() {
             }).then(r => {
                     setNickname(`${inputUsername}`)
                     if (r.isSignedIn) {
-                        message.success(`'欢迎您!'${inputUsername}`)
+                        messageApi.success(`'欢迎您!'${inputUsername}`)
                         setIsModalOpen(false)
                     } else {
-                        message.error('登录失败！账号状态异常！请联系管理员')
+                        messageApi.error('登录失败！账号状态异常！请联系管理员')
                     }
                 }
             ).catch(() => {
-                message.error('登录失败！用户名或密码错误!')
+                messageApi.error('登录失败！用户名或密码错误!')
             })
         } else {
-            message.error('请输入用户名和密码!')
+            messageApi.error('请输入用户名和密码!')
         }
     }
 
@@ -83,11 +85,7 @@ function LoginPage() {
                 <Button type="primary" onClick={showLoginModal}>登录</Button>}
 
             <Modal title="登录你的 UWCSSA 账号" open={isModalOpen} onCancel={handleCancel}
-                   footer={[
-                       // <Button key="back" onClick={handleCancel}>
-                       //     Cancel
-                       // </Button>,
-                   ]}
+                   footer={[]}
             >
                 <Form
                     name="login"
@@ -97,7 +95,6 @@ function LoginPage() {
                     style={{maxWidth: 600}}
                     initialValues={{remember: true}}
                     onFinish={onFinish}
-                    // onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
                     <Form.Item<FieldType>
@@ -122,36 +119,45 @@ function LoginPage() {
                         <Input.Password/>
                     </Form.Item>
 
-                    {/* <Form.Item<FieldType> */}
-                    {/*     name="remember" */}
-                    {/*     valuePropName="checked" */}
-                    {/*     wrapperCol={{ */}
-                    {/*         offset: 8, */}
-                    {/*         span: 16 */}
-                    {/*     }} */}
-                    {/* > */}
-                    {/*     <Checkbox>记住我</Checkbox> */}
-                    {/* </Form.Item> */}
-
                     <Form.Item wrapperCol={{
                         offset: 5,
                         span: 16
                     }}>
                         <Row>
-                            <Col span={5}>
+                            <Col span={3}>
                                 <Button type="primary" htmlType="submit">
                                     登录
                                 </Button>
                             </Col>
-                            <Col offset={5} span={5}>
+                            <Col offset={3} span={3}>
                                 <Button htmlType="button" onClick={onReset}>
                                     清空
                                 </Button>
+                            </Col>
+                            <Col offset={5} span={5}>
+                                <ConfigProvider
+                                    theme={{
+                                        components: {
+                                            Button: {
+                                                defaultBg: '#40e495',
+                                                colorPrimaryHover: '#f6e8e8',
+                                                colorPrimaryActive: '#808181',
+                                                lineWidth: 0,
+                                            },
+                                        },
+                                    }}
+                                >
+                                  <Button onClick={() => {
+                                      setIsModalOpen(false)
+                                      router.push('/register')
+                                  }}>注册账号</Button>
+                                </ConfigProvider>
                             </Col>
                         </Row>
                     </Form.Item>
                 </Form>
             </Modal>
+            {contextHolder}
         </span>
     )
 }

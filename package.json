@@ -23,7 +23,7 @@
     "@wangeditor/editor-for-react": "^1.0.6",
     "airbnb": "^0.0.2",
     "ampx": "^0.2.1",
-    "antd": "^5.9.0",
+    "antd": "^5.16.0",
     "autoprefixer": "10.4.15",
     "aws-amplify": "^6.3.2",
     "axios": "^1.6.5",
