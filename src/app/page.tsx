@@ -37,7 +37,7 @@ const Home = function Home() {
                 closable
                 showIcon
                 action={
-                    <Button icon={<CheckCircleTwoTone/>} type="primary" href="/apply">点击加入测试 </Button>
+                    <Button icon={<CheckCircleTwoTone/>} type="primary" href="/register">点击加入测试 </Button>
                 }
             />
             <Row
@@ -121,7 +121,6 @@ const Home = function Home() {
                 </Space>
             </div>
 
-
             <br/>
 
             <div style={{backgroundColor: 'white'}}>
@@ -166,7 +165,7 @@ const Home = function Home() {
             <p>
                 参与测试不需要任何技术或金钱，只需要您有一个支持学生会的心。我们期待您的参与，您可以点击下方按钮参加测试报名。在通过审核后，我们会主动与您联系，谢谢！
             </p>
-            <Button style={{width: '200px'}} type="primary" href="/apply">
+            <Button style={{width: '200px'}} type="primary" href="/register">
                 点击加入测试
             </Button>
             <br/>

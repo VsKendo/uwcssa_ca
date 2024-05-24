@@ -1,10 +1,11 @@
 import {Button, Col, Form, FormProps, Input, message, Modal, Row} from 'antd'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {isUWinEmail, lengthValid, emailSuffix} from '@/lib/stringUtils'
-import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
 import {getCurrentUser, signIn, signOut} from 'aws-amplify/auth'
+import Link from 'next/link'
 import awsconfig from '../aws-exports'
+import {useRouter} from 'next/navigation'
 
 type FieldType = {
     username?: string;
@@ -15,6 +16,20 @@ Amplify.configure(awsconfig)
 
 function LoginPage() {
     const [nickname, setNickname] = useState('')
+    const router = useRouter()
+    useEffect(() => {
+        const fetch = async () => {
+            const {signInDetails} = await getCurrentUser()
+            return signInDetails ? signInDetails.loginId : ''
+        }
+        fetch().then(r => {
+            if (r) setNickname(r)
+        }).catch(() => {
+        })
+    }, [])
+    useEffect(() => {
+        localStorage.setItem('nickname', nickname)
+    }, [nickname])
     const [form] = Form.useForm()
     const [isModalOpen, setIsModalOpen] = useState(false)
     const showLoginModal = () => {
@@ -22,8 +37,7 @@ function LoginPage() {
     }
 
     const GlobalSignOut = async () => {
-        const {userId, signInDetails} = await getCurrentUser()
-        console.log(userId, signInDetails)
+        router.replace('/')
         await signOut({global: true}).then(() => {
             message.success('成功登出')
             setNickname('')
@@ -31,13 +45,12 @@ function LoginPage() {
     }
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         const inputUsername = `${values.username}${emailSuffix}`
-
         if (isUWinEmail(inputUsername) && lengthValid(values.password, 1, 20)) {
             signIn({
                 username: inputUsername,
                 password: values.password
             }).then(r => {
-                    setNickname(`${values.username}`)
+                    setNickname(`${inputUsername}`)
                     if (r.isSignedIn) {
                         message.success(`'欢迎您!'${inputUsername}`)
                         setIsModalOpen(false)
@@ -63,7 +76,10 @@ function LoginPage() {
     return (
         <span>
             {nickname ?
-                <span>欢迎您 {nickname}!&nbsp;<Button type="primary" onClick={GlobalSignOut}> 注销 </Button></span> :
+                <span>
+                    欢迎您 <Link href="/biography">{nickname}</Link>!&nbsp;&nbsp;
+                    <Button type="primary" onClick={GlobalSignOut}> 注销 </Button>
+                </span> :
                 <Button type="primary" onClick={showLoginModal}>登录</Button>}
 
             <Modal title="登录你的 UWCSSA 账号" open={isModalOpen} onCancel={handleCancel}
@@ -73,17 +89,6 @@ function LoginPage() {
                        // </Button>,
                    ]}
             >
-                {/* <Authenticator> */}
-                {/*     {({ */}
-                {/*         signOut, */}
-                {/*         user */}
-                {/*     }) => ( */}
-                {/*         <main> */}
-                {/*             <h1>Hello {user ? user.username : '未登录'}</h1> */}
-                {/*             <Button onClick={signOut}>Sign out</Button> */}
-                {/*         </main> */}
-                {/*     )} */}
-                {/* </Authenticator> */}
                 <Form
                     name="login"
                     form={form}

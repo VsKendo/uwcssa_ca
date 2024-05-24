@@ -7,7 +7,7 @@ export default function ForumsHeader() {
         // textAlign: 'center',
         backgroundColor: 'rgba(255,204,204,0.3)',
         width: 'auto',
-        height: '25vh'
+        // height: '25vh'
     }
     const hoverContent13 = {
         'title': '进入“二手物品: 旧物斋坊”指南',
@@ -48,10 +48,10 @@ export default function ForumsHeader() {
     return (
         <Row gutter={24} style={{
             marginLeft: '1.7%',
-            marginRight: '1.7%'
+            marginRight: '1.7%',
         }}>
             <Col span={6}>
-                <Card title="必看：版面公告" bordered={false} style={cardStyle}>
+                <Card size="small" title="必看：版面公告" bordered={false} style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent11}
                                      linkUrl="/forums/thread"
                                      linkContent="1.论坛版规（违规者封号）"
@@ -71,7 +71,7 @@ export default function ForumsHeader() {
                 </Card>
             </Col>
             <Col span={6}>
-                <Card title="新鲜出炉" extra={<Button type="text">More</Button>} bordered={false}
+                <Card title="新鲜出炉" size="small" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent12}
                                      linkUrl="/forums/thread"
@@ -88,7 +88,7 @@ export default function ForumsHeader() {
                 </Card>
             </Col>
             <Col span={6}>
-                <Card title="人气热门" extra={<Button type="text">More</Button>} bordered={false}
+                <Card title="人气热门" size="small" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent21}
                                      linkUrl="/forums/thread"
@@ -101,7 +101,7 @@ export default function ForumsHeader() {
                 </Card>
             </Col>
             <Col span={6}>
-                <Card title="精华采撷" extra={<Button type="text">More</Button>} bordered={false}
+                <Card title="精华采撷" size="small" extra={<Button type="text">More</Button>} bordered={false}
                       style={cardStyle}>
                     <ThreadShortLink hoverContent={hoverContent11}
                                      linkUrl="/forums/thread"

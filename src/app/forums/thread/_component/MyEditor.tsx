@@ -7,7 +7,7 @@ import { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
 
 
 function MyEditor() {
-    
+
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
     // const [editor, setEditor] = useState(null)                   // JS 语法
@@ -18,7 +18,7 @@ function MyEditor() {
     // 模拟 ajax 请求，异步设置 html
     useEffect(() => {
         setTimeout(() => {
-            setHtml('<p>hello world</p>')
+            setHtml('<p>input here</p>')
         }, 1500)
     }, [])
 

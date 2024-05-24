@@ -34,17 +34,17 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
                             </Button>
                         </Col>
                         <Divider style={{marginTop: '1.4rem'}} type="vertical"/>
-                        <Col span={15} style={{
+                        <Col span={12} style={{
                             marginLeft: '2%',
                             marginTop: '0.7rem',
-                            marginBottom: '0.7rem'
+                            marginBottom: '0.7rem',
                         }}>
                             <Button type="text" href="/forums/thread">
                                 {item.title}
                             </Button>
                         </Col>
                         <Divider style={{marginTop: '1.4rem'}} type="vertical"/>
-                        <Col style={{marginLeft: '7.5%'}}>
+                        <Col style={{marginLeft: '20%'}}>
                             <div style={{marginTop: '2%'}}>
                                 {item.time} <br/>
                                 <Button type="text">

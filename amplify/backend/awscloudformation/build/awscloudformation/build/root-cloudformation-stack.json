@@ -206,6 +206,20 @@
         }
       }
     },
+    "apiuwcssaca": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-uwcssaca-dev-a81b4-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "Parameters": {
+          "AppSyncApiName": "uwcssaca",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "S3DeploymentBucket": "amplify-uwcssaca-dev-a81b4-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/3b23ed4c81ba6105011ae14f1a277c7e5b7c47c4",
+          "env": "dev"
+        }
+      }
+    },
     "UpdateRolesWithIDPFunction": {
       "DependsOn": [
         "AuthRole",

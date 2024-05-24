@@ -34,7 +34,7 @@ function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="zh-CN">
         <body className={inter.className}>
-        <Layout style={{height: '100vh'}}>
+        <Layout style={{height: '100%'}}>
             <Header/>
             <StyledComponentsRegistry>
                 {children}
