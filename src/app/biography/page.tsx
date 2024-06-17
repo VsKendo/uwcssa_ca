@@ -9,6 +9,8 @@ import {
     ProfileOutlined,
     TrophyOutlined,
 } from '@ant-design/icons'
+import {createTodo, updateTodo, deleteTodo} from '@/graphql/mutations'
+import {listTodos} from '@/graphql/queries'
 import type {MenuProps} from 'antd'
 import BioContent from '@/app/biography/_component/BioContent'
 import {Username} from '@/lib/storeConstant'
@@ -69,7 +71,12 @@ export default function Biography() {
                 <Menu selectedKeys={['mail']} mode="horizontal" items={items}/>
             </div>
             <Card title="消息列表"
-                  style={{marginTop: '0.35%', marginLeft: '7.71%', marginRight: '7.71%', marginBottom: '1.2%'}}>
+                  style={{
+                      marginTop: '0.35%',
+                      marginLeft: '7.71%',
+                      marginRight: '7.71%',
+                      marginBottom: '1.2%'
+                  }}>
                 <BioContent title="测试数据1-帖子标题: 欢迎您登录"
                             date="这是测试数据，如果你看到这里，说明您成功登录了 uwcssa 网站。在我们开放论坛功能后，您便可以使用了。"
                             link="https://google.com"

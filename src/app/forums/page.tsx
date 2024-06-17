@@ -36,7 +36,7 @@ export default function ForumsIndex() {
                 padding: '1.7%'
             }}>
                 <p>
-                    <b>欢迎来到温莎论坛“一叶枫声”测试版面</b>
+                    <b>欢迎来到温莎论坛“一声枫叶”测试版面</b>
                 </p>
                 <p>
                     现在本论坛正在测试阶段，效果仅供参考
@@ -50,7 +50,7 @@ export default function ForumsIndex() {
                 </p>
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Button style={{width: '200px', marginTop: '1%'}} type="primary" href="/register">
-                        点击申请测试资格
+                        点击申请UWCSSA账号
                     </Button>
                 </div>
             </div>
