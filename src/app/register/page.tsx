@@ -16,6 +16,7 @@ import {emailSuffix, isUWinEmail, lengthValid} from '@/lib/stringUtils'
 import {confirmSignUp, signUp} from 'aws-amplify/auth'
 import {useRouter} from 'next/navigation'
 
+
 const {Title} = Typography
 
 type FieldType = {

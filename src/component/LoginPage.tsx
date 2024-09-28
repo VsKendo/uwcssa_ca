@@ -64,7 +64,7 @@ function LoginPage() {
                 messageApi.error('登录失败！用户名或密码错误!')
             })
         } else {
-            messageApi.error('请输入用户名和密码!')
+            messageApi.error('请输入正确的用户名和密码!')
         }
     }
 

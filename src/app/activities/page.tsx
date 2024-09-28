@@ -19,6 +19,14 @@ export default function ActivitiesIndex() {
                 </div>
             </Layout>
             <Layout>
+                <ContentCard title="UWCSSA | 秋季新生见面会"
+                             content="24年8月30日下午2点，UWCSSA约你在 Room 110, Odette building 见面"
+                             imgSrc="2024_autumn_meeting.png"
+                             date="2024.08.15"
+                             tags={['新生见面会', '线下活动']}
+                             link="https://mp.weixin.qq.com/s/lvotyhndeuU5SOZ032TH3A"
+                             bordered={false}/>
+
                 <ContentCard title="UWCSSA| 冬季新生见面会"
                              content="24年1月20日下午2点，UWCSSA约你在 Room 112, Odette building 见面"
                              imgSrc="2024_winter_meeting.jpg"

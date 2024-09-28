@@ -9,8 +9,8 @@ import {
     ProfileOutlined,
     TrophyOutlined,
 } from '@ant-design/icons'
-import {createTodo, updateTodo, deleteTodo} from '@/graphql/mutations'
-import {listTodos} from '@/graphql/queries'
+// import {createTodo, updateTodo, deleteTodo} from '@/graphql/mutations'
+// import {listTodos} from '@/graphql/queries'
 import type {MenuProps} from 'antd'
 import BioContent from '@/app/biography/_component/BioContent'
 import {Username} from '@/lib/storeConstant'
