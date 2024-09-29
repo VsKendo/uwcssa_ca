@@ -1,6 +1,6 @@
 'use client'
 
-import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
+import Icon, {GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
 import type {MenuProps} from 'antd'
 import {Col, Layout, Menu, Row, Tooltip} from 'antd'
 import Link from 'next/link'
@@ -94,51 +94,51 @@ const items: MenuProps['items'] = [
         icon: (<Icon component={ForumsSvg} style={{fontSize: '1.1rem'}}/>),
         style: itemStyle
     },
-    {
-        label: '攻略',
-        key: 'guide',
-        disabled: true,
-        icon: <AppstoreOutlined style={{fontSize: '1.05rem'}}/>,
-        style: itemStyle,
-        children: [
-            {
-                type: 'group',
-                label: '城市游玩',
-                children: [
-                    {
-                        label: 'Windsor',
-                        key: 'city:windsor',
-                    },
-                    {
-                        label: 'Toronto',
-                        key: 'city:toronto',
-                    },
-                ],
-            },
-            {
-                type: 'group',
-                label: '指引攻略',
-                children: [
-                    {
-                        label: '生活指引',
-                        key: 'category:life',
-                    },
-                    {
-                        label: '专业解析',
-                        key: 'category:major',
-                    },
-                    {
-                        label: '入学指引',
-                        key: 'category:admission',
-                    },
-                    {
-                        label: '毕业指引',
-                        key: 'category:graduation',
-                    },
-                ],
-            },
-        ],
-    },
+    // {
+    //     label: '攻略',
+    //     key: 'guide',
+    //     disabled: true,
+    //     icon: <AppstoreOutlined style={{fontSize: '1.05rem'}}/>,
+    //     style: itemStyle,
+    //     children: [
+    //         {
+    //             type: 'group',
+    //             label: '城市游玩',
+    //             children: [
+    //                 {
+    //                     label: 'Windsor',
+    //                     key: 'city:windsor',
+    //                 },
+    //                 {
+    //                     label: 'Toronto',
+    //                     key: 'city:toronto',
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             type: 'group',
+    //             label: '指引攻略',
+    //             children: [
+    //                 {
+    //                     label: '生活指引',
+    //                     key: 'category:life',
+    //                 },
+    //                 {
+    //                     label: '专业解析',
+    //                     key: 'category:major',
+    //                 },
+    //                 {
+    //                     label: '入学指引',
+    //                     key: 'category:admission',
+    //                 },
+    //                 {
+    //                     label: '毕业指引',
+    //                     key: 'category:graduation',
+    //                 },
+    //             ],
+    //         },
+    //     ],
+    // },
     {
         label: (<Link href="/beginner">新生手册</Link>),
         key: 'beginnerMenu',
