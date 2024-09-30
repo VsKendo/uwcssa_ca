@@ -160,7 +160,7 @@ const items: MenuProps['items'] = [
         style: itemStyle,
     },
     {
-        label: (<Tooltip placement="left" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
+        label: (<Tooltip placement="left" trigger="click" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
         key: 'support',
         style: itemStyle,
         icon: (<Icon component={HeartSvg} style={{
