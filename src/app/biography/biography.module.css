@@ -1,3 +1,30 @@
+.background-image {
+  position: relative; /* 使背景图片成为定位的参考点 */
+  height: 13rem;
+  background-image: url('/bio_background.jpg');
+  background-size: cover;
+  margin-left: 7.8%;
+  margin-right: 7.8%;
+  margin-top: 1.5%;
+}
+
+.user-info {
+  position: absolute; /* 绝对定位到 background-image 内 */
+  bottom: 0; /* 相对于 background-image 的底部 */
+  left: 1%; /* 靠左 */
+  display: flex;
+  align-items: center;
+  padding: 1rem; /* 给头像和用户名添加适当的内边距 */
+}
+
+.user-image {
+  width: 80px; /* 控制头像大小 */
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%; /* 使头像为圆形 */
+}
+
+
 .background {
   position: relative;
   /* padding: 5%; */
@@ -15,32 +42,6 @@
 }
 
 
-.background-image {
-  /* width: 80%; */
-  height: 12rem;
-  object-fit: cover;
-  background-image: url('/bio_background.jpg');
-  background-size: cover;
-  margin-left: 7.8%;
-  margin-right: 7.8%;
-}
-
-.user-image {
-  width: 20%;
-  object-fit: cover;
-  /*background-image: url('./_component/user_image.jpg');*/
-  background-size: cover;
-  margin-left: 3%;
-}
-
-.user-info {
-  margin-left: 2%;
-  width: 60%;
-  padding-top: 8%;
-  display: flex;
-  align-items: center;
-}
-
 .username {
   color: white;
   margin-left:3%;
@@ -50,7 +51,9 @@
   letter-spacing: 0.05em;
 }
 
+
 .edit_button {
-  margin-left:9.7%;
-  margin-top: -1.6%;
+  position: absolute; /* 将按钮绝对定位 */
+  bottom: 7%; /* 距离 background-image 底部 1.6% */
+  margin-left: 10rem;
 }
