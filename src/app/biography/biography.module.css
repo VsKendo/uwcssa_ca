@@ -18,8 +18,8 @@
 }
 
 .user-image {
-  width: 80px; /* 控制头像大小 */
-  height: 80px;
+  max-width: 9%; /* 确保不会超过容器宽度 */
+  max-height: 9%; /* 确保不会超过容器高度 */
   object-fit: cover;
   border-radius: 50%; /* 使头像为圆形 */
 }
@@ -27,7 +27,6 @@
 
 .background {
   position: relative;
-  /* padding: 5%; */
   display: flex;
 }
 
@@ -55,5 +54,5 @@
 .edit_button {
   position: absolute; /* 将按钮绝对定位 */
   bottom: 7%; /* 距离 background-image 底部 1.6% */
-  margin-left: 10rem;
+  margin-left: 8.5rem;
 }
