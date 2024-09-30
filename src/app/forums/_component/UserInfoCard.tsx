@@ -24,7 +24,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ avatar, username, role, lev
         <h4>徽章:</h4>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
         {badges.map((badge, index) => {
-  console.log(badge); // 检查 badge 是否包含正确的 URL
+  // console.log(badge); // 检查 badge 是否包含正确的 URL
   return (
     <Badge key={index} dot>
       <img src={badge} alt="badge" style={{ width: 30 }} />
