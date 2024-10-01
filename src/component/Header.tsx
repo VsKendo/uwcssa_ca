@@ -4,7 +4,7 @@ import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} fro
 import type {MenuProps} from 'antd'
 import {Col, Layout, Menu, Row, Tooltip} from 'antd'
 import Link from 'next/link'
-import React, { useState }  from 'react'
+import React, { useState,useRef }  from 'react'
 import FallbackImage from '@/component/FallbackImage'
 import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
@@ -193,11 +193,18 @@ const items: MenuProps['items'] = [
 // 使用函数声明定义组件，避免 ESLint 报错
 function SupportTooltip() {
     const [visible, setVisible] = useState(false)
+    const timeoutRef = useRef<number | null>(null) // 使用 ref 保存 timeoutId
 
     const handleClick = () => {
         setVisible(true)
-        // 2秒后自动隐藏
-        setTimeout(() => {
+
+        // 如果之前有定时器，清除它
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+
+        // 设置一个新的 2 秒定时器
+        timeoutRef.current = window.setTimeout(() => {
             setVisible(false)
         }, 2000)
     }
