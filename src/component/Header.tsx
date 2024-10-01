@@ -4,7 +4,7 @@ import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} fro
 import type {MenuProps} from 'antd'
 import {Col, Layout, Menu, Row, Tooltip} from 'antd'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState }  from 'react'
 import FallbackImage from '@/component/FallbackImage'
 import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
@@ -160,7 +160,9 @@ const items: MenuProps['items'] = [
         style: itemStyle,
     },
     {
-        label: (<Tooltip placement="left" trigger="click" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
+        label: (
+            <SupportTooltip/>
+        ),
         key: 'support',
         style: itemStyle,
         icon: (<Icon component={HeartSvg} style={{
@@ -188,6 +190,30 @@ const items: MenuProps['items'] = [
         key: 'github',
     },
 ]
+// 使用函数声明定义组件，避免 ESLint 报错
+function SupportTooltip() {
+    const [visible, setVisible] = useState(false)
+
+    const handleClick = () => {
+        setVisible(true)
+        // 2秒后自动隐藏
+        setTimeout(() => {
+            setVisible(false)
+        }, 2000)
+    }
+
+    return (
+        <Tooltip
+            title="在转账备注中写上姓名，我们会将您的名字放入感谢列表"
+            placement="left"
+            trigger="click" // 点击触发 Tooltip
+            visible={visible}
+            onVisibleChange={setVisible}
+        >
+            <span onClick={handleClick} >支持我们</span>
+        </Tooltip>
+    )
+}
 
 const MenuUnderLine = {
     background: 'white',
