@@ -2,9 +2,9 @@
 
 import Icon, {AppstoreOutlined, GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
 import type {MenuProps} from 'antd'
-import {Col, Layout, Menu, Row, Tooltip} from 'antd'
+import {Col, Layout, Menu, Row, message} from 'antd'
 import Link from 'next/link'
-import React, { useState,useRef }  from 'react'
+import React from 'react'
 import FallbackImage from '@/component/FallbackImage'
 import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
@@ -161,7 +161,12 @@ const items: MenuProps['items'] = [
     },
     {
         label: (
-            <SupportTooltip/>
+            <span
+                onClick={() => message.info('在转账备注中写上姓名，我们会将您的名字放入感谢列表', 2)}
+                style={{cursor: 'pointer'}}
+            >
+                支持我们
+            </span>
         ),
         key: 'support',
         style: itemStyle,
@@ -190,37 +195,6 @@ const items: MenuProps['items'] = [
         key: 'github',
     },
 ]
-// 使用函数声明定义组件，避免 ESLint 报错
-function SupportTooltip() {
-    const [visible, setVisible] = useState(false)
-    const timeoutRef = useRef<number | null>(null) // 使用 ref 保存 timeoutId
-
-    const handleClick = () => {
-        setVisible(true)
-
-        // 如果之前有定时器，清除它
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current)
-        }
-
-        // 设置一个新的 2 秒定时器
-        timeoutRef.current = window.setTimeout(() => {
-            setVisible(false)
-        }, 2000)
-    }
-
-    return (
-        <Tooltip
-            title="在转账备注中写上姓名，我们会将您的名字放入感谢列表"
-            placement="left"
-            trigger="click" // 点击触发 Tooltip
-            visible={visible}
-            onVisibleChange={setVisible}
-        >
-            <span onClick={handleClick} >支持我们</span>
-        </Tooltip>
-    )
-}
 
 const MenuUnderLine = {
     background: 'white',
