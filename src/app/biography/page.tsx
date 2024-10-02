@@ -54,11 +54,12 @@ export default function Biography() {
         <div className={styles.Background}>
             <div className={styles['background-image']}>
                 <div className={styles['user-info']}>
-                    {/* <Avatar icon={<Us""erOutlined />} size="large"/> */}
-                    <Image width="10%"
-                           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"/>
+                    <Image className={styles['user-image']} 
+                        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" 
+                        alt="User Avatar" />
                     <p className={styles.username}>{nickname}</p>
                 </div>
+
                 <div className={styles.edit_button}>
                     <Button icon={<EditOutlined/>} type="dashed" size="small">
                         编辑资料
