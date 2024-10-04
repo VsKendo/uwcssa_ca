@@ -5,7 +5,7 @@ import {Amplify} from 'aws-amplify'
 import {getCurrentUser, signIn, signOut} from 'aws-amplify/auth'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
-import {Username} from '@/lib/storeConstant'
+import {USERNAME} from '@/lib/storeConstant'
 import awsconfig from '../aws-exports'
 
 type FieldType = {
@@ -30,7 +30,7 @@ function LoginPage() {
         })
     }, [])
     useEffect(() => {
-        localStorage.setItem(Username, nickname)
+        localStorage.setItem(USERNAME, nickname)
     }, [nickname])
     const [form] = Form.useForm()
     const [isModalOpen, setIsModalOpen] = useState(false)

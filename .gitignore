@@ -40,6 +40,9 @@ next-env.d.ts
 # vscode
 .vscode
 
+# lock file of YARN
+yarn.lock
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*

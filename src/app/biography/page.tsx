@@ -13,7 +13,7 @@ import {
 // import {listTodos} from '@/graphql/queries'
 import type {MenuProps} from 'antd'
 import BioContent from '@/app/biography/_component/BioContent'
-import {Username} from '@/lib/storeConstant'
+import {USERNAME} from '@/lib/storeConstant'
 import {getOrDefault} from '@/lib/stringUtils'
 import styles from './biography.module.css'
 
@@ -47,15 +47,15 @@ const items: MenuProps['items'] = [
 export default function Biography() {
     const [nickname, setNickname] = useState('')
     useEffect(() => {
-        const storedData = getOrDefault(localStorage.getItem(Username))
+        const storedData = getOrDefault(localStorage.getItem(USERNAME))
         setNickname(storedData)
     }, [])
     return (
         <div className={styles.Background}>
             <div className={styles['background-image']}>
                 <div className={styles['user-info']}>
-                    <Image className={styles['user-image']} 
-                        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" 
+                    <Image className={styles['user-image']}
+                        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                         alt="User Avatar" />
                     <p className={styles.username}>{nickname}</p>
                 </div>
