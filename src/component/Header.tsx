@@ -2,7 +2,7 @@
 
 import Icon, {GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
 import type {MenuProps} from 'antd'
-import {Col, Layout, Menu, Row, Tooltip} from 'antd'
+import {Col, Layout, Menu, Row, message} from 'antd'
 import Link from 'next/link'
 import React from 'react'
 import FallbackImage from '@/component/FallbackImage'
@@ -146,7 +146,14 @@ const items: MenuProps['items'] = [
         style: itemStyle,
     },
     {
-        label: (<Tooltip placement="left" title="在转账备注中写上姓名，我们会将您的名字放入感谢列表">支持我们</Tooltip>),
+        label: (
+            <span
+                onClick={() => message.info('在转账备注中写上姓名，我们会将您的名字放入感谢列表', 2)}
+                style={{cursor: 'pointer'}}
+            >
+                支持我们
+            </span>
+        ),
         key: 'support',
         style: itemStyle,
         icon: (<Icon component={HeartSvg} style={{
