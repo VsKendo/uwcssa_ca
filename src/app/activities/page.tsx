@@ -28,6 +28,8 @@ export default function ActivitiesIndex() {
                              bordered={false}/>
 
 
+
+
                 <ContentCard title="UWCSSA| 广寒游 中秋活动"
                              content="9月30日下午2点，UWCSSA邀你一同参与中秋节活动"
                              imgSrc="2023_mid_autumn.jpg"
