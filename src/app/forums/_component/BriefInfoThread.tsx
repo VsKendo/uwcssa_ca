@@ -1,8 +1,14 @@
 import React from 'react'
-import {Button, Col, Divider, Row} from 'antd'
+import {Button, Col, Divider, Row, Popover} from 'antd'
+import {BriefInfo} from '@/lib/types'
+import UserInfoCard from './UserInfoCard'
 
-export default function BriefInfoThread(props: React.PropsWithChildren<Record<string, any>>) {
-    const {infoList}: { [p: string]: any; children?: React.ReactNode | undefined } = {...props}
+interface BriefInfoThreadProps {
+    infoList: BriefInfo[];
+}
+
+export default function BriefInfoThread(props: React.PropsWithChildren<BriefInfoThreadProps>) {
+    const {infoList} = props
 
     const styleList: React.CSSProperties[] = [{
         marginLeft: '2.5%',
@@ -13,12 +19,14 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
         marginRight: '2.5%',
         backgroundColor: 'rgba(255,0,51,0.15)'
     }]
+
     for (let i = 1; i <= infoList.length; i += 1) {
         infoList[i - 1].key = i
     }
+
     return (
         <div style={{marginBottom: 10}}>
-            {infoList.map((item: { key: number, title: string, time: string, author: string }) => (
+            {infoList.map((item: BriefInfo) => (
                     <Row key={item.key} style={styleList[item.key % 2]}>
                         <Col span={2} style={{
                             marginRight: '2%',
@@ -39,7 +47,7 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
                             marginTop: '0.7rem',
                             marginBottom: '0.7rem',
                         }}>
-                            <Button type="text" href="/forums/thread">
+                            <Button type="text" href={item.url}>
                                 {item.title}
                             </Button>
                         </Col>
@@ -47,9 +55,22 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
                         <Col style={{marginLeft: '20%'}}>
                             <div style={{marginTop: '2%'}}>
                                 {item.time} <br/>
-                                <Button type="text">
-                                    {item.author}
-                                </Button>
+                                <Popover
+                                    content={<UserInfoCard
+                                        avatar={item.userCard.avatar}
+                                        username={item.userCard.username}
+                                        role={item.userCard.role}
+                                        level={item.userCard.level}
+                                        badges={item.userCard.badges}
+                                    />}
+                                    title="用户信息"
+                                    trigger="hover"
+                                    placement="leftBottom"
+                                >
+                                    <Button type="text">
+                                        {item.author}
+                                    </Button>
+                                </Popover>
                             </div>
                         </Col>
                     </Row>
@@ -57,5 +78,4 @@ export default function BriefInfoThread(props: React.PropsWithChildren<Record<st
             )}
         </div>
     )
-
 }

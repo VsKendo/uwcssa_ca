@@ -32,7 +32,7 @@ const Home = function Home() {
                 backgroundColor: 'white',
             }}>
             <Alert
-                message="温莎大学的学子可以使用 @uwindsor.ca 邮箱申请注册论坛“一叶枫声”的账号了！"
+                message="温莎大学的学子可以使用 @uwindsor.ca 邮箱申请注册论坛“一声枫叶”的账号了！"
                 type="success"
                 closable
                 showIcon
