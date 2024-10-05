@@ -110,6 +110,53 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain"
     },
+    "DeploymentBucketBlockHTTP": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "DeploymentBucketName"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "DeploymentBucketName"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "DeploymentBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": false
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     "AuthRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -149,6 +196,32 @@
         },
         "RoleName": {
           "Ref": "UnauthRoleName"
+        }
+      }
+    },
+    "apiuwcssaca": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-uwcssaca-dev-a81b4-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "Parameters": {
+          "AppSyncApiName": "uwcssaca",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "AuthCognitoUserPoolId": {
+            "Fn::GetAtt": [
+              "authuwcssaca81ee905f",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "S3DeploymentBucket": "amplify-uwcssaca-dev-a81b4-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/1b86ad20804eaecd312f3fc3b3a7796b1432ce05",
+          "env": "dev"
         }
       }
     },
@@ -202,20 +275,6 @@
           },
           "breakCircularDependency": true,
           "dependsOn": "",
-          "env": "dev"
-        }
-      }
-    },
-    "apiuwcssaca": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-uwcssaca-dev-a81b4-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-        "Parameters": {
-          "AppSyncApiName": "uwcssaca",
-          "DynamoDBBillingMode": "PAY_PER_REQUEST",
-          "DynamoDBEnableServerSideEncryption": false,
-          "S3DeploymentBucket": "amplify-uwcssaca-dev-a81b4-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/3b23ed4c81ba6105011ae14f1a277c7e5b7c47c4",
           "env": "dev"
         }
       }
