@@ -1,14 +1,14 @@
 'use client'
 
 import Icon, {GithubOutlined, HomeOutlined, SmileOutlined} from '@ant-design/icons'
-import type {MenuProps} from 'antd'
-import {Col, Layout, Menu, Row, message} from 'antd'
+import {Button, MenuProps, notification, Col, Layout, Menu, Row} from 'antd'
 import Link from 'next/link'
 import React from 'react'
 import FallbackImage from '@/component/FallbackImage'
 import {Authenticator} from '@aws-amplify/ui-react'
 import {Amplify} from 'aws-amplify'
 import LoginPage from '@/component/LoginPage'
+import {NOTIFICATION_TYPES} from '@/lib/types'
 import awsconfig from '../aws-exports'
 
 Amplify.configure(awsconfig)
@@ -147,12 +147,18 @@ const items: MenuProps['items'] = [
     },
     {
         label: (
-            <span
-                onClick={() => message.info('在转账备注中写上姓名，我们会将您的名字放入感谢列表', 2)}
-                style={{cursor: 'pointer'}}
+            <Button type="text"
+                    onClick={() => {
+                        notification[NOTIFICATION_TYPES.SUCCESS]({
+                            message: '感谢您的支持',
+                            description:
+                                '您可以在转账备注中写上姓名，我们会将它放入感谢列表.',
+                        })
+                    }}
+                    style={{cursor: 'pointer'}}
             >
                 支持我们
-            </span>
+            </Button>
         ),
         key: 'support',
         style: itemStyle,
