@@ -38,7 +38,6 @@ type Thread @model @auth(rules: [{ allow: private }]) {
 type ThreadGroup @model @auth(rules: [{ allow: private }]) {
   group_id: ID!
   group_name: String!
-  group_manager: Account @belongsTo
   group_threads: [Thread] @hasMany
   threads_num: Int
   introduction: String
