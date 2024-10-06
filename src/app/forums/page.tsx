@@ -3,6 +3,7 @@ import React from 'react'
 import BriefInfoThread from '@/app/forums/_component/BriefInfoThread'
 import ForumsHeader from '@/app/forums/_component/ForumsHeader'
 import {BriefInfo} from '@/lib/types'
+import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 export default function ForumsIndex() {
     const briefInfoList: BriefInfo[] = [
@@ -11,7 +12,7 @@ export default function ForumsIndex() {
             'title': '统计一下大家晚上几点睡',
             'author': 'before_sunset',
             'time': '2023-10-31 00:51:04',
-            'url': '/1',
+            'url': '/forums/thread/',
             'userCard': {
                 'avatar': '2023_mid_autumn.jpg',
                 'username': 'before_sunset',

@@ -3,19 +3,8 @@
 import React from 'react'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import {Avatar, Card, Col, Row, Divider, Button} from 'antd'
-import {
-    MessageOutlined,
-    LikeOutlined,
-} from '@ant-design/icons'
-
+import {MessageOutlined, LikeOutlined,} from '@ant-design/icons'
 import dynamic from 'next/dynamic'
-import {Editor} from '@wangeditor/editor-for-react'
-import {IEditorConfig} from '@wangeditor/editor'
-
-const MyEditor = dynamic(
-    () => import('@/app/forums/thread/_component/MyEditor'),
-    {ssr: false}
-)
 
 export default function PostDetail(props: React.PropsWithChildren<Record<string, any>>) {
     const {infoList}: { [p: string]: any; children?: React.ReactNode | undefined } = {...props}
@@ -27,10 +16,14 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
         minHeight: '100vh', // Ensure it covers the full height of the viewport
         padding: '20px', // Optional: add some padding around the content
     }
-    // editor配置
-    const editorConfig: Partial<IEditorConfig> = {
-        readOnly: true
-    }
+    const ThreadEditor = dynamic(
+        () => import('@/app/forums/thread/_component/MyEditor'),
+        {ssr: false}
+    )
+    const CommentDisplayer = dynamic(
+        () => import('@/app/forums/thread/_component/CommentDisplayer'),
+        {ssr: false}
+    )
     return (
         <div style={pageStyle}>
             {infoList.map((item: { key: number, title: string, context: string, time: string, author: string }) => (
@@ -53,17 +46,11 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
                                     src="/favicon.ico"
                                 />
                             </Row>
-
                         </Col>
                         <Col span={20}>
                             <h3>{item.title}</h3>
                             <Divider style={{margin: '10px'}}/>
-                            <Editor
-                                defaultConfig={editorConfig}
-                                value={item.context}
-                                mode="readonly"
-                                style={{height: '300px', overflowY: 'hidden'}}
-                            />
+                            <CommentDisplayer value={item.context}/>
                             <p>发布于 {item.time}</p>
                         </Col>
                     </Row>
@@ -71,7 +58,7 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
 
             ))}
             <div>
-                <MyEditor/>
+                <ThreadEditor/>
             </div>
 
         </div>

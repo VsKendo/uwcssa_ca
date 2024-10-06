@@ -1,21 +1,25 @@
 'use client'
 
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Editor, Toolbar} from '@wangeditor/editor-for-react'
 import {IDomEditor, IEditorConfig, IToolbarConfig} from '@wangeditor/editor'
 import {Button, Modal} from 'antd'
 
-
-function MyEditor() {
+export default function MyEditor() {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)
+    useEffect(() => () => {
+        if (editor == null) return
+        editor.destroy()
+        setEditor(null)
+    }, [editor])
     // 编辑器内容
     const [html, setHtml] = useState('')
-    // const html = ''
     // 工具栏配置
     const toolbarConfig: Partial<IToolbarConfig> = {}
-    toolbarConfig.excludeKeys = ['group-image', 'group-video', 'fullScreen', 'insertLink', 'todo']
+    toolbarConfig.excludeKeys = ['group-image', 'group-video', 'fullScreen', 'insertLink', 'insertTable', 'todo',
+        'bulletedList', 'numberedList']
     // 编辑器配置
     const editorConfig: Partial<IEditorConfig> = {
         placeholder: '请输入内容...',
@@ -63,6 +67,7 @@ function MyEditor() {
 
     const onFinished = () => {
         if (editor) {
+            // console.log(editor.getAllMenuKeys())
             // if (editor.getText().trim())
             //     console.log(editor.getHtml())
             // else
@@ -86,13 +91,12 @@ function MyEditor() {
                         getHtml: () => React.SetStateAction<string>
                     }) => setHtml(newEditor.getHtml())}
                     mode="default"
-                    style={{minHeight: '100%', height: '300px', overflowY: 'hidden'}}
+                    style={{minHeight: '100%', height: '400px', overflowY: 'hidden'}}
                 />
             </div>
-            <Button type='primary' style={{marginTop: '0.5rem', marginRight: '1rem'}} onClick={onFinished}>发表</Button>
+            <Button type='primary' style={{marginTop: '0.5rem', marginRight: '1rem'}}
+                    onClick={onFinished}>发表</Button>
             <Button type='text' style={{marginTop: '0.5rem'}} onClick={() => editor?.clear()}>清空</Button>
         </div>
     )
 }
-
-export default MyEditor
