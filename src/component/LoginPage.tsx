@@ -8,6 +8,7 @@ import {useRouter} from 'next/navigation'
 import {USERNAME} from '@/lib/storeConstant'
 import awsconfig from '../aws-exports'
 
+
 type FieldType = {
     username?: string;
     password?: string;
@@ -60,8 +61,29 @@ function LoginPage() {
                         messageApi.error('登录失败！账号状态异常！请联系管理员')
                     }
                 }
-            ).catch(() => {
-                messageApi.error('登录失败！用户名或密码错误!')
+            ).catch((error) => {
+                console.log('登录失败，错误详情:', error)
+                if (error.name === 'UserNotConfirmedException') {
+                    Modal.error({
+                        title: '账号未确认',
+                        content: '您的账户尚未确认，请检查您的邮箱并完成验证。',
+                        okText: '确定',
+                    });
+                } else if (error.name === 'NotAuthorizedException') {
+                    Modal.error({
+                        title: '登录失败',
+                        content: '您的账户已被禁止登录，请联系管理员。',
+                        okText: '确定',
+                    });
+                } else if (error.name === 'UserNotFoundException') {
+                    Modal.error({
+                        title: '用户不存在',
+                        content: '该用户名未注册，请检查后重新输入或注册一个新账号。',
+                        okText: '确定',
+                    });
+                } else {
+                    messageApi.error(`登录失败！错误类型: ${error.name}, 错误信息: ${error.message}`);
+                }
             })
         } else {
             messageApi.error('请输入正确的用户名和密码!')
