@@ -7,8 +7,8 @@ import type {MenuProps} from 'antd'
 import SchoolContact from '@/app/beginner/_component/SchoolContact'
 import BuildingCode from '@/app/beginner/_component/BuildingCode'
 import WelcomePage from '@/app/beginner/_component/WelcomePage'
+import LicenceSkills from '@/app/beginner/_component/LicenceSkills'
 import MedicalInsurance from '@/app/beginner/_component/MedicalInsurance'
-
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -43,7 +43,7 @@ const items: MenuProps['items'] = [
 
     getItem('交通', 'sub4', <SettingOutlined/>, []),
 
-    getItem('Tips', 'grp', null, [getItem('申请SIN', '13'), getItem('退税', '14'), getItem('医疗保险', '15')], 'group'),
+    getItem('Tips', 'grp', null, [getItem('申请SIN', '13'), getItem('退税', '14'), getItem('医疗保险', '15'), getItem('驾照考取攻略', '16')], 'group'),
 ]
 
 export default function BeginnerIndex() {
@@ -59,6 +59,8 @@ export default function BeginnerIndex() {
                 return <BuildingCode/>
             case '15':
                 return <MedicalInsurance/>
+            case '16':
+                return <LicenceSkills/>
             default:
                 return <WelcomePage/>
         }
