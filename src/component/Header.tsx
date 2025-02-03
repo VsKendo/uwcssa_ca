@@ -140,7 +140,7 @@ const items: MenuProps['items'] = [
     //     ],
     // },
     {
-        label: (<Link href="/beginner">新生手册</Link>),
+        label: (<Link href="/beginner" style={{padding: 0,marginLeft: '-2px'}}>新生手册</Link>),
         key: 'beginnerMenu',
         icon: <SmileOutlined style={{fontSize: '1.05rem'}} href="./beginner"/>,
         style: itemStyle,
@@ -155,7 +155,7 @@ const items: MenuProps['items'] = [
                                 '您可以在转账备注中写上姓名，我们会将它放入感谢列表.',
                         })
                     }}
-                    style={{cursor: 'pointer'}}
+                    style={{cursor: 'pointer',padding: 0,marginLeft: '-5px'}}
             >
                 支持我们
             </Button>
