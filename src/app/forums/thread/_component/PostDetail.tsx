@@ -2,7 +2,7 @@
 
 import React from 'react'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
-import {Avatar, Card, Col, Row, Divider, Button} from 'antd'
+import {Avatar, Card, Col, Row, Divider, Button,Typography} from 'antd'
 import {MessageOutlined, LikeOutlined,} from '@ant-design/icons'
 import dynamic from 'next/dynamic'
 
@@ -48,7 +48,15 @@ export default function PostDetail(props: React.PropsWithChildren<Record<string,
                             </Row>
                         </Col>
                         <Col span={20}>
-                            <h3>{item.title}</h3>
+                            {/* 使用Row和Col布局，标题和楼层号分为两列 */}
+                            <Row justify="space-between" align="middle">
+                                <Col span={18}> {/* 标题占用更大的空间 */}
+                                    <Typography.Title level={3} style={{margin: 0}}>{item.title}</Typography.Title>
+                                </Col>
+                                <Col span={2} style={{textAlign: 'left'}}> {/* 楼层号稍微靠左一点 */}
+                                    <Typography.Text >#{item.key} 楼</Typography.Text>
+                                </Col>
+                            </Row>
                             <Divider style={{margin: '10px'}}/>
                             <CommentDisplayer value={item.context}/>
                             <p>发布于 {item.time}</p>

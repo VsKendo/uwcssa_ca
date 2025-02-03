@@ -35,6 +35,9 @@ export default function ActivitiesIndex() {
                              link="https://mp.weixin.qq.com/s/dFSHDNuh6m0CyCnO_BBDEw"
                              bordered={false}/>
 
+
+
+
                 <ContentCard title="UWCSSA| 广寒游 中秋活动"
                              content="9月30日下午2点，UWCSSA邀你一同参与中秋节活动"
                              imgSrc="2023_mid_autumn.jpg"

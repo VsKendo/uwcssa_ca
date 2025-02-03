@@ -8,6 +8,7 @@ import SchoolContact from '@/app/beginner/_component/SchoolContact'
 import BuildingCode from '@/app/beginner/_component/BuildingCode'
 import WelcomePage from '@/app/beginner/_component/WelcomePage'
 import LicenceSkills from '@/app/beginner/_component/LicenceSkills'
+import MedicalInsurance from '@/app/beginner/_component/MedicalInsurance'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -52,14 +53,16 @@ export default function BeginnerIndex() {
     }
     const renderContent = () => {
         switch (selectedKey) {
-        case '1':
-            return <SchoolContact/>
-        case '2':
-            return <BuildingCode/>
-        case '16':
-            return <LicenceSkills/>
-        default:
-            return <WelcomePage/>
+            case '1':
+                return <SchoolContact/>
+            case '2':
+                return <BuildingCode/>
+            case '15':
+                return <MedicalInsurance/>
+            case '16':
+                return <LicenceSkills/>
+            default:
+                return <WelcomePage/>
         }
     }
     // const items = [
@@ -79,8 +82,8 @@ export default function BeginnerIndex() {
                 <div style={{padding: '0 50px'}}>
                     <Breadcrumb style={{fontSize: '14px', margin: '16px 0'}}
                                 items={[
-                                    {title: '首页',},
-                                    {title: '新生手册',},
+                                    {title: '首页'},
+                                    {title: '新生手册'},
                                 ]}
                     />
                 </div>
@@ -91,13 +94,12 @@ export default function BeginnerIndex() {
                         defaultOpenKeys={['sub1']}
                         mode="inline"
                         items={items}
-                        style={{maxWidth:'15vw'}}
+                        style={{maxWidth: '15vw'}}
                     />
                     <div style={{flex: 1, padding: '20px', width: '0', flexGrow: 1}}>
                         {renderContent()}
                     </div>
                 </div>
-
             </Layout>
         </Space>
     )
