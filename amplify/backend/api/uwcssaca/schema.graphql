@@ -6,7 +6,7 @@ type Account @model @auth(rules: [{ allow: private }]) {
   account_id: ID!
   username: String!
   nickname: String!
-  password: String!
+  password: String
   uwemail: String!
   role: Int!
   bridges: Int!
@@ -17,6 +17,7 @@ type Account @model @auth(rules: [{ allow: private }]) {
   updated_at: AWSDateTime!
   comments: [Comment] @hasMany
   threads: [Thread] @hasMany
+  has_group: [ThreadGroup] @hasMany
 }
 
 
@@ -38,6 +39,7 @@ type Thread @model @auth(rules: [{ allow: private }]) {
 type ThreadGroup @model @auth(rules: [{ allow: private }]) {
   group_id: ID!
   group_name: String!
+  group_manager: Account @belongsTo
   group_threads: [Thread] @hasMany
   threads_num: Int
   introduction: String
@@ -50,6 +52,7 @@ type Comment @model @auth(rules: [{ allow: private }]) {
   comment_account: Account! @belongsTo
   comment_thread: Thread! @belongsTo
   parent_comment: Comment @belongsTo
+  child_comments: [Comment] @hasMany
   comment_likes: Int
   comment_rank: Int
   is_anonymous_comment: Boolean

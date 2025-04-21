@@ -8,168 +8,497 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const createBlog = /* GraphQL */ `mutation CreateBlog(
-  $input: CreateBlogInput!
-  $condition: ModelBlogConditionInput
+export const createAccount = /* GraphQL */ `mutation CreateAccount(
+  $input: CreateAccountInput!
+  $condition: ModelAccountConditionInput
 ) {
-  createBlog(input: $input, condition: $condition) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateBlogMutationVariables,
-  APITypes.CreateBlogMutation
->;
-export const updateBlog = /* GraphQL */ `mutation UpdateBlog(
-  $input: UpdateBlogInput!
-  $condition: ModelBlogConditionInput
-) {
-  updateBlog(input: $input, condition: $condition) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateBlogMutationVariables,
-  APITypes.UpdateBlogMutation
->;
-export const deleteBlog = /* GraphQL */ `mutation DeleteBlog(
-  $input: DeleteBlogInput!
-  $condition: ModelBlogConditionInput
-) {
-  deleteBlog(input: $input, condition: $condition) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteBlogMutationVariables,
-  APITypes.DeleteBlogMutation
->;
-export const createPost = /* GraphQL */ `mutation CreatePost(
-  $input: CreatePostInput!
-  $condition: ModelPostConditionInput
-) {
-  createPost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+  createAccount(input: $input, condition: $condition) {
+    account_id
+    username
+    nickname
+    password
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
+    created_at
+    updated_at
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.CreatePostMutationVariables,
-  APITypes.CreatePostMutation
+  APITypes.CreateAccountMutationVariables,
+  APITypes.CreateAccountMutation
 >;
-export const updatePost = /* GraphQL */ `mutation UpdatePost(
-  $input: UpdatePostInput!
-  $condition: ModelPostConditionInput
+export const updateAccount = /* GraphQL */ `mutation UpdateAccount(
+  $input: UpdateAccountInput!
+  $condition: ModelAccountConditionInput
 ) {
-  updatePost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+  updateAccount(input: $input, condition: $condition) {
+    account_id
+    username
+    nickname
+    password
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
+    created_at
+    updated_at
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.UpdatePostMutationVariables,
-  APITypes.UpdatePostMutation
+  APITypes.UpdateAccountMutationVariables,
+  APITypes.UpdateAccountMutation
 >;
-export const deletePost = /* GraphQL */ `mutation DeletePost(
-  $input: DeletePostInput!
-  $condition: ModelPostConditionInput
+export const deleteAccount = /* GraphQL */ `mutation DeleteAccount(
+  $input: DeleteAccountInput!
+  $condition: ModelAccountConditionInput
 ) {
-  deletePost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+  deleteAccount(input: $input, condition: $condition) {
+    account_id
+    username
+    nickname
+    password
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
+    created_at
+    updated_at
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.DeletePostMutationVariables,
-  APITypes.DeletePostMutation
+  APITypes.DeleteAccountMutationVariables,
+  APITypes.DeleteAccountMutation
+>;
+export const createThread = /* GraphQL */ `mutation CreateThread(
+  $input: CreateThreadInput!
+  $condition: ModelThreadConditionInput
+) {
+  createThread(input: $input, condition: $condition) {
+    thread_id
+    post_at
+    title
+    content
+    thread_owner {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    id
+    createdAt
+    updatedAt
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateThreadMutationVariables,
+  APITypes.CreateThreadMutation
+>;
+export const updateThread = /* GraphQL */ `mutation UpdateThread(
+  $input: UpdateThreadInput!
+  $condition: ModelThreadConditionInput
+) {
+  updateThread(input: $input, condition: $condition) {
+    thread_id
+    post_at
+    title
+    content
+    thread_owner {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    id
+    createdAt
+    updatedAt
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateThreadMutationVariables,
+  APITypes.UpdateThreadMutation
+>;
+export const deleteThread = /* GraphQL */ `mutation DeleteThread(
+  $input: DeleteThreadInput!
+  $condition: ModelThreadConditionInput
+) {
+  deleteThread(input: $input, condition: $condition) {
+    thread_id
+    post_at
+    title
+    content
+    thread_owner {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    id
+    createdAt
+    updatedAt
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteThreadMutationVariables,
+  APITypes.DeleteThreadMutation
+>;
+export const createThreadGroup = /* GraphQL */ `mutation CreateThreadGroup(
+  $input: CreateThreadGroupInput!
+  $condition: ModelThreadGroupConditionInput
+) {
+  createThreadGroup(input: $input, condition: $condition) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateThreadGroupMutationVariables,
+  APITypes.CreateThreadGroupMutation
+>;
+export const updateThreadGroup = /* GraphQL */ `mutation UpdateThreadGroup(
+  $input: UpdateThreadGroupInput!
+  $condition: ModelThreadGroupConditionInput
+) {
+  updateThreadGroup(input: $input, condition: $condition) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateThreadGroupMutationVariables,
+  APITypes.UpdateThreadGroupMutation
+>;
+export const deleteThreadGroup = /* GraphQL */ `mutation DeleteThreadGroup(
+  $input: DeleteThreadGroupInput!
+  $condition: ModelThreadGroupConditionInput
+) {
+  deleteThreadGroup(input: $input, condition: $condition) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteThreadGroupMutationVariables,
+  APITypes.DeleteThreadGroupMutation
 >;
 export const createComment = /* GraphQL */ `mutation CreateComment(
   $input: CreateCommentInput!
   $condition: ModelCommentConditionInput
 ) {
   createComment(input: $input, condition: $condition) {
-    id
-    post {
+    comment_id
+    comment_content
+    sent_at
+    comment_account {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
-    content
+    comment_thread {
+      thread_id
+      post_at
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      sent_at
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }
@@ -182,19 +511,72 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
   $condition: ModelCommentConditionInput
 ) {
   updateComment(input: $input, condition: $condition) {
-    id
-    post {
+    comment_id
+    comment_content
+    sent_at
+    comment_account {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
-    content
+    comment_thread {
+      thread_id
+      post_at
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      sent_at
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }
@@ -207,19 +589,72 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
   $condition: ModelCommentConditionInput
 ) {
   deleteComment(input: $input, condition: $condition) {
-    id
-    post {
+    comment_id
+    comment_content
+    sent_at
+    comment_account {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      created_at
+      updated_at
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
-    content
+    comment_thread {
+      thread_id
+      post_at
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      sent_at
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }
