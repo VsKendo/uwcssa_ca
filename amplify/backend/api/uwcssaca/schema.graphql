@@ -13,8 +13,6 @@ type Account @model @auth(rules: [{ allow: private }]) {
   wechat_id: String
   google_id: String
   apple_id: String
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
   comments: [Comment] @hasMany
   threads: [Thread] @hasMany
   has_group: [ThreadGroup] @hasMany
@@ -23,7 +21,6 @@ type Account @model @auth(rules: [{ allow: private }]) {
 
 type Thread @model @auth(rules: [{ allow: private }]) {
   thread_id: ID!
-  post_at: AWSDateTime!
   title: String!
   content: String!
   thread_owner: Account! @belongsTo
@@ -48,7 +45,6 @@ type ThreadGroup @model @auth(rules: [{ allow: private }]) {
 type Comment @model @auth(rules: [{ allow: private }]) {
   comment_id: ID!
   comment_content: String!
-  sent_at: AWSDateTime!
   comment_account: Account! @belongsTo
   comment_thread: Thread! @belongsTo
   parent_comment: Comment @belongsTo

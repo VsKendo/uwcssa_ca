@@ -20,8 +20,6 @@ export const getAccount = /* GraphQL */ `query GetAccount($id: ID!) {
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -61,8 +59,6 @@ export const listAccounts = /* GraphQL */ `query ListAccounts(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -79,7 +75,6 @@ export const listAccounts = /* GraphQL */ `query ListAccounts(
 export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
   getThread(id: $id) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -93,8 +88,6 @@ export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -137,7 +130,6 @@ export const listThreads = /* GraphQL */ `query ListThreads(
   listThreads(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -175,8 +167,6 @@ export const getThreadGroup = /* GraphQL */ `query GetThreadGroup($id: ID!) {
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -228,7 +218,6 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
   getComment(id: $id) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -240,8 +229,6 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -249,7 +236,6 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -267,7 +253,6 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment
@@ -308,7 +293,6 @@ export const listComments = /* GraphQL */ `query ListComments(
     items {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment

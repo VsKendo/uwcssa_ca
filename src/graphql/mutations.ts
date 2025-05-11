@@ -23,8 +23,6 @@ export const createAccount = /* GraphQL */ `mutation CreateAccount(
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -62,8 +60,6 @@ export const updateAccount = /* GraphQL */ `mutation UpdateAccount(
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -101,8 +97,6 @@ export const deleteAccount = /* GraphQL */ `mutation DeleteAccount(
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -131,7 +125,6 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
 ) {
   createThread(input: $input, condition: $condition) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -145,8 +138,6 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -190,7 +181,6 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
 ) {
   updateThread(input: $input, condition: $condition) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -204,8 +194,6 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -249,7 +237,6 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
 ) {
   deleteThread(input: $input, condition: $condition) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -263,8 +250,6 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -320,8 +305,6 @@ export const createThreadGroup = /* GraphQL */ `mutation CreateThreadGroup(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -362,8 +345,6 @@ export const updateThreadGroup = /* GraphQL */ `mutation UpdateThreadGroup(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -404,8 +385,6 @@ export const deleteThreadGroup = /* GraphQL */ `mutation DeleteThreadGroup(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -435,7 +414,6 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
   createComment(input: $input, condition: $condition) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -447,8 +425,6 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -456,7 +432,6 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -474,7 +449,6 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment
@@ -513,7 +487,6 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
   updateComment(input: $input, condition: $condition) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -525,8 +498,6 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -534,7 +505,6 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -552,7 +522,6 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment
@@ -591,7 +560,6 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
   deleteComment(input: $input, condition: $condition) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -603,8 +571,6 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -612,7 +578,6 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -630,7 +595,6 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment

@@ -20,8 +20,6 @@ export const onCreateAccount = /* GraphQL */ `subscription OnCreateAccount($filt
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -56,8 +54,6 @@ export const onUpdateAccount = /* GraphQL */ `subscription OnUpdateAccount($filt
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -92,8 +88,6 @@ export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount($filt
     wechat_id
     google_id
     apple_id
-    created_at
-    updated_at
     comments {
       nextToken
       __typename
@@ -119,7 +113,6 @@ export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount($filt
 export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter: ModelSubscriptionThreadFilterInput) {
   onCreateThread(filter: $filter) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -133,8 +126,6 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -175,7 +166,6 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter
 export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter: ModelSubscriptionThreadFilterInput) {
   onUpdateThread(filter: $filter) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -189,8 +179,6 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -231,7 +219,6 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter
 export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter: ModelSubscriptionThreadFilterInput) {
   onDeleteThread(filter: $filter) {
     thread_id
-    post_at
     title
     content
     thread_owner {
@@ -245,8 +232,6 @@ export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -301,8 +286,6 @@ export const onCreateThreadGroup = /* GraphQL */ `subscription OnCreateThreadGro
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -342,8 +325,6 @@ export const onUpdateThreadGroup = /* GraphQL */ `subscription OnUpdateThreadGro
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -383,8 +364,6 @@ export const onDeleteThreadGroup = /* GraphQL */ `subscription OnDeleteThreadGro
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -411,7 +390,6 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
   onCreateComment(filter: $filter) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -423,8 +401,6 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -432,7 +408,6 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -450,7 +425,6 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment
@@ -486,7 +460,6 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
   onUpdateComment(filter: $filter) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -498,8 +471,6 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -507,7 +478,6 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -525,7 +495,6 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment
@@ -561,7 +530,6 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
   onDeleteComment(filter: $filter) {
     comment_id
     comment_content
-    sent_at
     comment_account {
       account_id
       username
@@ -573,8 +541,6 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
       wechat_id
       google_id
       apple_id
-      created_at
-      updated_at
       id
       createdAt
       updatedAt
@@ -582,7 +548,6 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
     }
     comment_thread {
       thread_id
-      post_at
       title
       content
       thread_likes
@@ -600,7 +565,6 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
     parent_comment {
       comment_id
       comment_content
-      sent_at
       comment_likes
       comment_rank
       is_anonymous_comment
