@@ -8,94 +8,275 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
-export const getBlog = /* GraphQL */ `query GetBlog($id: ID!) {
-  getBlog(id: $id) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.GetBlogQueryVariables, APITypes.GetBlogQuery>;
-export const listBlogs = /* GraphQL */ `query ListBlogs(
-  $filter: ModelBlogFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.ListBlogsQueryVariables, APITypes.ListBlogsQuery>;
-export const getPost = /* GraphQL */ `query GetPost($id: ID!) {
-  getPost(id: $id) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+export const getAccount = /* GraphQL */ `query GetAccount($id: ID!) {
+  getAccount(id: $id) {
+    account_id
+    username
+    nickname
+    password
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
-` as GeneratedQuery<APITypes.GetPostQueryVariables, APITypes.GetPostQuery>;
-export const listPosts = /* GraphQL */ `query ListPosts(
-  $filter: ModelPostFilterInput
+` as GeneratedQuery<
+  APITypes.GetAccountQueryVariables,
+  APITypes.GetAccountQuery
+>;
+export const listAccounts = /* GraphQL */ `query ListAccounts(
+  $filter: ModelAccountFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listAccounts(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
     nextToken
     __typename
   }
 }
-` as GeneratedQuery<APITypes.ListPostsQueryVariables, APITypes.ListPostsQuery>;
-export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
-  getComment(id: $id) {
-    id
-    post {
+` as GeneratedQuery<
+  APITypes.ListAccountsQueryVariables,
+  APITypes.ListAccountsQuery
+>;
+export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
+  getThread(id: $id) {
+    thread_id
+    title
+    content
+    thread_owner {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
-    content
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.GetThreadQueryVariables, APITypes.GetThreadQuery>;
+export const listThreads = /* GraphQL */ `query ListThreads(
+  $filter: ModelThreadFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listThreads(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      thread_id
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListThreadsQueryVariables,
+  APITypes.ListThreadsQuery
+>;
+export const getThreadGroup = /* GraphQL */ `query GetThreadGroup($id: ID!) {
+  getThreadGroup(id: $id) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetThreadGroupQueryVariables,
+  APITypes.GetThreadGroupQuery
+>;
+export const listThreadGroups = /* GraphQL */ `query ListThreadGroups(
+  $filter: ModelThreadGroupFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listThreadGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      group_id
+      group_name
+      threads_num
+      introduction
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListThreadGroupsQueryVariables,
+  APITypes.ListThreadGroupsQuery
+>;
+export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
+  getComment(id: $id) {
+    comment_id
+    comment_content
+    comment_account {
+      account_id
+      username
+      nickname
+      password
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    comment_thread {
+      thread_id
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    id
+    createdAt
+    updatedAt
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }
@@ -110,11 +291,17 @@ export const listComments = /* GraphQL */ `query ListComments(
 ) {
   listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      comment_id
+      comment_content
+      comment_likes
+      comment_rank
+      is_anonymous_comment
       id
-      content
       createdAt
       updatedAt
-      postCommentsId
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
       __typename
     }
     nextToken
