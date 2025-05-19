@@ -1,11 +1,58 @@
+'use client'
+
 import {Button, Divider} from 'antd'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import BriefInfoThread from '@/app/forums/_component/BriefInfoThread'
 import ForumsHeader from '@/app/forums/_component/ForumsHeader'
 import {BriefInfo} from '@/lib/types'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
+
+import { GetThreadGroupMainPage } from "@/graphql/get_mainpage_threads";
+
+import { client } from '@/lib/amplifyClient';
+
+
+//thread group id
+const MAIN_SOCIAL_GROUP_ID = "82c68ad3-c19b-4e5c-972d-bd1a2debdec5";
+
+
 export default function ForumsIndex() {
+    const [socialGroupList, setSocialGroupList] = useState<BriefInfo[]>([]);
+
+    useEffect(() => {
+        const fetchThreads = async () => {
+          try {
+            const res: any = await client.graphql({
+              //authMode: 'userPool',
+              query: GetThreadGroupMainPage,
+              variables: { id: MAIN_SOCIAL_GROUP_ID },
+            });
+            console.log(res);
+            const threads = res.data.getThreadGroup?.group_threads?.items ?? [];
+            setSocialGroupList(
+              threads.map((t: any, i: number) => ({
+                key: i + 1,
+                title: t.title,
+                author: t.thread_owner?.nickname ?? "匿名",
+                time: new Date(t.updatedAt).toLocaleString(),
+                url: `/forums/thread/${t.id}`,
+                userCard: {
+                  avatar: "bio_background.jpg",
+                  username: t.thread_owner?.nickname ?? "匿名",
+                  role: "CSSA成员",
+                  level: 1,
+                  badges: [1],
+                },
+              })),
+            );
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        fetchThreads();
+      }, []);
+
     const briefInfoList: BriefInfo[] = [
         {
             'key': 1,
@@ -51,8 +98,15 @@ export default function ForumsIndex() {
         }
     ]
 
+    
+
     // 为每个 item 动态生成 key
     const briefInfoListWithKeys = briefInfoList.map((item, index) => ({
+        ...item,
+        key: index + 1, // 使用索引生成 key，确保 key 是唯一的
+    }))
+
+    const socialGroupListWithKeys = socialGroupList.map((item, index) => ({
         ...item,
         key: index + 1, // 使用索引生成 key，确保 key 是唯一的
     }))
@@ -97,12 +151,15 @@ export default function ForumsIndex() {
                 padding: '20px',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
             }}>
-                <div style={{height: '65vh'}}>
+                <div>
                     <Divider>置顶咨讯</Divider>
                     <ForumsHeader/>
                     <br/>
-                    <Divider>通用板块</Divider>
+                    <Divider><Button>通用板块</Button></Divider>
                     <BriefInfoThread infoList={briefInfoListWithKeys}/>
+                    <br/>
+                    <Divider><Button>江湖杂谈</Button></Divider>
+                    <BriefInfoThread infoList={socialGroupListWithKeys}/>
                 </div>
             </div>
         </div>

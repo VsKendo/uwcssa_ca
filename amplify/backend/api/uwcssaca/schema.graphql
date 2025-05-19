@@ -9,7 +9,7 @@ type Account @model @auth(rules: [{ allow: private }]) {
   password: String
   uwemail: String!
   role: Int!
-  bridges: Int!
+  bridges: [Int]
   wechat_id: String
   google_id: String
   apple_id: String
@@ -28,9 +28,10 @@ type Thread @model @auth(rules: [{ allow: private }]) {
   thread_comments: [Comment] @hasMany
   thread_likes: Int
   thread_rank: Int
-  group_id: ID!
+  group_id: ID
   comments_num: Int
   is_anonymous_thread: Boolean
+  special_tag: [Int]
 }
 
 type ThreadGroup @model @auth(rules: [{ allow: private }]) {

@@ -8,6 +8,9 @@ import Footer from '@/component/Footer'
 import {Layout} from 'antd'
 import StyledComponentsRegistry from '../lib/AntdRegistry'
 
+import ConfigureAmplify from '@/component/ConfigureAmplify';
+
+
 const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
@@ -36,6 +39,7 @@ function RootLayout({children}: { children: React.ReactNode }) {
         <body className={inter.className}>
         <Layout style={{height: '100%'}}>
             <Header/>
+            <ConfigureAmplify /> 
             <StyledComponentsRegistry>
                 {children}
             </StyledComponentsRegistry>
