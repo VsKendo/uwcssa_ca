@@ -113,6 +113,7 @@ export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -137,6 +138,7 @@ export const listThreads = /* GraphQL */ `query ListThreads(
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt
@@ -243,6 +245,7 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt

@@ -151,6 +151,7 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -204,6 +205,7 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -257,6 +259,7 @@ export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -415,6 +418,7 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt
@@ -485,6 +489,7 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt
@@ -555,6 +560,7 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt

@@ -163,6 +163,7 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -219,6 +220,7 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -275,6 +277,7 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
     group_id
     comments_num
     is_anonymous_thread
+    special_tag
     id
     createdAt
     updatedAt
@@ -439,6 +442,7 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt
@@ -512,6 +516,7 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt
@@ -585,6 +590,7 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
       group_id
       comments_num
       is_anonymous_thread
+      special_tag
       id
       createdAt
       updatedAt
