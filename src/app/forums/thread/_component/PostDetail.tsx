@@ -1,3 +1,4 @@
+//src\app\forums\thread\_component\PostDetail.tsx
 'use client'
 
 import React from 'react'

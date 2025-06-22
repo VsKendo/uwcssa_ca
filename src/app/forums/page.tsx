@@ -1,16 +1,16 @@
 'use client'
 
 import {Button, Divider} from 'antd'
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
+import { generateClient } from 'aws-amplify/api';
 import BriefInfoThread from '@/app/forums/_component/BriefInfoThread'
 import ForumsHeader from '@/app/forums/_component/ForumsHeader'
 import {BriefInfo} from '@/lib/types'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import Link from 'next/link';
 
 
 import { GetThreadGroupMainPage } from "@/graphql/get_mainpage_threads";
-
-import { client } from '@/lib/amplifyClient';
 
 
 //thread group id
@@ -18,17 +18,19 @@ const MAIN_SOCIAL_GROUP_ID = "82c68ad3-c19b-4e5c-972d-bd1a2debdec5";
 
 
 export default function ForumsIndex() {
+    const clientRef = useRef<any>();
     const [socialGroupList, setSocialGroupList] = useState<BriefInfo[]>([]);
 
     useEffect(() => {
+        if (!clientRef.current) {
+            clientRef.current = generateClient();       
+          }
         const fetchThreads = async () => {
           try {
-            const res: any = await client.graphql({
-              //authMode: 'userPool',
-              query: GetThreadGroupMainPage,
-              variables: { id: MAIN_SOCIAL_GROUP_ID },
-            });
-            console.log(res);
+            const res: any = await clientRef.current!.graphql({
+                query: GetThreadGroupMainPage,
+                variables: { id: MAIN_SOCIAL_GROUP_ID },            
+              });
             const threads = res.data.getThreadGroup?.group_threads?.items ?? [];
             setSocialGroupList(
               threads.map((t: any, i: number) => ({
@@ -42,7 +44,7 @@ export default function ForumsIndex() {
                   username: t.thread_owner?.nickname ?? "匿名",
                   role: "CSSA成员",
                   level: 1,
-                  badges: [1],
+                  badges: [16,1],
                 },
               })),
             );
@@ -158,7 +160,11 @@ export default function ForumsIndex() {
                     <Divider><Button>通用板块</Button></Divider>
                     <BriefInfoThread infoList={briefInfoListWithKeys}/>
                     <br/>
-                    <Divider><Button>江湖杂谈</Button></Divider>
+                    <Divider>
+                        <Link href={`/forums/groups/${MAIN_SOCIAL_GROUP_ID}`}>
+                            <Button>江湖杂谈</Button>
+                        </Link>
+                    </Divider>
                     <BriefInfoThread infoList={socialGroupListWithKeys}/>
                 </div>
             </div>
