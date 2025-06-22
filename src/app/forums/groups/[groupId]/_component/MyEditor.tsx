@@ -1,4 +1,4 @@
-//src\app\forums\thread\_component\MyEditor.tsx
+//src\app\forums\groups\[groupId]\_component\MyEditor.tsx
 'use client'
 
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
@@ -7,7 +7,7 @@ import {Editor, Toolbar} from '@wangeditor/editor-for-react'
 import {IDomEditor, IEditorConfig, IToolbarConfig} from '@wangeditor/editor'
 import {Button, Modal} from 'antd'
 
-export default function MyEditor() {
+export default function MyEditor({ onChange }: { onChange?: (html: string) => void }) {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)
     useEffect(() => () => {
@@ -88,15 +88,15 @@ export default function MyEditor() {
                     defaultConfig={editorConfig}
                     value={html}
                     onCreated={setEditor}
-                    onChange={(newEditor: {
-                        getHtml: () => React.SetStateAction<string>
-                    }) => setHtml(newEditor.getHtml())}
+                    onChange={(newEditor) => {
+                        const newHtml = newEditor.getHtml()
+                        setHtml(newHtml)
+                        onChange?.(newHtml) // <- notify parent
+                      }}
                     mode="default"
-                    style={{minHeight: '100%', height: '400px', overflowY: 'hidden'}}
+                    style={{minHeight: '100%', height: '300px', overflowY: 'hidden'}}
                 />
             </div>
-            <Button type='primary' style={{marginTop: '0.5rem', marginRight: '1rem'}}
-                    onClick={onFinished}>发表</Button>
             <Button type='text' style={{marginTop: '0.5rem'}} onClick={() => editor?.clear()}>清空</Button>
         </div>
     )

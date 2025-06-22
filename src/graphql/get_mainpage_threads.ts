@@ -1,3 +1,4 @@
+//src\graphql\get_mainpage_threads.ts
 export const GetThreadGroupMainPage = /* GraphQL */ `
   query GetThreadGroupMainPage($id: ID!) {
     getThreadGroup(id: $id) {

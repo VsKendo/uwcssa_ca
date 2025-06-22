@@ -1,3 +1,4 @@
+//src\app\forums\thread\page.tsx
 import React from 'react'
 import PostDetail from '@/app/forums/thread/_component/PostDetail'
 import '@wangeditor/editor/dist/css/style.css'
