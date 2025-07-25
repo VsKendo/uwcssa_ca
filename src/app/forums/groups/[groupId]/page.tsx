@@ -1,3 +1,4 @@
+//src\app\forums\groups\[groupId]\page.tsx
 'use client';
 import { generateClient } from 'aws-amplify/api';
 import { useParams } from 'next/navigation';
@@ -6,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { GetThreadGroupMainPage } from "@/graphql/get_mainpage_threads";
 import UserInfoCard from '@/app/forums/_component/UserInfoCard';
 import NewThreadForm from './_component/NewThreadForm';
+import Link from 'next/link';
 
 // Group title mapping
 const groupTitles: Record<string, string> = {
@@ -19,6 +21,7 @@ const groupTitles: Record<string, string> = {
 
 type ThreadItem = {
   key: string;
+  id: string; 
   title: string;
   nickname: string;
   updatedAt: string;
@@ -40,6 +43,7 @@ export default function GroupDetailPage() {
       setThreads(
         items.map((t: any, idx: number) => ({
           key: t.id ?? idx, // use t.id if available
+          id: t.id,
           title: t.title,
           nickname: t.thread_owner?.nickname ?? "匿名",
           updatedAt: t.updatedAt
@@ -91,7 +95,7 @@ export default function GroupDetailPage() {
               avatar={
                 <Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${item.key}`} />
               }
-              title={<a href="https://ant.design">{item.title}</a>}
+              title={<Link href={`/forums/thread/${item.id}`}>{item.title}</Link>}
               
             />
             <div style={{ marginRight: '16px' }}>
@@ -117,7 +121,7 @@ export default function GroupDetailPage() {
         )}
         footer={
           <div style={{ display: 'flex', justifyContent: 'flex-start', paddingTop: '1rem' }}>
-            <NewThreadForm onRefresh={fetchThreads} />
+            <NewThreadForm onRefresh={fetchThreads} groupId={groupId}/>
           </div>
         }
       />

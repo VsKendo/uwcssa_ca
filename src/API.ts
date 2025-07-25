@@ -2,18 +2,25 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type ThreadGroup = {
-  __typename: "ThreadGroup",
-  group_id: string,
-  group_name: string,
-  group_manager?: Account | null,
-  group_threads?: ModelThreadConnection | null,
-  threads_num?: number | null,
-  introduction?: string | null,
+export type Thread = {
+  __typename: "Thread",
+  thread_id: string,
+  title: string,
+  content: string,
+  thread_owner: Account,
+  thread_group: ThreadGroup,
+  thread_comments?: ModelCommentConnection | null,
+  thread_likes?: number | null,
+  thread_rank?: number | null,
+  group_id?: string | null,
+  comments_num?: number | null,
+  is_anonymous_thread?: boolean | null,
+  special_tag?: Array< number | null > | null,
   id: string,
   createdAt: string,
   updatedAt: string,
-  accountHas_groupId?: string | null,
+  accountThreadsId?: string | null,
+  threadGroupGroup_threadsId?: string | null,
 };
 
 export type Account = {
@@ -61,27 +68,6 @@ export type Comment = {
   commentChild_commentsId?: string | null,
 };
 
-export type Thread = {
-  __typename: "Thread",
-  thread_id: string,
-  title: string,
-  content: string,
-  thread_owner: Account,
-  thread_group: ThreadGroup,
-  thread_comments?: ModelCommentConnection | null,
-  thread_likes?: number | null,
-  thread_rank?: number | null,
-  group_id?: string | null,
-  comments_num?: number | null,
-  is_anonymous_thread?: boolean | null,
-  special_tag?: Array< number | null > | null,
-  id: string,
-  createdAt: string,
-  updatedAt: string,
-  accountThreadsId?: string | null,
-  threadGroupGroup_threadsId?: string | null,
-};
-
 export type ModelThreadConnection = {
   __typename: "ModelThreadConnection",
   items:  Array<Thread | null >,
@@ -92,6 +78,20 @@ export type ModelThreadGroupConnection = {
   __typename: "ModelThreadGroupConnection",
   items:  Array<ThreadGroup | null >,
   nextToken?: string | null,
+};
+
+export type ThreadGroup = {
+  __typename: "ThreadGroup",
+  group_id: string,
+  group_name: string,
+  group_manager?: Account | null,
+  group_threads?: ModelThreadConnection | null,
+  threads_num?: number | null,
+  introduction?: string | null,
+  id: string,
+  createdAt: string,
+  updatedAt: string,
+  accountHas_groupId?: string | null,
 };
 
 export type CreateAccountInput = {
@@ -540,6 +540,27 @@ export type ModelSubscriptionCommentFilterInput = {
   commentChild_commentsId?: ModelSubscriptionIDInput | null,
 };
 
+export type createThreadMutationVariables = {
+  thread_id: string,
+  title: string,
+  content: string,
+  accountThreadsId: string,
+  threadGroupGroup_threadsId: string,
+};
+
+export type createThreadMutation = {
+  createThread?:  {
+    __typename: "Thread",
+    thread_id: string,
+    title: string,
+    content: string,
+    accountThreadsId?: string | null,
+    threadGroupGroup_threadsId?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetThreadGroupMainPageQueryVariables = {
   id: string,
 };
@@ -553,12 +574,70 @@ export type GetThreadGroupMainPageQuery = {
       __typename: "ModelThreadConnection",
       items:  Array< {
         __typename: "Thread",
+        id: string,
         title: string,
         updatedAt: string,
         thread_owner:  {
           __typename: "Account",
           nickname: string,
         },
+      } | null >,
+    } | null,
+  } | null,
+};
+
+export type GetThreadDetailQueryVariables = {
+  id: string,
+};
+
+export type GetThreadDetailQuery = {
+  getThread?:  {
+    __typename: "Thread",
+    id: string,
+    title: string,
+    content: string,
+    createdAt: string,
+    updatedAt: string,
+    thread_owner:  {
+      __typename: "Account",
+      nickname: string,
+      id: string,
+    },
+    thread_comments?:  {
+      __typename: "ModelCommentConnection",
+      items:  Array< {
+        __typename: "Comment",
+        id: string,
+        commentChild_commentsId?: string | null,
+        comment_content: string,
+        createdAt: string,
+        updatedAt: string,
+        comment_account:  {
+          __typename: "Account",
+          nickname: string,
+          id: string,
+        },
+        comment_likes?: number | null,
+        comment_rank?: number | null,
+        is_anonymous_comment?: boolean | null,
+        child_comments?:  {
+          __typename: "ModelCommentConnection",
+          items:  Array< {
+            __typename: "Comment",
+            id: string,
+            comment_content: string,
+            createdAt: string,
+            updatedAt: string,
+            comment_account:  {
+              __typename: "Account",
+              nickname: string,
+              id: string,
+            },
+            comment_likes?: number | null,
+            comment_rank?: number | null,
+            is_anonymous_comment?: boolean | null,
+          } | null >,
+        } | null,
       } | null >,
     } | null,
   } | null,
@@ -1173,6 +1252,29 @@ export type DeleteCommentMutation = {
     accountCommentsId?: string | null,
     threadThread_commentsId?: string | null,
     commentChild_commentsId?: string | null,
+  } | null,
+};
+
+export type myCreateCommentMutationVariables = {
+  comment_id: string,
+  comment_content: string,
+  accountCommentsId: string,
+  threadThread_commentsId: string,
+  commentChild_commentsId?: string | null,
+  is_anonymous_comment?: boolean | null,
+};
+
+export type myCreateCommentMutation = {
+  createComment?:  {
+    __typename: "Comment",
+    comment_id: string,
+    comment_content: string,
+    createdAt: string,
+    updatedAt: string,
+    commentChild_commentsId?: string | null,
+    accountCommentsId?: string | null,
+    threadThread_commentsId?: string | null,
+    is_anonymous_comment?: boolean | null,
   } | null,
 };
 
