@@ -1,13 +1,15 @@
+//src\app\forums\groups\[groupId]\_component\NewThreadForm.tsx
 'use client';
 
 import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Radio, message } from 'antd';
 import dynamic from 'next/dynamic';
-import { CreateThread } from '@/graphql/create_thread';
+import { createThread } from '@/graphql/create_thread';
 import { generateClient } from 'aws-amplify/api';
+import { group } from 'console';
 
 // Dynamically import MyEditor to avoid SSR issuesd
-const MyEditor = dynamic(() => import('./MyEditor'), {
+const MyEditor = dynamic(() => import('../../../_component/MyEditor'), {
     ssr: false,
   });
 
@@ -22,9 +24,10 @@ const DEFAULT_GROUP_ID = '82c68ad3-c19b-4e5c-972d-bd1a2debdec5';
 
 interface NewThreadFormProps {
   onRefresh: () => void;
+  groupId?: string; //from page
 }
 
-const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh }) => {
+const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh, groupId }) => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState<Values>();
   const [open, setOpen] = useState(false);
@@ -34,13 +37,13 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh }) => {
       const client = generateClient();
 
       const res = await client.graphql({
-        query: CreateThread,
+        query: createThread,
         variables: {
           thread_id: "1234", // 🔒 fixed ID
           title: values.title,
           content: values.description,
           accountThreadsId: DEFAULT_ACCOUNT_ID,
-          threadGroupGroup_threadsId: DEFAULT_GROUP_ID,
+          threadGroupGroup_threadsId: groupId || DEFAULT_GROUP_ID, // Use passed groupId or default
         },
       });
 

@@ -1,6 +1,6 @@
 // src/graphql/create_thread.ts
-export const CreateThread = /* GraphQL */ `
-  mutation CreateThread(
+export const createThread = /* GraphQL */ `
+  mutation createThread(
     $thread_id: ID!
     $title: String!
     $content: String!

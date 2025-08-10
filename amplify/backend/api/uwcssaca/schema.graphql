@@ -22,7 +22,7 @@ type Account @model @auth(rules: [{ allow: private }]) {
 type Thread @model @auth(rules: [{ allow: private }]) {
   thread_id: ID!
   title: String!
-  content: String!
+  content: String! 
   thread_owner: Account! @belongsTo
   thread_group: ThreadGroup! @belongsTo
   thread_comments: [Comment] @hasMany

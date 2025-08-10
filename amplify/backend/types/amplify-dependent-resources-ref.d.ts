@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 export type AmplifyDependentResourcesAttributes = {
   "api": {
     "uwcssaca": {
@@ -18,6 +17,3 @@ export type AmplifyDependentResourcesAttributes = {
     }
   }
 }
-=======
-export type AmplifyDependentResourcesAttributes = {}
->>>>>>> Stashed changes

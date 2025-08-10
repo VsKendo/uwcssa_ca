@@ -6,6 +6,7 @@ export const GetThreadGroupMainPage = /* GraphQL */ `
       group_name
       group_threads {
         items {
+          id
           title
           updatedAt
           thread_owner {
