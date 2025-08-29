@@ -11,9 +11,11 @@ import Link from 'next/link';
 
 // Group title mapping
 const groupTitles: Record<string, string> = {
-  '82c68ad3-c19b-4e5c-972d-bd1a2debdec5': '江湖杂谈',
-  'group2': 'Group Two Title',
-  'group3': 'Group Three Title',
+  '08051c13-119c-41e0-a318-92482cf77a5b': '江湖杂谈',
+  '620dac9a-d7f7-4041-be08-2cefa3440d32': '通用板块',
+  '4d82a68f-e950-4ec9-87b9-d40940ccecc6': '旧物斋坊',
+  '2d021a10-20c1-436d-901a-d1451c2db585': '借舍赁居',
+  'ef0dc109-7025-4383-bdcf-e72d27883593': '学术交流',
   // ...more groups
 };
 
@@ -40,8 +42,16 @@ export default function GroupDetailPage() {
         variables: { id: groupId },
       });
       const items = res.data.getThreadGroup?.group_threads?.items ?? [];
+
+      const sorted = items.slice().sort((a: any, b: any) => {
+        const time = (x: any) =>
+          x?.updatedAt ? Date.parse(x.updatedAt)
+            : x?.createdAt ? Date.parse(x.createdAt)
+            : -Infinity;
+        return time(b) - time(a);
+      });
       setThreads(
-        items.map((t: any, idx: number) => ({
+        sorted.map((t: any, idx: number) => ({
           key: t.id ?? idx, // use t.id if available
           id: t.id,
           title: t.title,
@@ -71,8 +81,7 @@ export default function GroupDetailPage() {
       <Breadcrumb
         separator=">"
         items={[
-          { title: 'Home' },
-          { title: 'Application Center', href: '' },
+          { title: 'Home', href: '/' },
           { title: '论坛主页', href: '/forums' },
           { title: groupTitle },
         ]}
@@ -102,7 +111,7 @@ export default function GroupDetailPage() {
                 <Popover
                   content={
                     <UserInfoCard
-                      avatar={'bio_background.jpg'}
+                      avatar="/bio_background.jpg"
                       username={item.nickname}
                       role={'CSSA成员'}
                       level={2}

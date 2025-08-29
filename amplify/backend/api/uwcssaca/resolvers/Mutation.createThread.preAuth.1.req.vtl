@@ -1,0 +1,11 @@
+## Initialize claims
+#set( $claims = $ctx.identity.claims )
+#set( $sub = $util.defaultIfNull($claims.get("sub"), $util.defaultIfNull($claims.get("username"), $claims.get("cognito:username"))) )
+
+## If owner isn't present and we have a sub, inject owner
+#if( !$ctx.args.input.containsKey("owner") && !$util.isNull($sub) )
+  $util.qr($ctx.args.input.put("owner", $sub))
+#end
+
+## Continue pipeline
+$util.toJson({"version":"2018-05-29","payload":{}})

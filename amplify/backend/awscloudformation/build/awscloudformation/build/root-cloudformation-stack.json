@@ -220,7 +220,7 @@
             "Ref": "UnauthRoleName"
           },
           "S3DeploymentBucket": "amplify-uwcssaca-dev-a81b4-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/1b86ad20804eaecd312f3fc3b3a7796b1432ce05",
+          "S3DeploymentRootKey": "amplify-appsync-files/2e701297e0f7ca2d6a1d9664cfc4a28dafa8695c",
           "env": "dev"
         }
       }
@@ -369,7 +369,7 @@
           }
         },
         "Handler": "index.handler",
-        "Runtime": "nodejs18.x",
+        "Runtime": "nodejs22.x",
         "Timeout": 300,
         "Role": {
           "Fn::GetAtt": [

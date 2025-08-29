@@ -1,3 +1,4 @@
+// src/component/bridges.tsx
 import React from 'react'
 import {BRIDGES_TYPES, BridgesType} from '@/lib/types'
 import {BACKGROUND_SIZE_X, BACKGROUND_SIZE_Y} from '@/lib/storeConstant'
@@ -22,11 +23,11 @@ export default function Bridges(props: React.PropsWithChildren<{
                 badgeNumberVal = 0
             }
             values[0] = `-${(70 * (badgeNumberVal % 10)) * scale}px -${70 * scale * Math.floor(badgeNumberVal / 10)}px`
-            values[1] = 'achievement_bridges.png'
+            values[1] = '/achievement_bridges.png'
         } else {
             values[0] = `-${(70 * (badgeNumber % 10)) * scale}px -${70 * scale * Math.floor(badgeNumber / 10)}px`
             // values[0] = `-${32.5 * (badgeNumber % 10) - 12.25}px -${32.5 * Math.floor(badgeNumber / 10)}px`
-            values[1] = 'role_bridges.png'
+            values[1] = '/role_bridges.png'
         }
         return values
     }

@@ -66,9 +66,10 @@ export default function RegisterIndex() {
             }).catch(e => {
                 const errMsg = e.message.split('error ')
                 instance.destroy()
+                const reason = e?.name ? `${e.name}: ${e.message ?? ''}` : (e?.message ?? '未知错误');
                 modal.error({
                     title: '申请失败！',
-                    content: `请联系管理员！失败原因：${errMsg[1] ? errMsg[1] : errMsg[0]}`,
+                    content: `请联系管理员！失败原因：${reason}`,
                 })
                 continued = false
             })

@@ -6,8 +6,19 @@ import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import PostDetail from '@/app/forums/thread/[threadId]/_component/PostDetail'
 import '@wangeditor/editor/dist/css/style.css'
+import { Breadcrumb } from 'antd';
 
 const DEFAULT_ACCOUNT_ID = 'ec26fe80-7c19-4a82-a004-c2efc4d27ca9';  //signed-in user id
+
+// Group title mapping (same as in group page)
+const groupTitles: Record<string, string> = {
+  '08051c13-119c-41e0-a318-92482cf77a5b': '江湖杂谈',
+  '620dac9a-d7f7-4041-be08-2cefa3440d32': '通用板块',
+  '4d82a68f-e950-4ec9-87b9-d40940ccecc6': '旧物斋坊',
+  '2d021a10-20c1-436d-901a-d1451c2db585': '借舍赁居',
+  'ef0dc109-7025-4383-bdcf-e72d27883593': '学术交流',
+};
+
 
 type CommentNode = {
     id: string;
@@ -130,7 +141,23 @@ export default function ThreadIndex() {
 
 
     return (
+      <div>
+        <div  style={{
+              background: 'white',
+              padding: '20px',
+              paddingLeft: '40px',
+            }}>
+          <Breadcrumb
+        separator=">"
+        items={[
+          { title: 'Home', href: '/' },
+          { title: '论坛主页', href: '/forums' },
+        ]}
+      />
+        </div>
+        
         <div style={{ width:'80%', margin:'auto' }}>
+        
         {flat.length > 0 && 
         <PostDetail
          infoList={flat} 
@@ -140,5 +167,7 @@ export default function ThreadIndex() {
         
         />}
       </div>
+      </div>
+        
     )
 }

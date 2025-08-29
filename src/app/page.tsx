@@ -65,21 +65,25 @@ const Home = function Home() {
                         icon={<FileTextTwoTone/>}
                         title="论坛系统"
                         content="最即时的资讯，让你信息永不短线"
+                        link="/forums"
                     />
                     <NewsButton
                         icon={<CarTwoTone/>}
                         title="最新活动"
                         content="和同学一起互动，不错过最新、最热门的活动"
+                        link="/activities"
                     />
                     <NewsButton
                         icon={<StarTwoTone/>}
                         title="新生必读"
                         content="了解校园生活大小事，新生指南不容错过"
+                        link="/beginner"
                     />
                     <NewsButton
                         icon={<ShoppingTwoTone/>}
                         title="加入我们"
                         content="成为我们的一份子，为海外华人做贡献"
+                        link="https://mp.weixin.qq.com/s/iQf79dLsdLCGCPJSX1Wzpw"
                     />
                 </Space>
             </div>

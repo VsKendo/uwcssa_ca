@@ -1,4 +1,4 @@
-//src\app\forums\thread\_component\CommentDisplayer.tsx
+// src\app\forums\thread\_component\CommentDisplayer.tsx
 'use client'
 
 import '@wangeditor/editor/dist/css/style.css' // 引入 css

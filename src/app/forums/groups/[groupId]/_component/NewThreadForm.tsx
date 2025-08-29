@@ -7,6 +7,8 @@ import dynamic from 'next/dynamic';
 import { createThread } from '@/graphql/create_thread';
 import { generateClient } from 'aws-amplify/api';
 import { group } from 'console';
+import { getCurrentUser } from '@aws-amplify/auth';
+
 
 // Dynamically import MyEditor to avoid SSR issuesd
 const MyEditor = dynamic(() => import('../../../_component/MyEditor'), {
@@ -18,8 +20,6 @@ interface Values {
   description?: string;
   modifier?: string;
 }
-
-const DEFAULT_ACCOUNT_ID = 'ec26fe80-7c19-4a82-a004-c2efc4d27ca9';
 const DEFAULT_GROUP_ID = '82c68ad3-c19b-4e5c-972d-bd1a2debdec5';
 
 interface NewThreadFormProps {
@@ -33,29 +33,34 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh, groupId }) => 
   const [open, setOpen] = useState(false);
 
   const onCreate = async (values: Values) => {
-    try {
-      const client = generateClient();
+  try {
+    //  — Get the actual Cognito userId (sub)
+    const { userId } = await getCurrentUser();
 
-      const res = await client.graphql({
-        query: createThread,
-        variables: {
-          thread_id: "1234", // 🔒 fixed ID
-          title: values.title,
-          content: values.description,
-          accountThreadsId: DEFAULT_ACCOUNT_ID,
-          threadGroupGroup_threadsId: groupId || DEFAULT_GROUP_ID, // Use passed groupId or default
-        },
-      });
+    const client = generateClient();
+    await client.graphql({
+      query: createThread,
+      variables: {
+        thread_id: "1234",
+        title: values.title,
+        content: values.description,
+        accountThreadsId: userId,              // <-- use real user ID
+        threadGroupGroup_threadsId: groupId || DEFAULT_GROUP_ID,
+      },
+      authMode: 'userPool', // ensure auth mode allows Cognito identity
+    });
 
-      message.success('发贴成功');
-      setOpen(false);
-      form.resetFields();
-      onRefresh();
-    } catch (err) {
-      console.error('发贴失败', err);
-      message.error('发贴失败，请重试');
-    }
-  };
+    message.success('发贴成功');
+    setOpen(false);
+    form.resetFields();
+    onRefresh();
+  } catch (err: any) {
+    console.error('发贴失败', err);
+    message.error(err.name === 'NotAuthorizedException'
+      ? '请先登录后再发贴' : '发贴失败，请重试');
+  }
+};
+
 
   return (
     <>

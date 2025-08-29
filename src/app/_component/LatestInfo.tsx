@@ -19,7 +19,7 @@ function LatestInfo(props: React.PropsWithChildren<Record<string, any>>) {
                 <h2> {title} </h2>
                 <p> {content} </p>
                 <div style={{width: '20%'}}>
-                    <Button type="text" block href={link}>
+                    <Button type="text" block href={link} target="_blank">
                         <div style={{color: 'rgb(38, 106, 254)'}}>Read More</div>
                     </Button>
                 </div>

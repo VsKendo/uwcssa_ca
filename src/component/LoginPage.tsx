@@ -59,6 +59,7 @@ function LoginPage() {
                         setIsModalOpen(false)
                     } else {
                         messageApi.error('登录失败！账号状态异常！请联系管理员')
+                        setNickname('')
                     }
                 }
             ).catch((error) => {

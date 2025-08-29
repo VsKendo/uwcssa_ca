@@ -11,9 +11,9 @@ type GeneratedQuery<InputType, OutputType> = string & {
 export const getAccount = /* GraphQL */ `query GetAccount($id: ID!) {
   getAccount(id: $id) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -32,6 +32,7 @@ export const getAccount = /* GraphQL */ `query GetAccount($id: ID!) {
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -50,15 +51,16 @@ export const listAccounts = /* GraphQL */ `query ListAccounts(
   listAccounts(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -79,15 +81,16 @@ export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -98,6 +101,7 @@ export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -114,6 +118,7 @@ export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -139,6 +144,7 @@ export const listThreads = /* GraphQL */ `query ListThreads(
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -160,15 +166,16 @@ export const getThreadGroup = /* GraphQL */ `query GetThreadGroup($id: ID!) {
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -180,6 +187,7 @@ export const getThreadGroup = /* GraphQL */ `query GetThreadGroup($id: ID!) {
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -202,6 +210,7 @@ export const listThreadGroups = /* GraphQL */ `query ListThreadGroups(
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -222,15 +231,16 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -246,6 +256,7 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -259,6 +270,7 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -274,6 +286,7 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt
@@ -299,6 +312,7 @@ export const listComments = /* GraphQL */ `query ListComments(
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
