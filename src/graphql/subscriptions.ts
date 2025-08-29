@@ -8,12 +8,15 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateAccount = /* GraphQL */ `subscription OnCreateAccount($filter: ModelSubscriptionAccountFilterInput) {
-  onCreateAccount(filter: $filter) {
+export const onCreateAccount = /* GraphQL */ `subscription OnCreateAccount(
+  $filter: ModelSubscriptionAccountFilterInput
+  $owner: String
+) {
+  onCreateAccount(filter: $filter, owner: $owner) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -32,6 +35,7 @@ export const onCreateAccount = /* GraphQL */ `subscription OnCreateAccount($filt
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -42,12 +46,15 @@ export const onCreateAccount = /* GraphQL */ `subscription OnCreateAccount($filt
   APITypes.OnCreateAccountSubscriptionVariables,
   APITypes.OnCreateAccountSubscription
 >;
-export const onUpdateAccount = /* GraphQL */ `subscription OnUpdateAccount($filter: ModelSubscriptionAccountFilterInput) {
-  onUpdateAccount(filter: $filter) {
+export const onUpdateAccount = /* GraphQL */ `subscription OnUpdateAccount(
+  $filter: ModelSubscriptionAccountFilterInput
+  $owner: String
+) {
+  onUpdateAccount(filter: $filter, owner: $owner) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -66,6 +73,7 @@ export const onUpdateAccount = /* GraphQL */ `subscription OnUpdateAccount($filt
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -76,12 +84,15 @@ export const onUpdateAccount = /* GraphQL */ `subscription OnUpdateAccount($filt
   APITypes.OnUpdateAccountSubscriptionVariables,
   APITypes.OnUpdateAccountSubscription
 >;
-export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount($filter: ModelSubscriptionAccountFilterInput) {
-  onDeleteAccount(filter: $filter) {
+export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount(
+  $filter: ModelSubscriptionAccountFilterInput
+  $owner: String
+) {
+  onDeleteAccount(filter: $filter, owner: $owner) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -100,6 +111,7 @@ export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount($filt
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -110,22 +122,26 @@ export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount($filt
   APITypes.OnDeleteAccountSubscriptionVariables,
   APITypes.OnDeleteAccountSubscription
 >;
-export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter: ModelSubscriptionThreadFilterInput) {
-  onCreateThread(filter: $filter) {
+export const onCreateThread = /* GraphQL */ `subscription OnCreateThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onCreateThread(filter: $filter, owner: $owner) {
     thread_id
     title
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -136,6 +152,7 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -152,6 +169,7 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -164,22 +182,26 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread($filter
   APITypes.OnCreateThreadSubscriptionVariables,
   APITypes.OnCreateThreadSubscription
 >;
-export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter: ModelSubscriptionThreadFilterInput) {
-  onUpdateThread(filter: $filter) {
+export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onUpdateThread(filter: $filter, owner: $owner) {
     thread_id
     title
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -190,6 +212,7 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -206,6 +229,7 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -218,22 +242,26 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread($filter
   APITypes.OnUpdateThreadSubscriptionVariables,
   APITypes.OnUpdateThreadSubscription
 >;
-export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter: ModelSubscriptionThreadFilterInput) {
-  onDeleteThread(filter: $filter) {
+export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onDeleteThread(filter: $filter, owner: $owner) {
     thread_id
     title
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -244,6 +272,7 @@ export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -260,6 +289,7 @@ export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -274,21 +304,23 @@ export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread($filter
 >;
 export const onCreateThreadGroup = /* GraphQL */ `subscription OnCreateThreadGroup(
   $filter: ModelSubscriptionThreadGroupFilterInput
+  $owner: String
 ) {
-  onCreateThreadGroup(filter: $filter) {
+  onCreateThreadGroup(filter: $filter, owner: $owner) {
     group_id
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -300,6 +332,7 @@ export const onCreateThreadGroup = /* GraphQL */ `subscription OnCreateThreadGro
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -313,21 +346,23 @@ export const onCreateThreadGroup = /* GraphQL */ `subscription OnCreateThreadGro
 >;
 export const onUpdateThreadGroup = /* GraphQL */ `subscription OnUpdateThreadGroup(
   $filter: ModelSubscriptionThreadGroupFilterInput
+  $owner: String
 ) {
-  onUpdateThreadGroup(filter: $filter) {
+  onUpdateThreadGroup(filter: $filter, owner: $owner) {
     group_id
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -339,6 +374,7 @@ export const onUpdateThreadGroup = /* GraphQL */ `subscription OnUpdateThreadGro
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -352,21 +388,23 @@ export const onUpdateThreadGroup = /* GraphQL */ `subscription OnUpdateThreadGro
 >;
 export const onDeleteThreadGroup = /* GraphQL */ `subscription OnDeleteThreadGroup(
   $filter: ModelSubscriptionThreadGroupFilterInput
+  $owner: String
 ) {
-  onDeleteThreadGroup(filter: $filter) {
+  onDeleteThreadGroup(filter: $filter, owner: $owner) {
     group_id
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -378,6 +416,7 @@ export const onDeleteThreadGroup = /* GraphQL */ `subscription OnDeleteThreadGro
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -389,21 +428,25 @@ export const onDeleteThreadGroup = /* GraphQL */ `subscription OnDeleteThreadGro
   APITypes.OnDeleteThreadGroupSubscriptionVariables,
   APITypes.OnDeleteThreadGroupSubscription
 >;
-export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
-  onCreateComment(filter: $filter) {
+export const onCreateComment = /* GraphQL */ `subscription OnCreateComment(
+  $filter: ModelSubscriptionCommentFilterInput
+  $owner: String
+) {
+  onCreateComment(filter: $filter, owner: $owner) {
     comment_id
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -419,6 +462,7 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -432,6 +476,7 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -447,6 +492,7 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt
@@ -460,21 +506,25 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
   APITypes.OnCreateCommentSubscriptionVariables,
   APITypes.OnCreateCommentSubscription
 >;
-export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
-  onUpdateComment(filter: $filter) {
+export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment(
+  $filter: ModelSubscriptionCommentFilterInput
+  $owner: String
+) {
+  onUpdateComment(filter: $filter, owner: $owner) {
     comment_id
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -490,6 +540,7 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -503,6 +554,7 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -518,6 +570,7 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt
@@ -531,21 +584,25 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
   APITypes.OnUpdateCommentSubscriptionVariables,
   APITypes.OnUpdateCommentSubscription
 >;
-export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
-  onDeleteComment(filter: $filter) {
+export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment(
+  $filter: ModelSubscriptionCommentFilterInput
+  $owner: String
+) {
+  onDeleteComment(filter: $filter, owner: $owner) {
     comment_id
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -561,6 +618,7 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -574,6 +632,7 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -589,6 +648,7 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filt
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt

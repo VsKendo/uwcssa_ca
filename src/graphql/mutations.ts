@@ -14,9 +14,9 @@ export const createAccount = /* GraphQL */ `mutation CreateAccount(
 ) {
   createAccount(input: $input, condition: $condition) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -35,6 +35,7 @@ export const createAccount = /* GraphQL */ `mutation CreateAccount(
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -51,9 +52,9 @@ export const updateAccount = /* GraphQL */ `mutation UpdateAccount(
 ) {
   updateAccount(input: $input, condition: $condition) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -72,6 +73,7 @@ export const updateAccount = /* GraphQL */ `mutation UpdateAccount(
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -88,9 +90,9 @@ export const deleteAccount = /* GraphQL */ `mutation DeleteAccount(
 ) {
   deleteAccount(input: $input, condition: $condition) {
     account_id
-    username
     nickname
-    password
+    introduction
+    username
     uwemail
     role
     bridges
@@ -109,6 +111,7 @@ export const deleteAccount = /* GraphQL */ `mutation DeleteAccount(
       nextToken
       __typename
     }
+    owner
     id
     createdAt
     updatedAt
@@ -129,15 +132,16 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -148,6 +152,7 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -164,6 +169,7 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -186,15 +192,16 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -205,6 +212,7 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -221,6 +229,7 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -243,15 +252,16 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
     content
     thread_owner {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -262,6 +272,7 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
       group_name
       threads_num
       introduction
+      owner
       id
       createdAt
       updatedAt
@@ -278,6 +289,7 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
     comments_num
     is_anonymous_thread
     special_tag
+    owner
     id
     createdAt
     updatedAt
@@ -299,15 +311,16 @@ export const createThreadGroup = /* GraphQL */ `mutation CreateThreadGroup(
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -319,6 +332,7 @@ export const createThreadGroup = /* GraphQL */ `mutation CreateThreadGroup(
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -339,15 +353,16 @@ export const updateThreadGroup = /* GraphQL */ `mutation UpdateThreadGroup(
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -359,6 +374,7 @@ export const updateThreadGroup = /* GraphQL */ `mutation UpdateThreadGroup(
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -379,15 +395,16 @@ export const deleteThreadGroup = /* GraphQL */ `mutation DeleteThreadGroup(
     group_name
     group_manager {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -399,6 +416,7 @@ export const deleteThreadGroup = /* GraphQL */ `mutation DeleteThreadGroup(
     }
     threads_num
     introduction
+    owner
     id
     createdAt
     updatedAt
@@ -419,15 +437,16 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -443,6 +462,7 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -456,6 +476,7 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -471,6 +492,7 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt
@@ -493,15 +515,16 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -517,6 +540,7 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -530,6 +554,7 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -545,6 +570,7 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt
@@ -567,15 +593,16 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
     comment_content
     comment_account {
       account_id
-      username
       nickname
-      password
+      introduction
+      username
       uwemail
       role
       bridges
       wechat_id
       google_id
       apple_id
+      owner
       id
       createdAt
       updatedAt
@@ -591,6 +618,7 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
       comments_num
       is_anonymous_thread
       special_tag
+      owner
       id
       createdAt
       updatedAt
@@ -604,6 +632,7 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
       comment_likes
       comment_rank
       is_anonymous_comment
+      owner
       id
       createdAt
       updatedAt
@@ -619,6 +648,7 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
     comment_likes
     comment_rank
     is_anonymous_comment
+    owner
     id
     createdAt
     updatedAt

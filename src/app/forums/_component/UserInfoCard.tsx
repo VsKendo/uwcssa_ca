@@ -19,6 +19,7 @@ export default function UserInfoCard(props: React.PropsWithChildren<UserInfoCard
         level,
         badges
     } = props
+    const normalize = (p: string) => (p?.startsWith('/') ? p : `/${p}`);
     return (
         <div>
             <Card style={{width: 300}}>
@@ -26,7 +27,7 @@ export default function UserInfoCard(props: React.PropsWithChildren<UserInfoCard
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Avatar src={avatar} size={64}/>
+                    <Avatar src={normalize(avatar)} size={64}/>
                     <div style={{marginLeft: '1rem'}}>
                         <h3>{username}</h3>
                         <p>{role}</p>

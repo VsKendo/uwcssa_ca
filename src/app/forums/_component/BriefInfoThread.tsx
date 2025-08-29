@@ -13,11 +13,11 @@ export default function BriefInfoThread(props: React.PropsWithChildren<BriefInfo
     const styleList: React.CSSProperties[] = [{
         marginLeft: '2.5%',
         marginRight: '2.5%',
-        backgroundColor: 'rgba(255,204,204,0.31)'
+        backgroundColor: 'rgba(243, 243, 243, 0.31)'
     }, {
         marginLeft: '2.5%',
         marginRight: '2.5%',
-        backgroundColor: 'rgba(255,0,51,0.15)'
+        backgroundColor: 'rgba(88, 84, 127, 0.15)'
     }]
 
     for (let i = 1; i <= infoList.length; i += 1) {

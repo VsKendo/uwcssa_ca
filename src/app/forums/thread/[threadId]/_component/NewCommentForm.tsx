@@ -7,6 +7,8 @@ import dynamic from 'next/dynamic';
 import { generateClient } from 'aws-amplify/api';
 import { group } from 'console';
 import { myCreateComment } from '@/graphql/my_create_comment';
+import { getCurrentUser } from '@aws-amplify/auth';
+
 
 // Dynamically import MyEditor to avoid SSR issuesd
 const MyEditor = dynamic(() => import('../../../_component/MyEditor'), {
@@ -44,12 +46,13 @@ export default function NewCommentForm({
 
   const onCreate = async (values: Values) => {
     try {
+      const {userId}=await getCurrentUser();
       const client = generateClient();
 
       const input: any={
-            comment_id: "1234",                         // explicit PK (optional)
+            comment_id: userId,                         
             comment_content: values.content,
-            accountCommentsId: accountId,
+            accountCommentsId: userId,
             threadThread_commentsId: threadId,
             is_anonymous_comment: !!values.isAnonymous,
       }
@@ -57,15 +60,17 @@ export default function NewCommentForm({
       if (parentCommentId) {
         input.commentChild_commentsId = parentCommentId;
       }
-      await client.graphql({ query: myCreateComment, variables: input });
+      await client.graphql({ query: myCreateComment, variables: input, authMode: 'userPool', });
 
       message.success('评论成功');
       form.resetFields();
       onClose();  // close modal
       onSuccess(); // refresh parent thread
-    } catch (err) {
+    } catch (err: any) {
       console.error('评论失败', err);
-      message.error('评论失败，请重试');
+      message.error(err?.name === 'NotAuthorizedException'
+      ? '请先登录再发表评论'
+      : '评论失败，请重试');
     }
   };
 

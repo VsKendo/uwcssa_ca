@@ -1,3 +1,4 @@
+// src/app/_component/LatestInfoIndex.tsx
 import {Space, Layout, Typography, Button} from 'antd'
 import React from 'react'
 import LatestInfo from '@/app/_component/LatestInfo'
