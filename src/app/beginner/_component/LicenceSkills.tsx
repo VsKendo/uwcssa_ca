@@ -34,9 +34,9 @@ const data = [
 
 export default function LicenceSkills() {
     const [isListVisible, setIsListVisible] = useState(true);
-    const [selectedTip, setSelectedTip] = useState(null);
+    const [selectedTip, setSelectedTip] = useState<string | null>(null);
 
-    const handleRowClick = (record) => {
+    const handleRowClick = (record: {key: string}) => {
         setSelectedTip(record.key);
         setIsListVisible(false);
     };
