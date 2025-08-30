@@ -30,7 +30,7 @@ const items: MenuProps['items'] = [
     },
     {
         label: (
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+            <a>
                 帖子
             </a>
         ),
@@ -56,6 +56,7 @@ export default function Biography() {
                 <div className={styles['user-info']}>
                     <Image className={styles['user-image']}
                         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                        preview={false}
                         alt="User Avatar" />
                     <p className={styles.username}>{nickname}</p>
                 </div>
@@ -79,7 +80,7 @@ export default function Biography() {
                       marginBottom: '1.2%'
                   }}>
                 <BioContent title="测试数据1-帖子标题: 欢迎您登录"
-                            date="这是测试数据，如果你看到这里，说明您成功登录了 uwcssa 网站。在我们开放论坛功能后，您便可以使用了。"
+                            date="这是测试数据，如果你看到这里，说明您成功登录了 uwcssa 网站。个人主页还在开发中。"
                             link="https://google.com"
                 />
             </Card>
