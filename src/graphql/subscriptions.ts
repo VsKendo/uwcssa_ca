@@ -8,147 +8,497 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateBlog = /* GraphQL */ `subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
-  onCreateBlog(filter: $filter) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnCreateBlogSubscriptionVariables,
-  APITypes.OnCreateBlogSubscription
->;
-export const onUpdateBlog = /* GraphQL */ `subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
-  onUpdateBlog(filter: $filter) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnUpdateBlogSubscriptionVariables,
-  APITypes.OnUpdateBlogSubscription
->;
-export const onDeleteBlog = /* GraphQL */ `subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
-  onDeleteBlog(filter: $filter) {
-    id
-    name
-    posts {
-      nextToken
-      __typename
-    }
-    createdAt
-    updatedAt
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnDeleteBlogSubscriptionVariables,
-  APITypes.OnDeleteBlogSubscription
->;
-export const onCreatePost = /* GraphQL */ `subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-  onCreatePost(filter: $filter) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+export const onCreateAccount = /* GraphQL */ `subscription OnCreateAccount(
+  $filter: ModelSubscriptionAccountFilterInput
+  $owner: String
+) {
+  onCreateAccount(filter: $filter, owner: $owner) {
+    account_id
+    nickname
+    introduction
+    username
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    owner
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreatePostSubscriptionVariables,
-  APITypes.OnCreatePostSubscription
+  APITypes.OnCreateAccountSubscriptionVariables,
+  APITypes.OnCreateAccountSubscription
 >;
-export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-  onUpdatePost(filter: $filter) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+export const onUpdateAccount = /* GraphQL */ `subscription OnUpdateAccount(
+  $filter: ModelSubscriptionAccountFilterInput
+  $owner: String
+) {
+  onUpdateAccount(filter: $filter, owner: $owner) {
+    account_id
+    nickname
+    introduction
+    username
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    owner
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdatePostSubscriptionVariables,
-  APITypes.OnUpdatePostSubscription
+  APITypes.OnUpdateAccountSubscriptionVariables,
+  APITypes.OnUpdateAccountSubscription
 >;
-export const onDeletePost = /* GraphQL */ `subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-  onDeletePost(filter: $filter) {
-    id
-    title
-    blog {
-      id
-      name
-      createdAt
-      updatedAt
-      __typename
-    }
+export const onDeleteAccount = /* GraphQL */ `subscription OnDeleteAccount(
+  $filter: ModelSubscriptionAccountFilterInput
+  $owner: String
+) {
+  onDeleteAccount(filter: $filter, owner: $owner) {
+    account_id
+    nickname
+    introduction
+    username
+    uwemail
+    role
+    bridges
+    wechat_id
+    google_id
+    apple_id
     comments {
       nextToken
       __typename
     }
+    threads {
+      nextToken
+      __typename
+    }
+    has_group {
+      nextToken
+      __typename
+    }
+    owner
+    id
     createdAt
     updatedAt
-    blogPostsId
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeletePostSubscriptionVariables,
-  APITypes.OnDeletePostSubscription
+  APITypes.OnDeleteAccountSubscriptionVariables,
+  APITypes.OnDeleteAccountSubscription
 >;
-export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
-  onCreateComment(filter: $filter) {
-    id
-    post {
-      id
-      title
-      createdAt
-      updatedAt
-      blogPostsId
-      __typename
-    }
+export const onCreateThread = /* GraphQL */ `subscription OnCreateThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onCreateThread(filter: $filter, owner: $owner) {
+    thread_id
+    title
     content
+    thread_owner {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      owner
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    special_tag
+    owner
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateThreadSubscriptionVariables,
+  APITypes.OnCreateThreadSubscription
+>;
+export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onUpdateThread(filter: $filter, owner: $owner) {
+    thread_id
+    title
+    content
+    thread_owner {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      owner
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    special_tag
+    owner
+    id
+    createdAt
+    updatedAt
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateThreadSubscriptionVariables,
+  APITypes.OnUpdateThreadSubscription
+>;
+export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onDeleteThread(filter: $filter, owner: $owner) {
+    thread_id
+    title
+    content
+    thread_owner {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    thread_group {
+      group_id
+      group_name
+      threads_num
+      introduction
+      owner
+      id
+      createdAt
+      updatedAt
+      accountHas_groupId
+      __typename
+    }
+    thread_comments {
+      nextToken
+      __typename
+    }
+    thread_likes
+    thread_rank
+    group_id
+    comments_num
+    is_anonymous_thread
+    special_tag
+    owner
+    id
+    createdAt
+    updatedAt
+    accountThreadsId
+    threadGroupGroup_threadsId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteThreadSubscriptionVariables,
+  APITypes.OnDeleteThreadSubscription
+>;
+export const onCreateThreadGroup = /* GraphQL */ `subscription OnCreateThreadGroup(
+  $filter: ModelSubscriptionThreadGroupFilterInput
+  $owner: String
+) {
+  onCreateThreadGroup(filter: $filter, owner: $owner) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    owner
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateThreadGroupSubscriptionVariables,
+  APITypes.OnCreateThreadGroupSubscription
+>;
+export const onUpdateThreadGroup = /* GraphQL */ `subscription OnUpdateThreadGroup(
+  $filter: ModelSubscriptionThreadGroupFilterInput
+  $owner: String
+) {
+  onUpdateThreadGroup(filter: $filter, owner: $owner) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    owner
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateThreadGroupSubscriptionVariables,
+  APITypes.OnUpdateThreadGroupSubscription
+>;
+export const onDeleteThreadGroup = /* GraphQL */ `subscription OnDeleteThreadGroup(
+  $filter: ModelSubscriptionThreadGroupFilterInput
+  $owner: String
+) {
+  onDeleteThreadGroup(filter: $filter, owner: $owner) {
+    group_id
+    group_name
+    group_manager {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    group_threads {
+      nextToken
+      __typename
+    }
+    threads_num
+    introduction
+    owner
+    id
+    createdAt
+    updatedAt
+    accountHas_groupId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteThreadGroupSubscriptionVariables,
+  APITypes.OnDeleteThreadGroupSubscription
+>;
+export const onCreateComment = /* GraphQL */ `subscription OnCreateComment(
+  $filter: ModelSubscriptionCommentFilterInput
+  $owner: String
+) {
+  onCreateComment(filter: $filter, owner: $owner) {
+    comment_id
+    comment_content
+    comment_account {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    comment_thread {
+      thread_id
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      special_tag
+      owner
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      owner
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    owner
+    id
+    createdAt
+    updatedAt
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }
@@ -156,21 +506,77 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filt
   APITypes.OnCreateCommentSubscriptionVariables,
   APITypes.OnCreateCommentSubscription
 >;
-export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
-  onUpdateComment(filter: $filter) {
-    id
-    post {
+export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment(
+  $filter: ModelSubscriptionCommentFilterInput
+  $owner: String
+) {
+  onUpdateComment(filter: $filter, owner: $owner) {
+    comment_id
+    comment_content
+    comment_account {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
-    content
+    comment_thread {
+      thread_id
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      special_tag
+      owner
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      owner
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    owner
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }
@@ -178,21 +584,77 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filt
   APITypes.OnUpdateCommentSubscriptionVariables,
   APITypes.OnUpdateCommentSubscription
 >;
-export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
-  onDeleteComment(filter: $filter) {
-    id
-    post {
+export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment(
+  $filter: ModelSubscriptionCommentFilterInput
+  $owner: String
+) {
+  onDeleteComment(filter: $filter, owner: $owner) {
+    comment_id
+    comment_content
+    comment_account {
+      account_id
+      nickname
+      introduction
+      username
+      uwemail
+      role
+      bridges
+      wechat_id
+      google_id
+      apple_id
+      owner
       id
-      title
       createdAt
       updatedAt
-      blogPostsId
       __typename
     }
-    content
+    comment_thread {
+      thread_id
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      special_tag
+      owner
+      id
+      createdAt
+      updatedAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    parent_comment {
+      comment_id
+      comment_content
+      comment_likes
+      comment_rank
+      is_anonymous_comment
+      owner
+      id
+      createdAt
+      updatedAt
+      accountCommentsId
+      threadThread_commentsId
+      commentChild_commentsId
+      __typename
+    }
+    child_comments {
+      nextToken
+      __typename
+    }
+    comment_likes
+    comment_rank
+    is_anonymous_comment
+    owner
+    id
     createdAt
     updatedAt
-    postCommentsId
+    accountCommentsId
+    threadThread_commentsId
+    commentChild_commentsId
     __typename
   }
 }

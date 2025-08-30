@@ -1,6 +1,6 @@
 projects:
   uwcssaca:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/uwcssaca/build/schema.graphql
     includes:
       - src/graphql/**/*.ts
     excludes:

@@ -5,7 +5,8 @@ function NewsButton(props: React.PropsWithChildren<Record<string, any>>) {
     const {
         icon,
         title,
-        content
+        content,
+        link
     } = props
     return (
         <Button
@@ -20,7 +21,10 @@ function NewsButton(props: React.PropsWithChildren<Record<string, any>>) {
                 height: '175px',
                 whiteSpace: 'normal',
                 overflow: 'hidden'
-            }}>
+            }}
+            
+            href={link}
+            target="_blank">
 
             <div>
                 {icon}

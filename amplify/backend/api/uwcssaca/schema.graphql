@@ -2,56 +2,75 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 # input Account { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Account @model @auth(rules: [{ allow: private }]) {
-  account_id: ID!
-  username: String!
-  nickname: String!
-  password: String!
-  uwemail: String!
-  role: Int!
-  bridges: Int!
-  wechat_id: String
-  google_id: String
-  apple_id: String
-  created_at: AWSDateTime!
-  updated_at: AWSDateTime!
-  comments: [Comment] @hasMany
-  threads: [Thread] @hasMany
+type Account @model
+ @auth(rules: [
+  { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
+  { allow: private, operations: [read] }
+  ]) {
+  account_id: ID! 
+  nickname: String! 
+  introduction: String
+  username: String
+  uwemail: String
+  role: Int! 
+  bridges: [Int] 
+  wechat_id: String 
+  google_id: String 
+  apple_id: String 
+  comments: [Comment] @hasMany 
+  threads: [Thread] @hasMany 
+  has_group: [ThreadGroup] @hasMany 
+  owner: String 
 }
 
-
-type Thread @model @auth(rules: [{ allow: private }]) {
-  thread_id: ID!
-  post_at: AWSDateTime!
-  title: String!
-  content: String!
-  thread_owner: Account! @belongsTo
-  thread_group: ThreadGroup! @belongsTo
-  thread_comments: [Comment] @hasMany
+type Thread @model
+ @auth(rules: [
+  { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
+  { allow: private, operations: [read] }
+  ]) {
+  thread_id: ID! 
+  title: String! 
+  content: String! 
+  thread_owner: Account! @belongsTo 
+  thread_group: ThreadGroup! @belongsTo 
+  thread_comments: [Comment] @hasMany 
   thread_likes: Int
-  thread_rank: Int
-  group_id: ID!
-  comments_num: Int
+  thread_rank: Int 
+  group_id: ID 
+  comments_num: Int 
   is_anonymous_thread: Boolean
+  special_tag: [Int]
+  owner: String 
 }
 
-type ThreadGroup @model @auth(rules: [{ allow: private }]) {
+type ThreadGroup @model
+ @auth(rules: [
+  { allow: owner, identityClaim: "sub", operations: [create, read] },
+  { allow: private, operations: [read] }
+  ]) {
   group_id: ID!
   group_name: String!
+  group_manager: Account @belongsTo
   group_threads: [Thread] @hasMany
   threads_num: Int
   introduction: String
+  owner: String 
 }
 
-type Comment @model @auth(rules: [{ allow: private }]) {
+type Comment @model
+ @auth(rules: [
+  { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
+  { allow: private, operations: [read] }
+  ]) {
   comment_id: ID!
   comment_content: String!
-  sent_at: AWSDateTime!
   comment_account: Account! @belongsTo
   comment_thread: Thread! @belongsTo
   parent_comment: Comment @belongsTo
+  child_comments: [Comment] @hasMany
   comment_likes: Int
   comment_rank: Int
   is_anonymous_comment: Boolean
+  owner: String 
 }
 

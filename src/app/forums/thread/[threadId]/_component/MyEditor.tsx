@@ -1,3 +1,4 @@
+//src\app\forums\thread\_component\MyEditor.tsx
 'use client'
 
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
