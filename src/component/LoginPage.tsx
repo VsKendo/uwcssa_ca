@@ -7,6 +7,7 @@ import Link from 'next/link'
 import {useRouter} from 'next/navigation'
 import {USERNAME} from '@/lib/storeConstant'
 import awsconfig from '../aws-exports'
+import ForgotPasswordModal from './ForgotPasswordModal'
 
 
 type FieldType = {
@@ -17,6 +18,8 @@ type FieldType = {
 Amplify.configure(awsconfig)
 
 function LoginPage() {
+    const [forgotOpen, setForgotOpen] = useState(false)
+
     const [nickname, setNickname] = useState('')
     const router = useRouter()
     const [messageApi, contextHolder] = message.useMessage()
@@ -146,7 +149,7 @@ function LoginPage() {
                         offset: 5,
                         span: 16
                     }}>
-                        <Row>
+                        <Row  gutter={1} align="middle">
                             <Col span={3}>
                                 <Button type="primary" htmlType="submit">
                                     登录
@@ -157,6 +160,7 @@ function LoginPage() {
                                     清空
                                 </Button>
                             </Col>
+                            
                             <Col offset={5} span={5}>
                                 <ConfigProvider
                                     theme={{
@@ -175,11 +179,27 @@ function LoginPage() {
                                       router.push('/register')
                                   }}>注册账号</Button>
                                 </ConfigProvider>
+                                
                             </Col>
+                            
+                            <Col>
+                                <Button onClick={() => setForgotOpen(true)}>找回密码</Button>
+                            </Col>
+
                         </Row>
                     </Form.Item>
                 </Form>
             </Modal>
+            <ForgotPasswordModal
+            open={forgotOpen}
+            onClose={() => setForgotOpen(false)}
+            onSuccess={(username) => {
+                // Optional: open login modal & prefill nickname so users can sign in immediately
+                setNickname(username)
+                setIsModalOpen(true)
+            }}
+            />
+
             {contextHolder}
         </span>
     )
