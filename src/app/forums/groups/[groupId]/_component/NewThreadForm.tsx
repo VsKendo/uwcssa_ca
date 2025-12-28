@@ -49,6 +49,7 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh, groupId }) => 
         content: values.description,
         accountThreadsId: userId,              // <-- use real user ID
         threadGroupGroup_threadsId: groupId || DEFAULT_GROUP_ID,
+        group_id: groupId || DEFAULT_GROUP_ID,
       },
       authMode: 'userPool', // ensure auth mode allows Cognito identity
     });

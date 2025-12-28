@@ -9,6 +9,22 @@ import dynamic from 'next/dynamic';
 
 import NewCommentForm from './NewCommentForm'; // adjust path if needed
 
+/* ---------------------- Date Formatter ---------------------------- */
+const formatTime = (isoString: string): string => {
+  try {
+    const date = new Date(isoString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+  } catch (error) {
+    return isoString; // fallback to original if parsing fails
+  }
+};
+
 /* ---------------------- Props ------------------------------------- */
 interface Item {
   key: number;          // floor (0-based)
@@ -90,7 +106,7 @@ export default function PostDetail({
               </Row>
               <Divider style={{ margin: '10px' }} />
               <CommentDisplayer value={item.context} />
-              <p>发布于 {item.time}</p>
+              <p style={{ color: '#888', fontSize: '14px' }}>发布于 {formatTime(item.time)}</p>
             </Col>
           </Row>
         </Card>
