@@ -6,12 +6,9 @@ import Link from 'next/link'
 import React from 'react'
 import FallbackImage from '@/component/FallbackImage'
 import {Authenticator} from '@aws-amplify/ui-react'
-import {Amplify} from 'aws-amplify'
 import LoginPage from '@/component/LoginPage'
 import {NOTIFICATION_TYPES} from '@/lib/types'
-import awsconfig from '../aws-exports'
 
-Amplify.configure(awsconfig)
 const {Header} = Layout
 
 function HeartSvg() {

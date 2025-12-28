@@ -21,6 +21,11 @@ export const createThread = /* GraphQL */ `
       content
       accountThreadsId
       threadGroupGroup_threadsId
+      thread_owner {
+        id
+        nickname
+        account_id
+      }
       createdAt
       updatedAt
     }

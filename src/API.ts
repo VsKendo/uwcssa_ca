@@ -585,6 +585,26 @@ export type createThreadMutation = {
   } | null,
 };
 
+export type GetAllThreadGroupsQueryVariables = {
+};
+
+export type GetAllThreadGroupsQuery = {
+  listThreadGroups?:  {
+    __typename: "ModelThreadGroupConnection",
+    items:  Array< {
+      __typename: "ThreadGroup",
+      id: string,
+      group_id: string,
+      group_name: string,
+      introduction?: string | null,
+      threads_num?: number | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type GetThreadGroupMainPageQueryVariables = {
   id: string,
 };
@@ -626,6 +646,12 @@ export type GetThreadDetailQuery = {
       __typename: "Account",
       nickname: string,
       id: string,
+    },
+    thread_group:  {
+      __typename: "ThreadGroup",
+      id: string,
+      group_name: string,
+      group_id: string,
     },
     thread_comments?:  {
       __typename: "ModelCommentConnection",

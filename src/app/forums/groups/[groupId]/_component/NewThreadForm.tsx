@@ -37,11 +37,14 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh, groupId }) => 
     //  — Get the actual Cognito userId (sub)
     const { userId } = await getCurrentUser();
 
+    // Generate a unique thread ID
+    const uniqueThreadId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
     const client = generateClient();
     await client.graphql({
       query: createThread,
       variables: {
-        thread_id: "1234",
+        thread_id: uniqueThreadId,  // Use unique ID instead of hardcoded "1234"
         title: values.title,
         content: values.description,
         accountThreadsId: userId,              // <-- use real user ID
