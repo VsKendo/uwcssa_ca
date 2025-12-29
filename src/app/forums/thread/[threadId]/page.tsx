@@ -10,15 +10,6 @@ import { Breadcrumb } from 'antd';
 
 const DEFAULT_ACCOUNT_ID = 'ec26fe80-7c19-4a82-a004-c2efc4d27ca9';  //signed-in user id
 
-// Group title mapping (same as in group page)
-const groupTitles: Record<string, string> = {
-  '08051c13-119c-41e0-a318-92482cf77a5b': '江湖杂谈',
-  '620dac9a-d7f7-4041-be08-2cefa3440d32': '通用板块',
-  '4d82a68f-e950-4ec9-87b9-d40940ccecc6': '旧物斋坊',
-  '2d021a10-20c1-436d-901a-d1451c2db585': '借舍赁居',
-  'ef0dc109-7025-4383-bdcf-e72d27883593': '学术交流',
-};
-
 
 type CommentNode = {
     id: string;
@@ -34,6 +25,7 @@ export default function ThreadIndex() {
     const [thread, setThread] = useState<any>(null);
     const [flat,   setFlat]   = useState<any[]>([]);
     const [floor,  setFloor]  = useState(1);           // global counter
+    const [groupTitle, setGroupTitle] = useState<string>('论坛');
 
       /* ---------- 1. FETCH -------------------------------------------------- */
   const fetchThread = async () => {
@@ -43,6 +35,12 @@ export default function ThreadIndex() {
       variables: { id: threadId },
     });
     const t  = res.data.getThread;
+    
+    // Set group title if available
+    if (t.thread_group?.group_name) {
+      setGroupTitle(t.thread_group.group_name);
+    }
+    
     const raw: CommentNode[] = t.thread_comments.items.map((c: any) => ({
       id: c.id,
       parentId: c.commentChild_commentsId ?? null,   // ← bring the FK over
@@ -152,6 +150,10 @@ export default function ThreadIndex() {
         items={[
           { title: 'Home', href: '/' },
           { title: '论坛主页', href: '/forums' },
+          ...(thread?.thread_group?.id ? [{ 
+            title: groupTitle, 
+            href: `/forums/groups/${thread.thread_group.id}` 
+          }] : []),
         ]}
       />
         </div>

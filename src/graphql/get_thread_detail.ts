@@ -11,6 +11,11 @@ export const GetThreadDetail = /* GraphQL */ `
             nickname
             id
         }
+        thread_group {
+            id
+            group_name
+            group_id
+        }
         thread_comments{
             items {
                 id

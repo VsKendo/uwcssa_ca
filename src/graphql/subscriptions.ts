@@ -170,9 +170,9 @@ export const onCreateThread = /* GraphQL */ `subscription OnCreateThread(
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -230,9 +230,9 @@ export const onUpdateThread = /* GraphQL */ `subscription OnUpdateThread(
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -290,9 +290,9 @@ export const onDeleteThread = /* GraphQL */ `subscription OnDeleteThread(
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -463,9 +463,9 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename
@@ -541,9 +541,9 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename
@@ -619,9 +619,9 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename

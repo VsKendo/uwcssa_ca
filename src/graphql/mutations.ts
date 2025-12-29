@@ -170,9 +170,9 @@ export const createThread = /* GraphQL */ `mutation CreateThread(
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -230,9 +230,9 @@ export const updateThread = /* GraphQL */ `mutation UpdateThread(
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -290,9 +290,9 @@ export const deleteThread = /* GraphQL */ `mutation DeleteThread(
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -463,9 +463,9 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename
@@ -541,9 +541,9 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename
@@ -619,9 +619,9 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename

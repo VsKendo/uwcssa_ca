@@ -6,6 +6,7 @@ export const createThread = /* GraphQL */ `
     $content: String!
     $accountThreadsId: ID!
     $threadGroupGroup_threadsId: ID!
+    $group_id: ID!
   ) {
     createThread(
       input: {
@@ -14,6 +15,7 @@ export const createThread = /* GraphQL */ `
         content: $content
         accountThreadsId: $accountThreadsId
         threadGroupGroup_threadsId: $threadGroupGroup_threadsId
+        group_id: $group_id
       }
     ) {
       thread_id
@@ -21,6 +23,12 @@ export const createThread = /* GraphQL */ `
       content
       accountThreadsId
       threadGroupGroup_threadsId
+      group_id
+      thread_owner {
+        id
+        nickname
+        account_id
+      }
       createdAt
       updatedAt
     }
