@@ -20,6 +20,11 @@ export const myCreateComment = /* GraphQL */ `
     ) {
       comment_id
       comment_content
+      comment_account {
+        id
+        nickname
+        account_id
+      }
       createdAt
       updatedAt
       commentChild_commentsId     

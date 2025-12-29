@@ -9,17 +9,6 @@ import UserInfoCard from '@/app/forums/_component/UserInfoCard';
 import NewThreadForm from './_component/NewThreadForm';
 import Link from 'next/link';
 
-// Group title mapping
-const groupTitles: Record<string, string> = {
-  '08051c13-119c-41e0-a318-92482cf77a5b': '江湖杂谈',
-  '620dac9a-d7f7-4041-be08-2cefa3440d32': '通用板块',
-  '4d82a68f-e950-4ec9-87b9-d40940ccecc6': '旧物斋坊',
-  '2d021a10-20c1-436d-901a-d1451c2db585': '借舍赁居',
-  'ef0dc109-7025-4383-bdcf-e72d27883593': '学术交流',
-  // ...more groups
-};
-
-
 
 type ThreadItem = {
   key: string;
@@ -31,7 +20,7 @@ type ThreadItem = {
 
 export default function GroupDetailPage() {
   const { groupId } = useParams() as { groupId: string };
-  const groupTitle = groupTitles[groupId] || 'Default Group Title';
+  const [groupTitle, setGroupTitle] = useState<string>('加载中...');
   const [threads, setThreads] = useState<ThreadItem[]>([]);
 
   const fetchThreads = async () => {
@@ -39,9 +28,16 @@ export default function GroupDetailPage() {
       const client = generateClient()
       const res: any = await client.graphql({
         query: GetThreadGroupMainPage,
-        variables: { id: groupId },
+        variables: { groupId, limit: 50 },
       });
-      const items = res.data.getThreadGroup?.group_threads?.items ?? [];
+      const group = res?.data?.getThreadGroup;
+      
+      // Set the group title from the fetched data
+      if (group?.group_name) {
+        setGroupTitle(group.group_name);
+      }
+      
+      const items = res?.data?.threadsByGroup_idAndUpdatedAt?.items ?? [];
 
       const sorted = items.slice().sort((a: any, b: any) => {
         const time = (x: any) =>

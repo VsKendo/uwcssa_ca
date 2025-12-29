@@ -119,9 +119,9 @@ export const getThread = /* GraphQL */ `query GetThread($id: ID!) {
     is_anonymous_thread
     special_tag
     owner
+    updatedAt
     id
     createdAt
-    updatedAt
     accountThreadsId
     threadGroupGroup_threadsId
     __typename
@@ -145,9 +145,9 @@ export const listThreads = /* GraphQL */ `query ListThreads(
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename
@@ -257,9 +257,9 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
       is_anonymous_thread
       special_tag
       owner
+      updatedAt
       id
       createdAt
-      updatedAt
       accountThreadsId
       threadGroupGroup_threadsId
       __typename
@@ -328,4 +328,46 @@ export const listComments = /* GraphQL */ `query ListComments(
 ` as GeneratedQuery<
   APITypes.ListCommentsQueryVariables,
   APITypes.ListCommentsQuery
+>;
+export const threadsByGroup_idAndUpdatedAt = /* GraphQL */ `query ThreadsByGroup_idAndUpdatedAt(
+  $group_id: ID!
+  $updatedAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelThreadFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  threadsByGroup_idAndUpdatedAt(
+    group_id: $group_id
+    updatedAt: $updatedAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      thread_id
+      title
+      content
+      thread_likes
+      thread_rank
+      group_id
+      comments_num
+      is_anonymous_thread
+      special_tag
+      owner
+      updatedAt
+      id
+      createdAt
+      accountThreadsId
+      threadGroupGroup_threadsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ThreadsByGroup_idAndUpdatedAtQueryVariables,
+  APITypes.ThreadsByGroup_idAndUpdatedAtQuery
 >;

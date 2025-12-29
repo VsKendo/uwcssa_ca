@@ -1,29 +1,37 @@
 .image-container-left {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 550px;
     margin: 0 10% 0 20%;
     padding: 10% 0 0 13%;
+    position: relative;
 }
 
 .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 400px;
-    transform: translate(10%, -145%);
     padding-top: 28px;
     padding-left: 30px;
     background-color: transparent;
     text-align: left;
-    margin: 5% 0 0;
     font-family: Inter, sans-serif, "Noto Sans SC", "Noto Serif SC", serif;
     font-size: 2rem;
     line-height: 1.5;
     color: rgb(65, 67, 70);
     font-weight: 320;
-    top: 0;
+    z-index: 2;
 }
 
 
 .transparent-icon {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0.2;
+    z-index: 1;
 }
 
 

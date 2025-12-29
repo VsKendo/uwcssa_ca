@@ -9,73 +9,73 @@ import { BriefInfo } from '@/lib/types'
 import '@wangeditor/editor/dist/css/style.css'
 import Link from 'next/link'
 import { GetThreadGroupMainPage } from "@/graphql/get_mainpage_threads";
-
-// group ids
-const GENERAL_GROUP_ID = "620dac9a-d7f7-4041-be08-2cefa3440d32";
-const MAIN_SOCIAL_GROUP_ID = "08051c13-119c-41e0-a318-92482cf77a5b";
-const RENTAL_GROUP_ID = "2d021a10-20c1-436d-901a-d1451c2db585";
-const SECOND_HAND_GROUP_ID = "4d82a68f-e950-4ec9-87b9-d40940ccecc6";
-const ACADEMIC_GROUP_ID = "ef0dc109-7025-4383-bdcf-e72d27883593";
-
-// 👇 add/modify groups here
-const GROUPS = [
-  { id: GENERAL_GROUP_ID, label: '通用板块' },
-  { id: MAIN_SOCIAL_GROUP_ID, label: '江湖杂谈' },
-    { id: RENTAL_GROUP_ID, label: '借舍赁居' },
-    { id: SECOND_HAND_GROUP_ID, label: '旧物斋坊' },
-    { id: ACADEMIC_GROUP_ID, label: '学术交流' },
-];
+import { GetAllThreadGroups } from "@/graphql/get_all_groups";
 
 export default function ForumsIndex() {
   const clientRef = useRef<any>();
+  const [groups, setGroups] = useState<Array<{ id: string; label: string }>>([]);
   const [groupThreads, setGroupThreads] = useState<Record<string, BriefInfo[]>>({});
 
   useEffect(() => {
     if (!clientRef.current) clientRef.current = generateClient();
 
-    const fetchGroupThreads = async (groupId: string): Promise<BriefInfo[]> => {
-      const res: any = await clientRef.current!.graphql({
-        query: GetThreadGroupMainPage,
-        variables: { id: groupId },
-      });
-
-      const items: any[] = res?.data?.getThreadGroup?.group_threads?.items ?? [];
-
-      // sort DESC by updatedAt (fallback createdAt), then take top 3
-      const latestThree = items
-        .slice()
-        .sort((a, b) => {
-          const time = (x: any) =>
-            x?.updatedAt ? Date.parse(x.updatedAt)
-              : x?.createdAt ? Date.parse(x.createdAt)
-              : -Infinity;
-          return time(b) - time(a);
-        })
-        .slice(0, 3);
-
-      return latestThree.map((t: any, i: number) => ({
-        key: t.id ?? i + 1,
-        title: t.title,
-        author: t.thread_owner?.nickname ?? "匿名",
-        time: new Date(t.updatedAt ?? t.createdAt ?? Date.now()).toLocaleString(),
-        url: `/forums/thread/${t.id}`,
-        userCard: {
-          avatar: "bio_background.jpg",
-          username: t.thread_owner?.nickname ?? "匿名",
-          role: "CSSA成员",
-          level: 1,
-          badges: [16, 1],
-        },
-      }));
+    const fetchGroups = async () => {
+      try {
+        const res: any = await clientRef.current!.graphql({
+          query: GetAllThreadGroups,
+        });
+        const items = res?.data?.listThreadGroups?.items ?? [];
+        return items.map((item: any) => ({
+          id: item.id,
+          label: item.group_name || 'Unnamed Group',
+        }));
+      } catch (e) {
+        console.error('Error fetching groups:', e);
+        return [];
+      }
     };
+
+    const fetchGroupThreads = async (groupId: string): Promise<BriefInfo[]> => {
+  const res: any = await clientRef.current!.graphql({
+    query: GetThreadGroupMainPage,
+    variables: {
+      groupId,
+      limit: 3,
+    },
+  });
+
+  const items: any[] =
+    res?.data?.threadsByGroup_idAndUpdatedAt?.items ?? [];
+
+  return items.map((t: any, i: number) => ({
+    key: t.id ?? i + 1,
+    title: t.title,
+    author: t.thread_owner?.nickname ?? "匿名",
+    time: new Date(t.updatedAt ?? Date.now()).toLocaleString(),
+    url: `/forums/thread/${t.id}`,
+    userCard: {
+      avatar: "bio_background.jpg",
+      username: t.thread_owner?.nickname ?? "匿名",
+      role: "CSSA成员",
+      level: 1,
+      badges: [16, 1],
+    },
+  }));
+};
+
 
     (async () => {
       try {
+        const fetchedGroups = await fetchGroups();
+        setGroups(fetchedGroups);
+        
         const results = await Promise.all(
-          GROUPS.map(g => fetchGroupThreads(g.id))
+          fetchedGroups.map((g: { id: string; label: string }) => fetchGroupThreads(g.id))
         );
         const map: Record<string, BriefInfo[]> = {};
-        GROUPS.forEach((g, idx) => { map[g.id] = results[idx]; });
+        fetchedGroups.forEach((g: { id: string; label: string }, idx: number) => { 
+          map[g.id] = results[idx]; 
+        });
         setGroupThreads(map);
       } catch (e) {
         console.error(e);
@@ -90,7 +90,7 @@ export default function ForumsIndex() {
       <div style={{
         margin: '2.5%', backgroundColor: 'rgba(161, 151, 224, 0.15)', padding: '1.7%'
       }}>
-        <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>欢迎来到🍁“一叶枫声”论坛</p>
+        <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>欢迎来到🍁"一叶枫声"论坛</p>
         <br />
         <p style={{ fontSize: '1rem' }}>本论坛由温莎大学学联的技术部创建并运营，旨在为温大学生提供一个安全方便的交流平台。<br/> 为了隐私和免受打扰，目前只有使用温莎大学邮箱 @uwindsor.ca 注册的用户可以发送和查看帖子<br/>现在论坛正在完善阶段，更多功能敬请期待</p>
         <br />
@@ -116,11 +116,11 @@ export default function ForumsIndex() {
           <br /> */}
 
           {/* 动态分组区：为每个分组渲染标题 + 列表 */}
-          {GROUPS.map((g) => (
+          {groups.map((g) => (
             <div key={g.id}>
               <Divider>
                 <Link href={`/forums/groups/${g.id}`}>
-                  <Button>点击进入 “{g.label}”</Button>
+                  <Button>点击进入 "{g.label}"</Button>
                 </Link>
               </Divider>
               <BriefInfoThread infoList={(groupThreads[g.id] ?? []).map((item, idx) => ({ ...item, key: idx + 1 }))} />

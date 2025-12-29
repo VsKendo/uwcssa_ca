@@ -6,7 +6,8 @@ type Account @model
  @auth(rules: [
   { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
   { allow: private, operations: [read] }
-  ]) {
+  ]) 
+  {
   account_id: ID! 
   nickname: String! 
   introduction: String
@@ -27,7 +28,8 @@ type Thread @model
  @auth(rules: [
   { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
   { allow: private, operations: [read] }
-  ]) {
+  ])
+   {
   thread_id: ID! 
   title: String! 
   content: String! 
@@ -36,11 +38,12 @@ type Thread @model
   thread_comments: [Comment] @hasMany 
   thread_likes: Int
   thread_rank: Int 
-  group_id: ID 
+  group_id: ID @index(name: "byGroupUpdatedAt", sortKeyFields: ["updatedAt"])
   comments_num: Int 
   is_anonymous_thread: Boolean
   special_tag: [Int]
   owner: String 
+  updatedAt: AWSDateTime
 }
 
 type ThreadGroup @model
