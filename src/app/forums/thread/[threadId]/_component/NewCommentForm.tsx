@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Radio, message } from 'antd';
 import dynamic from 'next/dynamic';
 import { generateClient } from 'aws-amplify/api';
-import { group } from 'console';
 import { myCreateComment } from '@/graphql/my_create_comment';
+import { getAccount } from '@/graphql/queries';
 import { getCurrentUser } from '@aws-amplify/auth';
 
 
@@ -44,9 +44,26 @@ export default function NewCommentForm({
   }: NewCommentFormProps) {
   const [form] = Form.useForm();
 
+  const ensureAccountExists = async (userId: string) => {
+    const client = generateClient();
+    const result: any = await client.graphql({
+      query: getAccount,
+      variables: { id: userId },
+      authMode: 'userPool',
+    });
+    const account = result?.data?.getAccount;
+    if (!account) {
+      message.error('Account not found. Please complete registration first.');
+      return false;
+    }
+    return true;
+  };
+
   const onCreate = async (values: Values) => {
     try {
       const {userId}=await getCurrentUser();
+      const ok = await ensureAccountExists(userId);
+      if (!ok) return;
       const client = generateClient();
 
       const input: any={
