@@ -60,6 +60,10 @@ function LoginPage() {
                     if (r.isSignedIn) {
                         messageApi.success(`'欢迎您!'${inputUsername}`)
                         setIsModalOpen(false)
+                        // Reload the page after successful login
+                        setTimeout(() => {
+                            window.location.reload()
+                        }, 500)
                     } else {
                         messageApi.error('登录失败！账号状态异常！请联系管理员')
                         setNickname('')

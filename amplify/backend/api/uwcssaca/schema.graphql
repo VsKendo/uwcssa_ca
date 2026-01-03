@@ -2,7 +2,7 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 # input Account { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Account @model
+type Account @model(subscriptions: null)
  @auth(rules: [
   { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
   { allow: private, operations: [read] }
@@ -21,10 +21,13 @@ type Account @model
   comments: [Comment] @hasMany 
   threads: [Thread] @hasMany 
   has_group: [ThreadGroup] @hasMany 
-  owner: String 
+  owner: String @auth(rules: [
+    { allow: owner, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
 }
 
-type Thread @model
+type Thread @model(subscriptions: null)
  @auth(rules: [
   { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
   { allow: private, operations: [read] }
@@ -42,11 +45,14 @@ type Thread @model
   comments_num: Int 
   is_anonymous_thread: Boolean
   special_tag: [Int]
-  owner: String 
+  owner: String @auth(rules: [
+    { allow: owner, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
   updatedAt: AWSDateTime
 }
 
-type ThreadGroup @model
+type ThreadGroup @model(subscriptions: null)
  @auth(rules: [
   { allow: owner, identityClaim: "sub", operations: [create, read] },
   { allow: private, operations: [read] }
@@ -57,10 +63,13 @@ type ThreadGroup @model
   group_threads: [Thread] @hasMany
   threads_num: Int
   introduction: String
-  owner: String 
+  owner: String @auth(rules: [
+    { allow: owner, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
 }
 
-type Comment @model
+type Comment @model(subscriptions: null)
  @auth(rules: [
   { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
   { allow: private, operations: [read] }
@@ -74,6 +83,8 @@ type Comment @model
   comment_likes: Int
   comment_rank: Int
   is_anonymous_comment: Boolean
-  owner: String 
+  owner: String @auth(rules: [
+    { allow: owner, operations: [read] },
+    { allow: private, operations: [read] }
+  ])
 }
-
