@@ -494,6 +494,17 @@ export type createThreadMutation = {
   } | null,
 };
 
+export type GetAccountSafeQueryVariables = {
+  id: string,
+};
+
+export type GetAccountSafeQuery = {
+  getAccount?:  {
+    __typename: "Account",
+    id: string,
+  } | null,
+};
+
 export type GetAllThreadGroupsQueryVariables = {
 };
 

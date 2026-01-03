@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Radio, message } from 'antd';
 import dynamic from 'next/dynamic';
 import { createThread } from '@/graphql/create_thread';
-import { getAccount } from '@/graphql/queries';
+import { getAccountSafe } from '@/graphql/get_account_safe';
 import { generateClient } from 'aws-amplify/api';
 import { getCurrentUser } from '@aws-amplify/auth';
 
@@ -35,7 +35,7 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh, groupId }) => 
   const ensureAccountExists = async (userId: string) => {
     const client = generateClient();
     const result: any = await client.graphql({
-      query: getAccount,
+      query: getAccountSafe,
       variables: { id: userId },
       authMode: 'userPool',
     });

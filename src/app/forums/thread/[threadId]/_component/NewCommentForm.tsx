@@ -6,7 +6,7 @@ import { Button, Form, Input, Modal, Radio, message } from 'antd';
 import dynamic from 'next/dynamic';
 import { generateClient } from 'aws-amplify/api';
 import { myCreateComment } from '@/graphql/my_create_comment';
-import { getAccount } from '@/graphql/queries';
+import { getAccountSafe } from '@/graphql/get_account_safe';
 import { getCurrentUser } from '@aws-amplify/auth';
 
 
@@ -47,7 +47,7 @@ export default function NewCommentForm({
   const ensureAccountExists = async (userId: string) => {
     const client = generateClient();
     const result: any = await client.graphql({
-      query: getAccount,
+      query: getAccountSafe,
       variables: { id: userId },
       authMode: 'userPool',
     });
