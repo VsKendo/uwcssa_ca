@@ -26,7 +26,7 @@ export default function BriefInfoThread(props: React.PropsWithChildren<BriefInfo
 
     return (
         <div style={{marginBottom: 10}}>
-            {infoList.map((item: BriefInfo) => (
+            {infoList.map((item: any) => (
                     <Row key={item.key} style={styleList[item.key % 2]}>
                         <Col span={2} style={{
                             marginRight: '2%',
@@ -47,7 +47,16 @@ export default function BriefInfoThread(props: React.PropsWithChildren<BriefInfo
                             marginTop: '0.7rem',
                             marginBottom: '0.7rem',
                         }}>
-                            <Button type="text" href={item.url}>
+                            <Button
+                                type="text"
+                                href={item.url}
+                                onClick={(e) => {
+                                    if (!item.url && typeof item.onClick === 'function') {
+                                        e.preventDefault();
+                                        item.onClick();
+                                    }
+                                }}
+                            >
                                 {item.title}
                             </Button>
                         </Col>

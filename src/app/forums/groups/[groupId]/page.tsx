@@ -109,7 +109,7 @@ export default function GroupDetailPage() {
                     <UserInfoCard
                       avatar="/bio_background.jpg"
                       username={item.nickname}
-                      role={'CSSA成员'}
+                      role={'认证用户'}
                       level={2}
                       badges={[15, 1]}
                     />

@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Radio, message } from 'antd';
 import dynamic from 'next/dynamic';
 import { createThread } from '@/graphql/create_thread';
+import { getAccountSafe } from '@/graphql/get_account_safe';
 import { generateClient } from 'aws-amplify/api';
-import { group } from 'console';
 import { getCurrentUser } from '@aws-amplify/auth';
 
 
@@ -32,10 +32,28 @@ const NewThreadForm: React.FC<NewThreadFormProps> = ({ onRefresh, groupId }) => 
   const [formValues, setFormValues] = useState<Values>();
   const [open, setOpen] = useState(false);
 
-  const onCreate = async (values: Values) => {
+  const ensureAccountExists = async (userId: string) => {
+    const client = generateClient();
+    const result: any = await client.graphql({
+      query: getAccountSafe,
+      variables: { id: userId },
+      authMode: 'userPool',
+    });
+    const account = result?.data?.getAccount;
+    if (!account) {
+      message.error('Account not found. Please complete registration first.');
+      return false;
+    }
+    return true;
+  };
+
+const onCreate = async (values: Values) => {
   try {
     //  — Get the actual Cognito userId (sub)
     const { userId } = await getCurrentUser();
+
+    const ok = await ensureAccountExists(userId);
+    if (!ok) return;
 
     // Generate a unique thread ID
     const uniqueThreadId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
