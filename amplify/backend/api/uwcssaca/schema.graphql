@@ -4,7 +4,7 @@
 
 type Account @model(subscriptions: null)
  @auth(rules: [
-  { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
+  { allow: owner, identityClaim: "sub", operations: [create, update, read] },
   { allow: private, operations: [read] }
   ]) 
   {
@@ -29,7 +29,7 @@ type Account @model(subscriptions: null)
 
 type Thread @model(subscriptions: null)
  @auth(rules: [
-  { allow: owner, identityClaim: "sub", operations: [create, update, delete, read] },
+  { allow: owner, identityClaim: "sub", operations: [create, update, read] },
   { allow: private, operations: [read] }
   ])
    {
