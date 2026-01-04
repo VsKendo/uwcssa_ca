@@ -220,7 +220,7 @@
             "Ref": "UnauthRoleName"
           },
           "S3DeploymentBucket": "amplify-uwcssaca-dev-a81b4-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/751e74f1dde83ec184882638cce726466e8074ae",
+          "S3DeploymentRootKey": "amplify-appsync-files/5650c06116f75cfd8ff3b06747bb021cd066e351",
           "env": "dev"
         }
       }

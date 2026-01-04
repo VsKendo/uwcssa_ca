@@ -14,6 +14,13 @@ export default function LatestInfoIndex() {
           最新资讯
         </Title>
         <LatestInfo
+          title="UWCSSA | 2026年冬季新生见面会"
+          content="26年1月10日下午2点，UWCSSA约你在 Room 110, Odette building 见面"
+          imgSrc="orientation_2026Winter.png"
+          link="https://mp.weixin.qq.com/s/m74e2IWAn8XKklxYd_obnQ"
+          bordered={false}
+        />
+        <LatestInfo
           title="UWCSSA | 2025年秋季新生见面会"
           content="25年9月6日下午2点，UWCSSA约你在 Room 110, Odette building 见面"
           imgSrc="2025_orientation.png"
@@ -25,13 +32,6 @@ export default function LatestInfoIndex() {
           content="24年8月30日下午2点，UWCSSA约你在 Room 110, Odette building 见面"
           imgSrc="2024_autumn_meeting.png"
           link="https://mp.weixin.qq.com/s/lvotyhndeuU5SOZ032TH3A"
-          bordered={false}
-        />
-        <LatestInfo
-          title="UWCSSA | 冬季新生见面会"
-          content="24年1月20日下午2点，UWCSSA约你在 Room 112, Odette building 见面"
-          imgSrc="2024_winter_meeting.jpg"
-          link="https://mp.weixin.qq.com/s/dFSHDNuh6m0CyCnO_BBDEw"
           bordered={false}
         />
 
